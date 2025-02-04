@@ -6,4 +6,5 @@ public class Clients {
     private  String mail;
     private boolean notifications;
     private int sesionId;
+
 }
