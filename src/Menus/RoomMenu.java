@@ -2,37 +2,35 @@ package Menus;
 
 import java.util.Scanner;
 
-public class EscapeRoomMenu {
+public class RoomMenu {
 
-    public static void escapeRoomStart() {
-
+    public static void roomStart() {
         Scanner sc = new Scanner(System.in);
         int choose;
         boolean exit = true;
         do {
             try {
-
-                System.out.println(" ");
                 System.out.println("***Bienvenido al gestor de salas***");
-                System.out.println("1.-Gestión de salas");
-                System.out.println("2.-Gestión de ítems");
-                System.out.println("-3.Gestión de pistas");
-                System.out.println("4.-Salir de la aplicación");
-
+                System.out.println("1.-Crear sala");
+                System.out.println("2.-Eliminar sala");
+                System.out.println("3.-Mostrar salas");
+                System.out.println("4.-Modificar sala");
+                System.out.println("5.-Atras");
                 System.out.print("Elige una opción: ");
 
                 choose = sc.nextInt();
                 sc.nextLine();
 
                 switch (choose) {
-
-                    case 1: // metodo para llamar el menu de salas;
+                    case 1: // metodo para crear sala;
                         break;
-                    case 2: // metodo para llamar al menu de items;
+                    case 2: // metodo para eliminar sala;
                         break;
-                    case 3: // metodo para llamar al menu de pistas;
+                    case 3: // metodo para mostar todas las salas;
                         break;
-                    case 4:
+                    case 4: // metodo para modificar sala;
+                        break;
+                    case 5:
                         exit = false;
                         break;
                     default:
