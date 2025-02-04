@@ -18,7 +18,7 @@ public class Menu {
               sc.nextLine();
 
               switch (choose) {
-                  case 1: // metodo para llamar el menu de salas;
+                  case 1: RoomsMenu.roomsStart();
                       break;
                   case 2: // metodo para llamar al menu de jugadores;
                       break;
