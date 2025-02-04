@@ -28,7 +28,6 @@ public class RoomsMenu {
                     case 3: // metodo para llamar al menu de pistas;
                         break;
                     case 4:
-                        System.out.println("Saliendo de la aplicacion...");
                         exit = false;
                         break;
                     default:
