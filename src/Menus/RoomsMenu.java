@@ -10,11 +10,12 @@ public class RoomsMenu {
         boolean exit = true;
         do {
             try {
+                System.out.println(" ");
                 System.out.println("***Bienvenido al gestor de salas***");
-                System.out.println("1.-Gestion de salas");
-                System.out.println("2.-Gestion de items");
-                System.out.println("-3.Gestion de pistas");
-                System.out.println("4.-Salir de la aplicacion");
+                System.out.println("1.-Gestión de salas");
+                System.out.println("2.-Gestión de ítems");
+                System.out.println("-3.Gestión de pistas");
+                System.out.println("4.-Salir de la aplicación");
                 System.out.print("Elige una opción: ");
 
                 choose = sc.nextInt();
