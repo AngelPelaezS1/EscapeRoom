@@ -4,6 +4,7 @@ public class Menu {
 
   public static void Start() {
       Scanner sc = new Scanner(System.in);
+      ClientMenu clientsMenu = new ClientMenu();
       int choose;
       boolean exit = true;
       do {
@@ -18,9 +19,9 @@ public class Menu {
               sc.nextLine();
 
               switch (choose) {
-                  case 1: // metodo para llamar el menu de salas;
+                  case 1:
                       break;
-                  case 2: // metodo para llamar al menu de jugadores;
+                  case 2: clientsMenu.ClientStart();
                       break;
                   case 3:
                       System.out.println("Saliendo de la aplicacion...");
