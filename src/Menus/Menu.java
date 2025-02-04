@@ -22,7 +22,7 @@ public class Menu {
 
               switch (choose) {
 
-                  case 1: RoomsMenu.roomsStart();
+                  case 1: EscapeRoomMenu.escapeRoomStart();
                       break;
                   case 2: clientsMenu.ClientStart();
                       break;

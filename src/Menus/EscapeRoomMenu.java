@@ -2,9 +2,9 @@ package Menus;
 
 import java.util.Scanner;
 
-public class RoomsMenu {
+public class EscapeRoomMenu {
 
-    public static void roomsStart() {
+    public static void escapeRoomStart() {
         Scanner sc = new Scanner(System.in);
         int choose;
         boolean exit = true;
