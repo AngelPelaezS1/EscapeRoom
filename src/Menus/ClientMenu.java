@@ -27,7 +27,6 @@ public class ClientMenu {
                     case 3: // metodo para llamar al menu de certificados;
                         break;
                     case 4:
-                        System.out.println("Saliendo de la aplicacion...");
                         exit = false;
                         break;
                     default:
