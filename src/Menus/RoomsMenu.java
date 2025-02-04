@@ -10,7 +10,7 @@ public class RoomsMenu {
         boolean exit = true;
         do {
             try {
-                System.out.println(" ");
+                System.out.println("  ");
                 System.out.println("***Bienvenido al gestor de salas***");
                 System.out.println("1.-Gestión de salas");
                 System.out.println("2.-Gestión de ítems");

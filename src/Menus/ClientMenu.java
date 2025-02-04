@@ -9,7 +9,7 @@ public class ClientMenu {
         boolean exit = true;
         do {
             try {
-                System.out.println(" ");
+                System.out.println("  ");
                 System.out.println("*** Gestor de clientes***");
                 System.out.println("1.-Jugadores");
                 System.out.println("2.-Tikets");
