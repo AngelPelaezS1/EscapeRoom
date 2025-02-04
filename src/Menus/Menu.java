@@ -11,10 +11,11 @@ public class Menu {
       boolean exit = true;
       do {
           try {
-              System.out.println("***Bienvenido al gestor de scape room***");
-              System.out.println("1.-Gestion de Escaperoom");
-              System.out.println("2.-Gestion de jugadores");
-              System.out.println("3.-Salir de la aplicacion");
+              System.out.println(" ");
+              System.out.println("***Bienvenido al gestor del scape room***");
+              System.out.println("1.-Gestión de Escaperoom");
+              System.out.println("2.-Gestión de jugadores");
+              System.out.println("3.-Salir de la aplicación");
               System.out.print("Elige una opción: ");
 
               choose = sc.nextInt();
@@ -22,12 +23,12 @@ public class Menu {
 
               switch (choose) {
 
-                  case 1: EscapeRoomMenu.escapeRoomsStart();
+                  case 1: EscapeRoomMenu.escapeRoomStart();
                       break;
                   case 2: clientsMenu.ClientStart();
                       break;
                   case 3:
-                      System.out.println("Saliendo de la aplicacion...");
+                      System.out.println("Saliendo de la aplicación...");
                       exit = false;
                       break;
                   default:
