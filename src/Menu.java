@@ -19,7 +19,8 @@ public class Menu {
               sc.nextLine();
 
               switch (choose) {
-                  case 1:
+
+                  case 1: RoomsMenu.roomsStart();
                       break;
                   case 2: clientsMenu.ClientStart();
                       break;
