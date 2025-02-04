@@ -21,11 +21,11 @@ public class EscapeRoomMenu {
                 sc.nextLine();
 
                 switch (choose) {
-                    case 1: RoomMenu.roomStart();
+                    case 1:
                         break;
-                    case 2: ItemMenu.itemStart();
+                    case 2:
                         break;
-                    case 3: HintMenu.hintStart();
+                    case 3:
                         break;
                     case 4:
                         exit = false;
