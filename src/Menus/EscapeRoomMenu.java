@@ -2,15 +2,15 @@ package Menus;
 
 import java.util.Scanner;
 
-public class RoomsMenu {
+public class EscapeRoomMenu {
 
-    public static void roomsStart() {
+    public static void escapeRoomsStart() {
         Scanner sc = new Scanner(System.in);
         int choose;
         boolean exit = true;
         do {
             try {
-                System.out.println("***Bienvenido al gestor de salas***");
+                System.out.println("***Bienvenido al gestor del escape room***");
                 System.out.println("1.-Gestion de salas");
                 System.out.println("2.-Gestion de items");
                 System.out.println("-3.Gestion de pistas");
@@ -21,11 +21,11 @@ public class RoomsMenu {
                 sc.nextLine();
 
                 switch (choose) {
-                    case 1: // metodo para llamar el menu de salas;
+                    case 1: RoomMenu.roomStart();
                         break;
-                    case 2: // metodo para llamar al menu de items;
+                    case 2: ItemMenu.itemStart();
                         break;
-                    case 3: // metodo para llamar al menu de pistas;
+                    case 3: HintMenu.hintStart();
                         break;
                     case 4:
                         exit = false;
