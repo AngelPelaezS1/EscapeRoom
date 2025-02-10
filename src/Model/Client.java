@@ -1,4 +1,4 @@
-package Classes;
+package Model;
 
 public class Client {
     private int id;
@@ -14,6 +14,9 @@ public class Client {
         this.notifications = notifications;
         this.sesionId = sesionId;
     }
+
+
+
 
     public int getId() {
         return id;
