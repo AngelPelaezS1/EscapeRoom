@@ -5,7 +5,7 @@ public class DatabaseManager {
     // Configuración de la base de datos
     private static final String URL = "jdbc:mysql://localhost:3306/escaperoom";
     private static final String USER = "root";
-    private static final String PASSWORD = "";
+    private static final String PASSWORD = "fn348MySQL";
 
     public static void main(String[] args) throws SQLException {
         // Prueba de inserción
