@@ -1,16 +1,19 @@
-package Classes;
+package Connections;
 import java.sql.*;
 
 public class DatabaseManager {
     // Configuración de la base de datos
     private static final String URL = "jdbc:mysql://localhost:3306/escaperoom";
     private static final String USER = "root";
-    private static final String PASSWORD = "";
+    private static final String PASSWORD = "fn348MySQL";
 
     public static void main(String[] args) {
         // Prueba de inserción
-        //addRoom("El Misterio del Laberinto", 4);
-        getRoomById(1);
+        addRoom("El Misterio del Laberinto", 4);
+        //getRoomById(1);
+        // Prueba de lectura de todos los nombres de las rooms
+        //getAllRoomNames();
+        //getRoomByName("El Misterio del Laberinto");
     }
 
     // Método para obtener la conexión a la base de datos
@@ -66,4 +69,51 @@ public class DatabaseManager {
         }
     }
 
+    // Método para buscar una room por su nombre
+    public static void getRoomByName(String roomName) {
+        String sql = "SELECT * FROM rooms WHERE name = ?";
+
+        try (Connection conn = getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, roomName);
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                int difficulty = rs.getInt("difficulty");
+
+                System.out.println("Room encontrada:");
+                System.out.println("ID: " + id);
+                System.out.println("Nombre: " + name);
+                System.out.println("Dificultad: " + difficulty);
+            } else {
+                System.out.println("No se encontró ninguna room con el nombre: " + roomName);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println("Error al buscar la room: " + e.getMessage());
+        }
+    }
+
+    // Método para obtener y mostrar los nombres de todas las rooms
+    public static void getAllRoomNames() {
+        String sql = "SELECT name FROM rooms";
+
+        try (Connection conn = getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql);
+             ResultSet rs = pstmt.executeQuery()) {
+
+            System.out.println("Lista de Rooms:");
+            while (rs.next()) {
+                String name = rs.getString("name");
+                System.out.println(name);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println("Error al leer los nombres de las rooms: " + e.getMessage());
+        }
+    }
 }
