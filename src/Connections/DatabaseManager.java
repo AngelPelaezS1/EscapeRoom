@@ -9,11 +9,13 @@ public class DatabaseManager {
 
     public static void main(String[] args) throws SQLException {
         // Prueba de inserción
-        addRoom("El Misterio del Laberinto", 4);
-        addRoom("El Misterio del Terror", 2);
+        //addRoom("El Misterio del Laberinto", 4);
+        //addRoom("El Misterio del Terror", 2);
         getAllRoomNames();
-        deleteRoom(1);
+        ExecuteQuery executeQuery=new ExecuteQuery("INSERT INTO rooms (name, difficulty) VALUES ('Laa', 3)");
         getAllRoomNames();
+        //deleteRoom(1);
+        //getAllRoomNames();
         //getRoomById(1);
         // Prueba de lectura de todos los nombres de las rooms
         //getAllRoomNames();
