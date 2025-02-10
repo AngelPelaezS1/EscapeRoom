@@ -5,9 +5,9 @@ public class DatabaseManager {
     // Configuración de la base de datos
     private static final String URL = "jdbc:mysql://localhost:3306/escaperoom";
     private static final String USER = "root";
-    private static final String PASSWORD = "fn348MySQL";
+    private static final String PASSWORD = "";
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         // Prueba de inserción
         addRoom("El Misterio del Laberinto", 4);
         addRoom("El Misterio del Terror", 2);
@@ -26,11 +26,14 @@ public class DatabaseManager {
     }
 
     // Método para añadir una nueva room
-    public static void addRoom(String name, int difficulty) {
+    public static void addRoom(String name, int difficulty) throws SQLException {
         String sql = "INSERT INTO rooms (name, difficulty) VALUES (?, ?)";
 
-        try (Connection conn = getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        ConnectionSQL connectionSQL = ConnectionSQL.getInstanceConnectionSQL();
+        //Connection connection = connectionSQL.getConnection();
+
+        try (Connection connection = ConnectionSQL.getConnection();//Connection conn = getConnection();
+             PreparedStatement pstmt = connection.prepareStatement(sql)) {
 
             pstmt.setString(1, name);
             pstmt.setInt(2, difficulty);
