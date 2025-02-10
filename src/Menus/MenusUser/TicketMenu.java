@@ -10,7 +10,7 @@ public class TicketMenu {
         do {
             try {
                 System.out.println(" ");
-                System.out.println("*** Gestor de clientes***");
+                System.out.println("*** Gestor de tickets***");
                 System.out.println("1.-Jugadores exisente");
                 System.out.println("2.-Nuevo jugador");
                 System.out.println("3.-Atras");
