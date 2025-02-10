@@ -5,11 +5,15 @@ public class DatabaseManager {
     // Configuración de la base de datos
     private static final String URL = "jdbc:mysql://localhost:3306/escaperoom";
     private static final String USER = "root";
-    private static final String PASSWORD = "";
+    private static final String PASSWORD = "fn348MySQL";
 
     public static void main(String[] args) {
         // Prueba de inserción
         addRoom("El Misterio del Laberinto", 4);
+        addRoom("El Misterio del Terror", 2);
+        getAllRoomNames();
+        deleteRoom(1);
+        getAllRoomNames();
         //getRoomById(1);
         // Prueba de lectura de todos los nombres de las rooms
         //getAllRoomNames();
@@ -39,6 +43,29 @@ public class DatabaseManager {
             System.err.println("Error al insertar la room: " + e.getMessage());
         }
     }
+
+    // Método para eliminar una room por su ID
+    public static void deleteRoom(int roomId) {
+        String sql = "DELETE FROM rooms WHERE id = ?";
+
+        try (Connection conn = getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setInt(1, roomId);
+            int affectedRows = pstmt.executeUpdate();
+
+            if (affectedRows > 0) {
+                System.out.println("Room con ID " + roomId + " eliminada correctamente.");
+            } else {
+                System.out.println("No se encontró ninguna room con ID " + roomId);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println("Error al eliminar la room: " + e.getMessage());
+        }
+    }
+
 
     // Método para leer una room por su ID
     public static void getRoomById(int roomId) {
