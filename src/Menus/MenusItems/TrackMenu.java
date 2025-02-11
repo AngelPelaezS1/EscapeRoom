@@ -22,13 +22,13 @@ public class TrackMenu {
                 sc.nextLine();
 
                 switch (choose) {
-                    case 1: // metodo para crear sala;
+                    case 1: // metodo para crear pista;
                         break;
-                    case 2: // metodo para eliminar sala;
+                    case 2: // metodo para eliminar pista;
                         break;
-                    case 3: // metodo para mostar todas las salas;
+                    case 3: // metodo para mostar todas las pistas;
                         break;
-                    case 4: // metodo para modificar sala;
+                    case 4: // metodo para modificar pista;
                         break;
                     case 5:
                         exit = false;

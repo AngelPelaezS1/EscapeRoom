@@ -22,7 +22,7 @@ public class RoomMenu {
                 sc.nextLine();
 
                 switch (choose) {
-                    case 1: // metodo para crear sala;
+                    case 1:
                         break;
                     case 2: // metodo para eliminar sala;
                         break;
