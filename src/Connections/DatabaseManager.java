@@ -7,9 +7,15 @@ public class DatabaseManager {
     private static final String USER = "root";
     private static final String PASSWORD = "";
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         // Prueba de inserción
-        addRoom("El Misterio del Laberinto", 4);
+        //addRoom("El Misterio del Laberinto", 4);
+        //addRoom("El Misterio del Terror", 2);
+        getAllRoomNames();
+        ExecuteQuery executeQuery=new ExecuteQuery("INSERT INTO rooms (name, difficulty) VALUES ('Laa', 3)");
+        getAllRoomNames();
+        //deleteRoom(1);
+        //getAllRoomNames();
         //getRoomById(1);
         // Prueba de lectura de todos los nombres de las rooms
         //getAllRoomNames();
@@ -22,11 +28,14 @@ public class DatabaseManager {
     }
 
     // Método para añadir una nueva room
-    public static void addRoom(String name, int difficulty) {
+    public static void addRoom(String name, int difficulty) throws SQLException {
         String sql = "INSERT INTO rooms (name, difficulty) VALUES (?, ?)";
 
-        try (Connection conn = getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        ConnectionSQL connectionSQL = ConnectionSQL.getInstanceConnectionSQL();
+        //Connection connection = connectionSQL.getConnection();
+
+        try (Connection connection = ConnectionSQL.getConnection();//Connection conn = getConnection();
+             PreparedStatement pstmt = connection.prepareStatement(sql)) {
 
             pstmt.setString(1, name);
             pstmt.setInt(2, difficulty);
@@ -39,6 +48,29 @@ public class DatabaseManager {
             System.err.println("Error al insertar la room: " + e.getMessage());
         }
     }
+
+    // Método para eliminar una room por su ID
+    public static void deleteRoom(int roomId) {
+        String sql = "DELETE FROM rooms WHERE id = ?";
+
+        try (Connection conn = getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setInt(1, roomId);
+            int affectedRows = pstmt.executeUpdate();
+
+            if (affectedRows > 0) {
+                System.out.println("Room con ID " + roomId + " eliminada correctamente.");
+            } else {
+                System.out.println("No se encontró ninguna room con ID " + roomId);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println("Error al eliminar la room: " + e.getMessage());
+        }
+    }
+
 
     // Método para leer una room por su ID
     public static void getRoomById(int roomId) {
