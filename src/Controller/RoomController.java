@@ -1,6 +1,6 @@
 package Controller;
 
-import Model.DatabaseManager;
+import Connections.DatabaseManager;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
