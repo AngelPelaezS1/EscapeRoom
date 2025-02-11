@@ -8,12 +8,10 @@ public class Track {
     private String details;
     private int roomId;
 
-    public Track(int id, String name, String topics, String details, int roomId) {
-        this.id = id;
+    public Track(String name, String topics, String details) {
         this.name = name;
         this.topics = topics;
         this.details = details;
-        this.roomId = roomId;
     }
 
     public int getId() {
