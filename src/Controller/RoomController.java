@@ -5,9 +5,9 @@ import Model.Room;
 import java.util.Scanner;
 
 public class RoomController {
-    Scanner sc = new Scanner(System.in);
+    static Scanner sc = new Scanner(System.in);
 
-    public void createRoom(){
+    public static void createRoom(){
         System.out.println("Introduce el nombre de la habitacion");
         String name = sc.nextLine();
         System.out.println("Introduce la dificultad (1-10)");
@@ -23,11 +23,11 @@ public class RoomController {
         //Metodo para añadir la room.
     }
 
-    public void showRooms(){
+    public static void showRooms(){
         //Metodo para mostrar las rooms
     }
 
-    public void removeRoom(){
+    public static void removeRoom(){
         showRooms();
         System.out.println("Introduce la posicion de la sala a eliminar");
         int index = sc.nextInt();
@@ -41,7 +41,7 @@ public class RoomController {
         }
     }
 
-    public void modifyRoom(){
+    public static void modifyRoom(){
         showRooms();
         System.out.println("Introduce la posicion de la sala a modificar");
         int index = sc.nextInt();

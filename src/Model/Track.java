@@ -12,6 +12,7 @@ public class Track {
         this.name = name;
         this.topics = topics;
         this.details = details;
+        this.roomId = roomId;
     }
 
     public int getId() {
