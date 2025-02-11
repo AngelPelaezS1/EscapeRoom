@@ -1,4 +1,4 @@
-package Model;
+package Conection;
 import java.sql.*;
 
 public class DatabaseManager {
