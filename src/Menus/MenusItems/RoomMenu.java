@@ -2,6 +2,8 @@ package Menus.MenusItems;
 
 import java.util.Scanner;
 
+import static Controller.RoomController.*;
+
 public class RoomMenu {
 
     public static void roomStart() {
@@ -22,13 +24,13 @@ public class RoomMenu {
                 sc.nextLine();
 
                 switch (choose) {
-                    case 1:
+                    case 1: createRoom();
                         break;
-                    case 2: // metodo para eliminar sala;
+                    case 2: showRooms();
                         break;
-                    case 3: // metodo para mostar todas las salas;
+                    case 3: removeRoom();
                         break;
-                    case 4: // metodo para modificar sala;
+                    case 4: modifyRoom();
                         break;
                     case 5:
                         exit = false;

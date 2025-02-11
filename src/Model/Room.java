@@ -23,6 +23,10 @@ public class Room {
         return difficulty;
     }
 
+    public void setDifficulty(int difficulty) {
+        this.difficulty = difficulty;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
