@@ -8,6 +8,7 @@ public class Room {
 
     public Room( String name, int difficulty) {
 
+
         this.name = name;
         this.difficulty = difficulty;
     }
