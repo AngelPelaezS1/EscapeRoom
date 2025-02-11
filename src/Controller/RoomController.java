@@ -23,7 +23,7 @@ public class RoomController {
         //Metodo para añadir la room.
     }
 
-    public void showRooms(){
+    public static void   showRooms(){
         //Metodo para mostrar las rooms
     }
 

@@ -7,12 +7,11 @@ public class Object {
     private float price;
     private int roomId;
 
-    public Object(int id, String name, String material, float price, int roomId) {
-        this.id = id;
+    public Object(String name, String material, float price,int roomId) {
         this.name = name;
         this.material = material;
         this.price = price;
-        this.roomId = roomId;
+        this.roomId=roomId;
     }
 
     public int getId() {
