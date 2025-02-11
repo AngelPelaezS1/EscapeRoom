@@ -6,7 +6,9 @@ public class Room {
     private String name;
     private int difficulty;
 
-    public Room(String name, int difficulty) {
+    public Room( String name, int difficulty) {
+
+
         this.name = name;
         this.difficulty = difficulty;
     }
