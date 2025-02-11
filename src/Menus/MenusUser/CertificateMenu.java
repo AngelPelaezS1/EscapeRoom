@@ -10,7 +10,7 @@ public class CertificateMenu {
     do {
         try {
             System.out.println(" ");
-            System.out.println("*** Gestor de clientes***");
+            System.out.println("*** Gestor de certificados***");
             System.out.println("1.-Historico de Certificados");
             System.out.println("2.-Dar Certificado");
             System.out.println("3.-Atras");
