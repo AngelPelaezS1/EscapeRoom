@@ -1,19 +1,27 @@
 package Connections;
+import Model.Room;
+import Services.RoomService;
+
 import java.sql.*;
 
 public class DatabaseManager {
     // Configuración de la base de datos
     private static final String URL = "jdbc:mysql://localhost:3306/escaperoom";
     private static final String USER = "root";
-    private static final String PASSWORD = "";
+    private static final String PASSWORD = "fn348MySQL";
 
     public static void main(String[] args) throws SQLException {
         // Prueba de inserción
         //addRoom("El Misterio del Laberinto", 4);
         //addRoom("El Misterio del Terror", 2);
+        Room room= new Room(-1,"lad",5);
         getAllRoomNames();
-        ExecuteQuery executeQuery=new ExecuteQuery("INSERT INTO rooms (name, difficulty) VALUES ('Laa', 3)");
-        getAllRoomNames();
+        RoomService roomService = new RoomService();
+        //roomService.addRoom(room);
+        //roomService.deleteRoom(2);
+        //System.out.println("DELETE FROM rooms WHERE id = "+1+"");
+        roomService.seeRooms();
+        //getAllRoomNames();
         //deleteRoom(1);
         //getAllRoomNames();
         //getRoomById(1);
