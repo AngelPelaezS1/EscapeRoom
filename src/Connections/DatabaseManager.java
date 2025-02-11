@@ -14,11 +14,15 @@ public class DatabaseManager {
         // Prueba de inserción
         //addRoom("El Misterio del Laberinto", 4);
         //addRoom("El Misterio del Terror", 2);
-        Room room= new Room(-1,"lad",5);
+        Room room= new Room(-1,"lax",5);
         getAllRoomNames();
         RoomService roomService = new RoomService();
         //roomService.addRoom(room);
         //roomService.deleteRoom(2);
+        room = roomService.getRoom(1);
+        room.setName("El Misterio del Terrors");
+        roomService.updateRoom(room);
+
         //System.out.println("DELETE FROM rooms WHERE id = "+1+"");
         roomService.seeRooms();
         //getAllRoomNames();

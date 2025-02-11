@@ -19,4 +19,13 @@ public class RoomService {
     public void seeRooms(){
         getAllRoomNames();
     }
+
+    public Room getRoom(int roomPosition){
+        ExecuteQuery executeQuery=new ExecuteQuery("SELECT * FROM rooms ORDER BY id LIMIT 1 OFFSET "+(roomPosition-1));
+        return executeQuery.getRoom();
+    }
+
+    public void updateRoom(Room room){
+        ExecuteQuery executeQuery=new ExecuteQuery("UPDATE rooms SET name = '"+room.getName()+"', difficulty = "+room.getDifficulty()+" WHERE id = "+room.getId());
+    }
 }
