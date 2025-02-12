@@ -15,7 +15,7 @@ public class RoomService {
                 "SELECT id FROM (SELECT id FROM rooms ORDER BY id LIMIT 1 OFFSET "+(roomPosition-1)+") AS subquery)");
     }
     public static void seeRooms(){
-        getAllRoomNames();
+        ExecuteQuery executeQuery=new ExecuteQuery("SELECT name FROM rooms");
     }
 
     public static Room getRoom(int roomPosition){
@@ -24,8 +24,6 @@ public class RoomService {
     }
 
     public static void updateRoom(Room room){
-        System.err.println(room.getName());
-        System.err.println(room.getId());
         ExecuteQuery executeQuery=new ExecuteQuery("UPDATE rooms SET name = '"+room.getName()+"', difficulty = "+room.getDifficulty()+" WHERE id = "+room.getId());
     }
 }

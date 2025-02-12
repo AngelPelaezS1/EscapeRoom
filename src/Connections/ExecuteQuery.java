@@ -28,6 +28,13 @@ public class ExecuteQuery {
                 } else {
                     System.out.println("No se encontró ninguna room con ID ");
                 }
+            }else if(query.contains("SELECT name FROM rooms")){
+                ResultSet rs = preparedStatement.executeQuery();
+                System.out.println("Lista de Rooms:");
+                while (rs.next()) {
+                    String name = rs.getString("name");
+                    System.out.println(name);
+                }
             }else{
                 preparedStatement.executeUpdate();
             }
