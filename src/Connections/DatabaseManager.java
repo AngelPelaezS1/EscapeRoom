@@ -1,4 +1,5 @@
 package Connections;
+import Model.Client;
 import Model.Room;
 import Services.RoomService;
 
@@ -16,15 +17,13 @@ public class DatabaseManager {
         // Prueba de inserción
         //addRoom("El Misterio del Laberinto", 4);
         //addRoom("El Misterio del Terror", 2);
-     services
-        Room room= new Room("lax",5);
-        getAllRoomNames();
+        Client client= new Client("Jose","Jose@jose.com",true);
         RoomService roomService = new RoomService();
-        //roomService.addRoom(room);
+        roomService.seeRooms();
         //roomService.deleteRoom(1);
-        room = roomService.getRoom(1);
-        room.setName("Eatata");
-        roomService.updateRoom(room);
+        //room = roomService.getRoom(1);
+        //room.setName("Eatata");
+        //roomService.updateRoom(room);
 
 
         //System.out.println("DELETE FROM rooms WHERE id = "+1+"");
