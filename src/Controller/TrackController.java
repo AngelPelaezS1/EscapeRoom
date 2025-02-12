@@ -33,7 +33,6 @@ public class TrackController {
     }
 
     public static void showTracks(){
-        int idRooms = 0;
         showRooms();
         System.out.println("Introduce la posicion de la room que quieras ver las pistas");
         int indice = sc.nextInt();
