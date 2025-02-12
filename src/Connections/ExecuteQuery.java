@@ -1,12 +1,11 @@
 package Connections;
 
+import Model.Room;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import Model.Room;
-import Services.RoomService;
 
 public class ExecuteQuery {
     private Room room;
@@ -25,7 +24,7 @@ public class ExecuteQuery {
                     int id = rs.getInt("id");
                     String name = rs.getString("name");
                     int difficulty = rs.getInt("difficulty");
-                    this.room=new Room(id,name,difficulty);
+                    this.room=new Room(name,difficulty);
                 } else {
                     System.out.println("No se encontró ninguna room con ID ");
                 }

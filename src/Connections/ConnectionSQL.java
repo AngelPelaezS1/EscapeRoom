@@ -2,9 +2,6 @@ package Connections;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class ConnectionSQL {
     private static ConnectionSQL instanceConnectionSQL;
@@ -15,7 +12,7 @@ public class ConnectionSQL {
     private ConnectionSQL(){
         this.URL="jdbc:mysql://localhost:3306/escaperoom";
         this.USER="root";
-        this.PASSWORD="fn348MySQL";
+        this.PASSWORD="2345638721";
     }
 
     public static ConnectionSQL getInstanceConnectionSQL(){

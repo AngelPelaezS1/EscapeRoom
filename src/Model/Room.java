@@ -6,8 +6,7 @@ public class Room {
     private String name;
     private int difficulty;
 
-    public Room(int id, String name, int difficulty) {
-        this.id = id;
+    public Room( String name, int difficulty) {
         this.name = name;
         this.difficulty = difficulty;
     }
@@ -22,6 +21,10 @@ public class Room {
 
     public int getDifficulty() {
         return difficulty;
+    }
+
+    public void setDifficulty(int difficulty) {
+        this.difficulty = difficulty;
     }
 
     public void setName(String name) {

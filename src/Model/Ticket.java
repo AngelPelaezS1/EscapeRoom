@@ -12,7 +12,6 @@ public class Ticket {
         this.roomId = roomId;
         this.price = price;
     }
-
     public int getId() {
         return id;
     }
