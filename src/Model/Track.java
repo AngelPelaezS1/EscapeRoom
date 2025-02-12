@@ -8,7 +8,7 @@ public class Track {
     private String details;
     private int roomId;
 
-    public Track(String name, String topics, String details) {
+    public Track(String name, String topics, String details, int roomId) {
         this.name = name;
         this.topics = topics;
         this.details = details;

@@ -2,6 +2,8 @@ package Menus.MenusItems;
 
 import java.util.Scanner;
 
+import static Controller.TrackController.*;
+
 public class TrackMenu {
 
     public static void hintStart() {
@@ -22,13 +24,13 @@ public class TrackMenu {
                 sc.nextLine();
 
                 switch (choose) {
-                    case 1: // metodo para crear pista;
+                    case 1: createTrack();
                         break;
-                    case 2: // metodo para eliminar pista;
+                    case 2: removeTrack();
                         break;
-                    case 3: // metodo para mostar todas las pistas;
+                    case 3: showTracks();
                         break;
-                    case 4: // metodo para modificar pista;
+                    case 4: modifyTrack();
                         break;
                     case 5:
                         exit = false;

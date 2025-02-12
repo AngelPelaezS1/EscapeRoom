@@ -4,6 +4,8 @@ import Model.Room;
 
 import java.util.Scanner;
 
+import static Services.RoomService.*;
+
 public class RoomController {
     static Scanner sc = new Scanner(System.in);
 
@@ -18,15 +20,13 @@ public class RoomController {
             System.out.println("Error, introduce un numero del 1 al 10");
             difficulty = sc.nextInt();
         }
-        System.out.println("Dificultad de la sala:" +difficulty);
+        System.out.println("Sala " +name+ ", creada con exito.");
         Room room = new Room(name, difficulty);
-        //Metodo para añadir la room.
+        addRoom(room);
     }
 
-
-    public static void   showRooms(){
-
-        //Metodo para mostrar las rooms
+    public static void showRooms(){
+        seeRooms();
     }
 
     public static void removeRoom(){
@@ -39,8 +39,8 @@ public class RoomController {
             System.out.println("Error, introduce un numero valido");
             index = sc.nextInt();
             sc.nextLine();
-            //Metodo para eliminar la room.
         }
+        deleteRoom(index);
     }
 
     public static void modifyRoom(){
@@ -55,22 +55,26 @@ public class RoomController {
             sc.nextLine();
         }
 
-        System.out.println("Elige una opcion : 1-Nombre, 2-Dificultad");
+        Room room = getRoom(index);
+
+        System.out.println("Elige una opción: 1-Nombre, 2-Dificultad");
         int choose = sc.nextInt();
         sc.nextLine();
-        switch(choose){
+
+        switch (choose) {
             case 1:
-                System.out.println("Inrtroduce el nuevo nombre");
+                System.out.println("Introduce el nuevo nombre:");
                 String newName = sc.nextLine();
-                //room.setName;
-                //metodo update name
+                room.setName(newName);
                 break;
+
             case 2:
-                System.out.println("Introduce la nueva dificultad");
+                System.out.println("Introduce la nueva dificultad:");
                 int newDifficulty = sc.nextInt();
-                //room.setDificulty;
-                //metodo update difficulty
+                sc.nextLine();
+                room.setDifficulty(newDifficulty);
                 break;
         }
+        updateRoom(room);
     }
 }
