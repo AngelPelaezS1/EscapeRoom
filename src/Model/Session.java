@@ -8,8 +8,7 @@ public class Session {
     private boolean finished;
     private int roomId;
 
-    public Session(int id, LocalDateTime playedTime, boolean finished, int roomId) {
-        this.id = id;
+    public Session(LocalDateTime playedTime, boolean finished, int roomId) {
         this.playedTime = playedTime;
         this.finished = finished;
         this.roomId = roomId;
