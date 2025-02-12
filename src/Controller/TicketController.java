@@ -27,6 +27,21 @@ public class TicketController {
         Ticket ticket= new Ticket(idUser,price);
         //metodo servicio para asignar tiket a user;
     }
-    PUBLI
+    public static void showTicket(){
+        Scanner sc= new Scanner(System.in);
+        int idUser=0;
+        showClient();
+        System.out.println("Selecciona la posicion del cliente al que quieres mostrar los  tikets:");
+        // metodo servicio que te devuelba los tikets de cliente  por posicion;
+    }
+    public static void deleteTicket(){
+        Scanner sc=new Scanner(System.in);
+        int choose;
+        showTicket();
+        System.out.println("Selecciona la posicion del tiket que quieres eliminar :");
+        // metodo  servicio que  elimina los tikets por posicion
+    }
+
+
 
 }
