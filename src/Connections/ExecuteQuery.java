@@ -24,7 +24,7 @@ public class ExecuteQuery {
                     int id = rs.getInt("id");
                     String name = rs.getString("name");
                     int difficulty = rs.getInt("difficulty");
-                    this.room=new Room(name,difficulty);
+                    this.room=new Room(id, name,difficulty);
                 } else {
                     System.out.println("No se encontró ninguna room con ID ");
                 }

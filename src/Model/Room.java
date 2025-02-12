@@ -11,6 +11,12 @@ public class Room {
         this.difficulty = difficulty;
     }
 
+    public Room(int id, String name, int difficulty) {
+        this.id = id;
+        this.name = name;
+        this.difficulty = difficulty;
+    }
+
     public int getId() {
         return id;
     }
