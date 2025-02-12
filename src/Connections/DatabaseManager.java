@@ -14,16 +14,15 @@ public class DatabaseManager {
         //addRoom("El Misterio del Laberinto", 4);
         //addRoom("El Misterio del Terror", 2);
 
-        //Room room= new Room(-1,"lax",5);
-        //getAllRoomNames();
+        Room room= new Room("lax",5);
+        getAllRoomNames();
         RoomService roomService = new RoomService();
         //roomService.addRoom(room);
         //roomService.deleteRoom(1);
-        //roomService.seeRooms();
-        //room = roomService.getRoom(1);
-        //room.setName("bla");
-        //roomService.updateRoom(room);
-        //roomService.seeRooms();
+        room = roomService.getRoom(1);
+        room.setName("Eatata");
+        roomService.updateRoom(room);
+
 
         //System.out.println("DELETE FROM rooms WHERE id = "+1+"");
         //getAllRoomNames();
