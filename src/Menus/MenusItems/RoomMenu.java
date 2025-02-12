@@ -26,9 +26,9 @@ public class RoomMenu {
                 switch (choose) {
                     case 1: createRoom();
                         break;
-                    case 2: showRooms();
+                    case 2: removeRoom();
                         break;
-                    case 3: removeRoom();
+                    case 3: showRooms();
                         break;
                     case 4: modifyRoom();
                         break;
