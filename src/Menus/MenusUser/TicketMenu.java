@@ -1,6 +1,8 @@
 package Menus.MenusUser;
 
 import java.util.Scanner;
+import static Controller.TicketController.createTicket;
+import static Controller.TicketController.createTicketClient;
 
 public class TicketMenu {
     public static void ticketStart() {
@@ -20,9 +22,11 @@ public class TicketMenu {
                 sc.nextLine();
 
                 switch (choose) {
-                    case 1:// print jugadores;
+                    case 1:
+                        createTicketClient();
                         break;
-                    case 2:// nuevo jugador y dar tiket;
+                    case 2:
+                        createTicket();
                         break;
                     case 3:
                         exit = false;

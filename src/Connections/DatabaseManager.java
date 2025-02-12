@@ -14,7 +14,7 @@ public class DatabaseManager {
         //addRoom("El Misterio del Laberinto", 4);
         //addRoom("El Misterio del Terror", 2);
 
-        Room room= new Room(-1,"lax",5);
+        //Room room= new Room(-1,"lax",5);
         //getAllRoomNames();
         RoomService roomService = new RoomService();
         //roomService.addRoom(room);
