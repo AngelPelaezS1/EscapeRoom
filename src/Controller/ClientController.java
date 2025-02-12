@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class ClientController {
 
-    public static void createClient() {
+    public static Client createClient() {
         Scanner sc = new Scanner(System.in);
         String name;
         String mail;
@@ -38,6 +38,7 @@ public class ClientController {
         }while(exit);
         Client client =new Client(name,mail,notifications);
         System.out.println("Cliente creado");
+        return client;
     }
 
     public static void showClient(){
