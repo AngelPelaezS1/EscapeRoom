@@ -26,6 +26,7 @@ public class RoomController {
     }
 
     public static void showRooms(){
+        System.out.println("Lista de salas");
         seeRooms();
     }
 
@@ -40,6 +41,7 @@ public class RoomController {
             index = sc.nextInt();
             sc.nextLine();
         }
+        System.out.println("Sala eliminada con exito");
         deleteRoom(index);
     }
 
@@ -68,7 +70,6 @@ public class RoomController {
                 room.setName(newName);
                 updateRoom(room);
                 break;
-
             case 2:
                 System.out.println("Introduce la nueva dificultad:");
                 int newDifficulty = sc.nextInt();
