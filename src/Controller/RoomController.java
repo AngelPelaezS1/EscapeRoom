@@ -66,6 +66,7 @@ public class RoomController {
                 System.out.println("Introduce el nuevo nombre:");
                 String newName = sc.nextLine();
                 room.setName(newName);
+                updateRoom(room);
                 break;
 
             case 2:
@@ -73,8 +74,10 @@ public class RoomController {
                 int newDifficulty = sc.nextInt();
                 sc.nextLine();
                 room.setDifficulty(newDifficulty);
+                updateRoom(room);
                 break;
+            default:
+                System.out.println("Introduce un numero del 1 al 2");
         }
-        updateRoom(room);
     }
 }

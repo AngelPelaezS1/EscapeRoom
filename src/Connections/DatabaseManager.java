@@ -8,12 +8,15 @@ public class DatabaseManager {
     // Configuración de la base de datos
     private static final String URL = "jdbc:mysql://localhost:3306/escaperoom";
     private static final String USER = "root";
+
     private static final String PASSWORD = "fn348MySQL";
+
 
     public static void main(String[] args) throws SQLException {
         // Prueba de inserción
         //addRoom("El Misterio del Laberinto", 4);
         //addRoom("El Misterio del Terror", 2);
+     services
         Room room= new Room("lax",5);
         getAllRoomNames();
         RoomService roomService = new RoomService();
@@ -23,8 +26,8 @@ public class DatabaseManager {
         room.setName("Eatata");
         roomService.updateRoom(room);
 
+
         //System.out.println("DELETE FROM rooms WHERE id = "+1+"");
-        roomService.seeRooms();
         //getAllRoomNames();
         //deleteRoom(1);
         //getAllRoomNames();
