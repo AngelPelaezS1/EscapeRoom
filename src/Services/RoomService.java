@@ -1,9 +1,6 @@
 package Services;
 import Connections.ExecuteQuery;
 import Model.Room;
-
-import java.sql.ResultSet;
-
 import static Connections.DatabaseManager.getAllRoomNames;
 
 public class RoomService {

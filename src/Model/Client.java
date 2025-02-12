@@ -15,9 +15,6 @@ public class Client {
         this.sesionId = sesionId;
     }
 
-
-
-
     public int getId() {
         return id;
     }
