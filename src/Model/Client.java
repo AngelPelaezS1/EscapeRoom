@@ -11,7 +11,14 @@ public class Client {
         this.name = name;
         this.mail = mail;
         this.notifications = notifications;
+    }
 
+    public Client(int id, String name, String mail, boolean notifications, int sesionId) {
+        this.id = id;
+        this.name = name;
+        this.mail = mail;
+        this.notifications = notifications;
+        this.sesionId = sesionId;
     }
 
     public int getId() {

@@ -10,7 +10,9 @@ public class ClientService {
         String name=client.getName();
         String mail=client.getMail();
         boolean notifications=client.isNotifications();
+        int notificationsSQL=0;
+        if(notifications==true){notificationsSQL=1;}
         int sesionId=client.getSesionId();
-        ExecuteQuery executeQuery=new ExecuteQuery("INSERT INTO clients (id, name, mail, notifications, sesionId) VALUES ('"+id+"', "+name+")");
+        ExecuteQuery executeQuery=new ExecuteQuery("INSERT INTO clients (id, name, mail, notifications, sesionId) VALUES ('"+id+"', "+name+", "+mail+", '"+notificationsSQL+"', '"+sesionId+"')");
     }
 }

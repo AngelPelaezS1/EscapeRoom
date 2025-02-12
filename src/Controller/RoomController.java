@@ -26,6 +26,7 @@ public class RoomController {
     }
 
     public static void showRooms(){
+        System.out.println("Lista de salas");
         seeRooms();
     }
 
@@ -40,6 +41,7 @@ public class RoomController {
             index = sc.nextInt();
             sc.nextLine();
         }
+        System.out.println("Sala eliminada con exito");
         deleteRoom(index);
     }
 
@@ -57,27 +59,28 @@ public class RoomController {
 
         Room room = getRoom(index);
 
-        System.out.println("Elige una opción: 1-Nombre, 2-Dificultad");
-        int choose = sc.nextInt();
-        sc.nextLine();
+            System.out.println("Elige una opción: 1-Nombre, 2-Dificultad");
+            int choose = sc.nextInt();
+            sc.nextLine();
 
-        switch (choose) {
-            case 1:
-                System.out.println("Introduce el nuevo nombre:");
-                String newName = sc.nextLine();
-                room.setName(newName);
-                updateRoom(room);
-                break;
-
-            case 2:
-                System.out.println("Introduce la nueva dificultad:");
-                int newDifficulty = sc.nextInt();
-                sc.nextLine();
-                room.setDifficulty(newDifficulty);
-                updateRoom(room);
-                break;
-            default:
-                System.out.println("Introduce un numero del 1 al 2");
-        }
+            switch (choose) {
+                case 1:
+                    System.out.println("Introduce el nuevo nombre:");
+                    String newName = sc.nextLine();
+                    room.setName(newName);
+                    updateRoom(room);
+                    System.out.println("Nombre actualizado");
+                    break;
+                case 2:
+                    System.out.println("Introduce la nueva dificultad:");
+                    int newDifficulty = sc.nextInt();
+                    sc.nextLine();
+                    room.setDifficulty(newDifficulty);
+                    updateRoom(room);
+                    System.out.println("Dificultad actualizada");
+                    break;
+                default:
+                    System.out.println("Introduce un numero del 1 al 2");
+            }
     }
 }
