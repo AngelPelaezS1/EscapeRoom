@@ -15,7 +15,6 @@ public class TrackController {
         System.out.println("Introduce la posicion de la room a la quieres añadir la pista");
         int indice = sc.nextInt();
         sc.nextLine();
-
         //metodo para que devuelva room
         //room.getId(idRoom);
 
@@ -34,18 +33,23 @@ public class TrackController {
     }
 
     public static void showTracks(){
-        //metodo para mostrar las tracks
+        int idRooms = 0;
+        showRooms();
+        System.out.println("Introduce la posicion de la room que quieras ver las pistas");
+        int indice = sc.nextInt();
+        sc.nextLine();
+        //metodo que devuelva los tracks de la room
 
     }
 
     public static void removeTrack(){
-        //metodo para mostrar las tracks
+        showTracks();
         System.out.println("Introduce la posicion de la pista a eliminar");
         int index = sc.nextInt();
         sc.nextLine();
 
         while(index < 0){
-            System.out.println("Error, introduce un numero correcto");
+            System.out.println("Error, introduce un numero valido");
             index = sc.nextInt();
             sc.nextLine();
         }
@@ -53,7 +57,7 @@ public class TrackController {
     }
 
     public static void modifyTrack(){
-        //metodo para mostrar los tracks
+        showTracks();
         System.out.println("Introduce la posicion de la pista a modificar");
         int index = sc.nextInt();
         sc.nextLine();
@@ -74,18 +78,22 @@ public class TrackController {
                 System.out.println("Introduce el nuevo nombre");
                 String newName = sc.nextLine();
                 //setname;
+                //metodo para modificar
                 break;
             case 2:
                 System.out.println("Introduce el nuevo tema");
                 String newTopic = sc.nextLine();
                 //setTopics
+                //metodo para modificar
                 break;
             case 3:
                 System.out.println("Introduce la nueva descripcion");
                 String newDetails = sc.nextLine();
                 //setDetails
+                //metodo para modificar
                 break;
+            default:
+                System.out.println("Introduce un numero del 1 al 3");
         }
-        //metodo para modificar
     }
 }
