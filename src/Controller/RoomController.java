@@ -26,7 +26,7 @@ public class RoomController {
     }
 
     public static void showRooms(){
-        System.out.println("Lista de salas");
+        System.out.println("Lista de salas:");
         seeRooms();
     }
 
