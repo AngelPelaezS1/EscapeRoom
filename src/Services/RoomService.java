@@ -24,8 +24,6 @@ public class RoomService {
     }
 
     public static void updateRoom(Room room){
-        System.err.println(room.getName());
-        System.err.println(room.getId());
         ExecuteQuery executeQuery=new ExecuteQuery("UPDATE rooms SET name = '"+room.getName()+"', difficulty = "+room.getDifficulty()+" WHERE id = "+room.getId());
     }
 }
