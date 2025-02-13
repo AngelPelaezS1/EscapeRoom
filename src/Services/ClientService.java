@@ -1,18 +1,32 @@
 package Services;
-
-import Connections.ExecuteQuery;
+import Connections.ExecuteQueryClient;
 import Model.Client;
-import Model.Room;
 
 public class ClientService {
-    public void addClient(Client client){
-        int id=client.getId();
+    public static void addClient(Client client){
         String name=client.getName();
         String mail=client.getMail();
-        boolean notifications=client.isNotifications();
-        int notificationsSQL=0;
-        if(notifications==true){notificationsSQL=1;}
+        int notifications=0;
+        if(client.isNotifications()==true){notifications=1;}
         int sesionId=client.getSesionId();
-        ExecuteQuery executeQuery=new ExecuteQuery("INSERT INTO clients (id, name, mail, notifications, sesionId) VALUES ('"+id+"', "+name+", "+mail+", '"+notificationsSQL+"', '"+sesionId+"')");
+        ExecuteQueryClient executeQueryClient =new ExecuteQueryClient("INSERT INTO clients (name, mail, notification, sessions_id) VALUES ('"+name+"', '"+mail+"', "+notifications+", "+sesionId+")");
+    }
+    public static void deleteClient(int clientPosition){
+        ExecuteQueryClient executeQueryClient =new ExecuteQueryClient("DELETE FROM clients WHERE id = ( " +
+                "SELECT id FROM (SELECT id FROM clients ORDER BY id LIMIT 1 OFFSET "+(clientPosition-1)+") AS subquery)");
+    }
+    public static void seeClients(){
+        ExecuteQueryClient executeQueryClient =new ExecuteQueryClient("SELECT name FROM clients");
+    }
+
+    public static Client getClient(int clientPosition){
+        ExecuteQueryClient ExecuteQueryClient =new ExecuteQueryClient("SELECT * FROM clients ORDER BY id LIMIT 1 OFFSET "+(clientPosition-1));
+        return ExecuteQueryClient.getClient();
+    }
+
+    public static void updateClient(Client client){
+        int notifications=0;
+        if(client.isNotifications()==true){notifications=1;}
+        ExecuteQueryClient executeQueryClient =new ExecuteQueryClient("UPDATE clients SET name = '"+client.getName()+"', mail = '"+client.getMail()+"', mail = "+notifications+" WHERE id = "+client.getId());
     }
 }
