@@ -1,20 +1,27 @@
 package Controller;
 
 import Model.Certificate;
+import Model.Client;
 
 import java.util.Scanner;
 
 import static Controller.ClientController.showClient;
+import static Services.ClientService.getClient;
 
 public class CertificateController {
     public static void createCertificate(){
+        Scanner sc= new Scanner(System.in);
         String name="Certificate";
         String achievement="felicidades te has pasado la sala";
         String gift="Enhorabuena, has ganado una taza";
         int clientId=0;
+        int choose;
+        System.out.println("Selecciona la posicion del usuario al que quieres asignarle un certificado:");
         showClient();
-        // metodo que debuelve el cliente por posicion;
-        //clientID=client.getID();
+        choose=sc.nextInt();
+        sc.nextLine();
+        Client client= getClient(choose);
+        clientId=client.getId();
         Certificate certificate= new Certificate(name,achievement,gift,clientId);
     }
     public static void  showCertificate(){
