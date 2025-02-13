@@ -7,14 +7,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class ExecuteQuery {
+public class ExecuteQueryRoom {
     private Room room;
 
     public Room getRoom() {
         return this.room;
     }
 
-    public ExecuteQuery(String query){
+    public ExecuteQueryRoom(String query){
         ConnectionSQL connectionSQL = ConnectionSQL.getInstanceConnectionSQL();
         try (Connection connection = ConnectionSQL.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -30,7 +30,8 @@ public class ExecuteQuery {
                 }
             }else if(query.contains("SELECT name FROM rooms")){
                 ResultSet rs = preparedStatement.executeQuery();
-                System.out.println("Lista de Rooms:");
+                //System.out.println("Lista de Rooms:");
+                System.out.println("Lista:");
                 while (rs.next()) {
                     String name = rs.getString("name");
                     System.out.println(name);

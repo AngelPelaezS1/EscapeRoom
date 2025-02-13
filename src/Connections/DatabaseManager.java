@@ -2,6 +2,8 @@ package Connections;
 
 import Model.Client;
 import Model.Room;
+import Services.ClientService;
+import Services.RoomService;
 
 
 import java.sql.*;
@@ -17,14 +19,13 @@ public class DatabaseManager {
         //addRoom("El Misterio del Laberinto", 4);
         //addRoom("El Misterio del Terror", 2);
 
-        Client client= new Client("Jose","Jose@jose.com",true);
+        Client client= new Client("Jose","Jose@jose.com",true,-1);
 
+        //Room room= new Room("lax",5);
 
-        Room room= new Room("lax",5);
-        getAllRoomNames();
-
-        RoomService roomService = new RoomService();
-        roomService.seeRooms();
+        ClientService clientService = new ClientService();
+        clientService.addClient(client);
+        //clientService.seeClients();
         //roomService.deleteRoom(1);
         //room = roomService.getRoom(1);
         //room.setName("Eatata");
