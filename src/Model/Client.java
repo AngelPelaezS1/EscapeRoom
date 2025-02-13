@@ -7,11 +7,19 @@ public class Client {
     private boolean notifications;
     private int sesionId;
 
-    public Client( String name, String mail, boolean notifications) {
+    public Client( String name, String mail, boolean notifications, int sesionId) {
         this.name = name;
         this.mail = mail;
         this.notifications = notifications;
+        this.sesionId=sesionId;
+    }
 
+    public Client(int id, String name, String mail, boolean notifications, int sesionId) {
+        this.id = id;
+        this.name = name;
+        this.mail = mail;
+        this.notifications = notifications;
+        this.sesionId = sesionId;
     }
 
     public int getId() {

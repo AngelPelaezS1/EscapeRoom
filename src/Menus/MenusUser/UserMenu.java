@@ -1,34 +1,38 @@
 package Menus.MenusUser;
 
 import java.util.Scanner;
-import static Controller.TicketController.createTicket;
-import static Controller.TicketController.createTicketClient;
 
-public class TicketMenu {
-    public static void ticketStart() {
+import static Menus.MenusUser.CertificateMenu.certificateStart;
+import static Menus.MenusUser.ClientMenu.clientStart;
+import static Menus.MenusUser.TicketMenu.ticketStart;
+
+public class UserMenu {
+    public static void userStart() {
         Scanner sc = new Scanner(System.in);
         int choose;
         boolean exit = true;
         do {
+
             try {
                 System.out.println(" ");
-                System.out.println("*** Gestor de tickets***");
-                System.out.println("1.-Jugadores exisente");
-                System.out.println("2.-Nuevo jugador");
-                System.out.println("3.-Atras");
+                System.out.println("*** Gestor de clientes***");
+                System.out.println("1.-Cliente");
+                System.out.println("2.-Comprar tiket");
+                System.out.println("3.-Dar certificados");
+                System.out.println("4.-Atras");
                 System.out.print("Elige una opción: ");
 
                 choose = sc.nextInt();
                 sc.nextLine();
 
                 switch (choose) {
-                    case 1:
-                        createTicketClient();
+                    case 1:clientStart();
                         break;
-                    case 2:
-                        createTicket();
+                    case 2:ticketStart();
                         break;
-                    case 3:
+                    case 3:certificateStart();
+                        break;
+                    case 4:
                         exit = false;
                         break;
                     default:

@@ -1,5 +1,10 @@
 package Connections;
+
+import Model.Client;
+import Model.Room;
+import Services.ClientService;
 import Services.RoomService;
+
 
 import java.sql.*;
 
@@ -13,17 +18,28 @@ public class DatabaseManager {
         // Prueba de inserción
         //addRoom("El Misterio del Laberinto", 4);
         //addRoom("El Misterio del Terror", 2);
-        //Room room= new Room(-1,"lax",5);
+
+        Client client= new Client("Jose","Jose@jose.com",true,-1);
+
+        //Room room= new Room("lax",5);
+
+
+        ClientService clientService = new ClientService();
+        clientService.addClient(client);
+        //clientService.seeClients();
+
+        Room room= new Room("lax",5);
         getAllRoomNames();
-        RoomService roomService = new RoomService();
-        //roomService.addRoom(room);
-        //roomService.deleteRoom(2);
+
+        //RoomService roomService = new RoomService();
+        //roomService.seeRooms();
+        //roomService.deleteRoom(1);
         //room = roomService.getRoom(1);
-        //room.setName("El Misterio del Terrors");
+        //room.setName("Eatata");
         //roomService.updateRoom(room);
 
+
         //System.out.println("DELETE FROM rooms WHERE id = "+1+"");
-        roomService.seeRooms();
         //getAllRoomNames();
         //deleteRoom(1);
         //getAllRoomNames();

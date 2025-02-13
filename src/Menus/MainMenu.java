@@ -2,7 +2,7 @@ package Menus;
 
 import java.util.Scanner;
 
-import static Menus.MenusUser.ClientMenu.clientStart;
+import static Menus.MenusUser.UserMenu.userStart;
 import static Menus.MenusItems.EscapeRoomMenu.escapeRoomStart;
 
 public class MainMenu {
@@ -27,7 +27,7 @@ public class MainMenu {
 
                   case 1: escapeRoomStart();
                       break;
-                  case 2: clientStart();
+                  case 2: userStart();
                       break;
                   case 3:
                       System.out.println("Saliendo de la aplicación...");
