@@ -23,6 +23,7 @@ public class CertificateController {
         Client client= getClient(choose);
         clientId=client.getId();
         Certificate certificate= new Certificate(name,achievement,gift,clientId);
+        //addCertificate;
     }
     public static void  showCertificate(){
         //metodo servicio que devuelve los certificados y el nombre de los clientes;
