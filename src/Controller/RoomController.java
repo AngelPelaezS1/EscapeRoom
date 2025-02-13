@@ -47,12 +47,6 @@ public class RoomController {
         deleteRoom(index);
     }
 
-    public static void showRooms(){
-        System.out.println("Lista de salas.");
-        seeRooms();
-    }
-
-
     public static void modifyRoom(){
         showRooms();
         System.out.println("Introduce la posicion de la sala a modificar.");

@@ -30,7 +30,7 @@ public class SessionMenu {
                         break;
                     case 3: showSessions();
                         break;
-                    case 4: //metodo para modificar las sesiones
+                    case 4: markSessionAsPassed();
                         break;
                     case 5:
                         exit = false;
