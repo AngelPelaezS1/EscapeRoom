@@ -17,7 +17,7 @@ public class SessionService {
                 "SELECT id FROM (SELECT id FROM sessions ORDER BY id LIMIT 1 OFFSET "+(sessionPosition-1)+") AS subquery)");
     }
     public static void seeSessions(){
-        ExecuteQuerySession executeQuerySession =new ExecuteQuerySession("SELECT name FROM sessions");
+        ExecuteQuerySession executeQuerySession = new ExecuteQuerySession("SELECT id, played_time, finished, rooms_id FROM sessions");
     }
 
     public static Session getSession(int sessionPosition){

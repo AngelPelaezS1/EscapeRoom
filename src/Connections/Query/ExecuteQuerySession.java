@@ -32,14 +32,14 @@ public class ExecuteQuerySession {
                 } else {
                     System.out.println("No se encontró ninguna sesión con ID ");
                 }
-            }else if(query.contains("SELECT name FROM sessions")){
+            } else if(query.trim().toUpperCase().startsWith("SELECT")){
                 ResultSet rs = preparedStatement.executeQuery();
-                System.out.println("Lista :");
+                System.out.println("Lista de sesiones:");
                 while (rs.next()) {
-                    String name = rs.getString("played_time");
-                    System.out.println(name);
+                    String playedTime = rs.getString("played_time");
+                    System.out.println(playedTime);
                 }
-            }else{
+        }else{
                 preparedStatement.executeUpdate();
             }
         } catch (SQLException e) {

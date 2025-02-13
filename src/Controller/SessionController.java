@@ -9,9 +9,7 @@ import java.util.Scanner;
 
 import static Controller.RoomController.showRooms;
 import static Services.RoomService.getRoom;
-
 import static Services.SessionService.*;
-
 
 public class SessionController {
     static Scanner sc = new Scanner(System.in);
@@ -29,13 +27,13 @@ public class SessionController {
         Room room = getRoom(index);
         idRooms = room.getId();
 
-        System.out.println("Introduce fecha y hora(yyyy-MM-dd HH:mm.");
+        System.out.println("Introduce fecha y hora (yyyy-MM-dd HH:mm.)");
         String dateTimeInput = sc.nextLine();
         LocalDateTime playedTime = null;
         try {
             playedTime = LocalDateTime.parse(dateTimeInput, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
         } catch (Exception e) {
-            System.out.println("Formato incorrecto, usa yyyy-MM-dd HH:mm.");
+            System.out.println("Formato incorrecto, usa (yyyy-MM-dd HH:mm.)");
             return;
         }
         sc.nextLine();
@@ -46,7 +44,6 @@ public class SessionController {
     }
 
     public static void removeSession() {
-        System.out.println("Lista de sesiones:");
         showSessions();
         System.out.println("Introduce la posicion de la sesion a eliminar.");
         int index = sc.nextInt();
@@ -64,7 +61,6 @@ public class SessionController {
     }
 
     public static void showSessions() {
-        System.out.println("Lista de sesiones:");
         seeSessions();
 
     }
