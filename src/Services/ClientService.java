@@ -1,5 +1,5 @@
 package Services;
-import Connections.ExecuteQueryClient;
+import Connections.Query.ExecuteQueryClient;
 import Model.Client;
 
 public class ClientService {

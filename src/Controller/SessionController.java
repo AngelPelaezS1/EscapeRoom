@@ -9,7 +9,9 @@ import java.util.Scanner;
 
 import static Controller.RoomController.showRooms;
 import static Services.RoomService.getRoom;
+
 import static Services.SessionService.*;
+
 
 public class SessionController {
     static Scanner sc = new Scanner(System.in);
@@ -37,8 +39,10 @@ public class SessionController {
             return;
         }
         sc.nextLine();
+
         Session session = new Session(playedTime, idRooms);
         addSession(session);
+
     }
 
     public static void removeSession() {
@@ -53,7 +57,9 @@ public class SessionController {
             index = sc.nextInt();
             sc.nextLine();
         }
+
         deleteSession(index);
+      
         System.out.println("Sesion eliminada con exito.");
     }
 
