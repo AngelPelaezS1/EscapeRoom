@@ -1,38 +1,38 @@
-package Menus.MenusItems;
+package Menus.MenusUser;
 
 import java.util.Scanner;
 
-import static Controller.TrackController.*;
+import static Menus.MenusUser.CertificateMenu.certificateStart;
+import static Menus.MenusUser.ClientMenu.clientStart;
+import static Menus.MenusUser.TicketMenu.ticketStart;
 
-public class TrackMenu {
-
-    public static void trackStart() {
+public class UserMenu {
+    public static void userStart() {
         Scanner sc = new Scanner(System.in);
         int choose;
         boolean exit = true;
         do {
+
             try {
-                System.out.println("***Bienvenido al gestor de pistas***");
-                System.out.println("1.-Crear pista");
-                System.out.println("2.-Eliminar pista");
-                System.out.println("3.-Mostrar pistas");
-                System.out.println("4.-Modificar pista");
-                System.out.println("5.-Atras");
+                System.out.println(" ");
+                System.out.println("*** Gestor de clientes***");
+                System.out.println("1.-Cliente");
+                System.out.println("2.-Comprar tiket");
+                System.out.println("3.-Dar certificados");
+                System.out.println("4.-Atras");
                 System.out.print("Elige una opción: ");
 
                 choose = sc.nextInt();
                 sc.nextLine();
 
                 switch (choose) {
-                    case 1: createTrack();
+                    case 1:clientStart();
                         break;
-                    case 2: removeTrack();
+                    case 2:ticketStart();
                         break;
-                    case 3: showTracks();
+                    case 3:certificateStart();
                         break;
-                    case 4: modifyTrack();
-                        break;
-                    case 5:
+                    case 4:
                         exit = false;
                         break;
                     default:
@@ -46,4 +46,3 @@ public class TrackMenu {
         } while (exit);
     }
 }
-

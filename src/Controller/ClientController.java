@@ -4,12 +4,14 @@ import Model.Client;
 
 import java.util.Scanner;
 
-//sesion cliente!!!!!!!
+import static Services.ClientService.*;
+
 
 public class ClientController {
 
-    public static Client createClient() {
+    public static Client createClient(int sesionID) {
         Scanner sc = new Scanner(System.in);
+
         String name;
         String mail;
         String choose;
@@ -36,13 +38,15 @@ public class ClientController {
                     System.out.println("Porfavor escriba si o no:");
                 }
         }while(exit);
-        Client client =new Client(name,mail,notifications);
+
+        Client client =new Client(name,mail,notifications,sesionID);
+        addClient(client);
         System.out.println("Cliente creado");
         return client;
     }
 
     public static void showClient(){
-        //metodo  de servicio listar usuarios
+        seeClients();
     }
 
     public static void removeClient(){
@@ -52,7 +56,7 @@ public class ClientController {
         System.out.println("Selecciona la  posición en la que se encuentra el usuario");
         choose=sc.nextInt();
         sc.nextLine();
-        //metodo de servicio para eliminar usuario en x posicion
+        deleteClient(choose);
     }
     public static void modifyClient(){
         Scanner sc= new Scanner(System.in);
@@ -67,8 +71,8 @@ public class ClientController {
         System.out.println("Selecciona la  posición en la que se encuentra el usuario");
         choose=sc.nextInt();
         sc.nextLine();
-        // metodo de servicio que devuelve el usuario en x posicion;
-        // hacer un cliente con la info
+        Client client=getClient(choose);
+
         System.out.println("*** Que deseas modificar?***");
         System.out.println("1.-Nombre");
         System.out.println("2.-Mail");
@@ -79,14 +83,14 @@ public class ClientController {
             case 1:
                 System.out.println("Porque nombre desea sustituirlo:");
                 name=sc.nextLine();
-                // client.setName(name);
-                //metodo servicio update;
+                client.setName(name);
+                updateClient(client);
                 break;
             case 2:
                 System.out.println("Porque mail desea sustituirlo:");
                 mail=sc.nextLine();
-                // client.setMail(mail);
-                //metodo servicio updateclient;
+                 client.setMail(mail);
+                 updateClient(client);
                 break;
             case 3:
                 do{
@@ -97,13 +101,13 @@ public class ClientController {
                 if(election =='y'){
                     notifications=true;
                     exit=false;
-                    //client.setNotifications(notifications);
-                    //metodo servicio updateclient
+                    client.setNotifications(notifications);
+                    updateClient(client);
                 }else if (election=='n') {
                     notifications=false;
                     exit=false;
-                    //client.setNotifications(notifications);
-                    //metodo servicio updateclient
+                    client.setNotifications(notifications);
+                    updateClient(client);
                 }else{
                     System.out.println("Porfavor escriba si o no:");
                 }

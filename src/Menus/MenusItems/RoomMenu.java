@@ -31,6 +31,7 @@ public class RoomMenu {
                     case 3: showRooms();
                         break;
                     case 4: modifyRoom();
+
                         break;
                     case 5:
                         exit = false;
