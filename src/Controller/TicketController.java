@@ -1,5 +1,7 @@
 package Controller;
 
+import Model.Client;
+import Model.Room;
 import Model.Ticket;
 
 import java.util.Scanner;
@@ -7,32 +9,35 @@ import java.util.Scanner;
 import static Controller.ClientController.createClient;
 import static Controller.ClientController.showClient;
 import static Controller.RoomController.showRooms;
+import static Services.ClientService.getClient;
+import static Services.RoomService.getRoom;
 
 public class TicketController {
     public static void createTicketClient(){
         Scanner sc= new Scanner(System.in);
         int idUser=0;
         int choose;
-        int sesionId;
+        int sesionId=0;
         float price= 24.95f;
 
         System.out.println("Selecciona la posicion de la room a la que quieres añadir un ticket:");
         showRooms();
         choose=sc.nextInt();
         sc.nextLine();
-        //metodo que devuelva la room por posicion ;
+        Room room=getRoom(choose);
         System.out.println("Selecciona la posicion de la sesion para la que quieres el ticket");
         choose=sc.nextInt();
         sc.nextLine();
         //metodo que devuelva la sesion por posicion;
-        //sesionID=sesion.getID();
+        //sesionId=sesion.getID();
         System.out.println("Selecciona la posicion del cliente al que quieres añadir un ticket:");
         showClient();
         choose=sc.nextInt();
         sc.nextLine();
-        // metodo que te devuelba el cliente por posicion;
-        //user.setSesionId(sesionID);
-        //idUser=user.getID();
+        Client client=getClient(choose);
+
+        client.setSesionId(sesionId);
+        idUser=client.getId();
         Ticket ticket= new Ticket(idUser,price);
         //metodo servicio para asignar tiket a user
         System.out.println("Se le ha asignado ticket");
@@ -48,11 +53,10 @@ public class TicketController {
         showRooms();
         choose=sc.nextInt();
         sc.nextLine();
-        //metodo que devuelva la room por posicion ;
+        Room room=getRoom(choose);
         System.out.println("Selecciona la posicion de la sesion para la que quieres el ticket");
         choose=sc.nextInt();
         sc.nextLine();
-        //metodo que devuelva la sesion por posicion;
         //sesionID=sesion.getID();
 
         idUser=createClient(sesionId).getId();
@@ -62,16 +66,22 @@ public class TicketController {
     public static void showTicket(){
         Scanner sc= new Scanner(System.in);
         int idUser=0;
+        int choose;
         showClient();
         System.out.println("Selecciona la posicion del cliente al que quieres mostrar los  tikets:");
-        // metodo servicio que te devuelba los tikets de cliente  por posicion;
+        choose=sc.nextInt();
+        sc.nextLine();
+        Client client=getClient(choose);
+        //print tiket por posicion ;
     }
     public static void deleteTicket(){
         Scanner sc=new Scanner(System.in);
         int choose;
         showTicket();
         System.out.println("Selecciona la posicion del tiket que quieres eliminar :");
-        // metodo  servicio que  elimina los tikets por posicion
+        choose= sc.nextInt();
+        sc.nextLine();
+        //eliminar tiket por posicion;
     }
 
 
