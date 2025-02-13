@@ -12,7 +12,7 @@ public class DatabaseManager {
     // Configuración de la base de datos
     private static final String URL = "jdbc:mysql://localhost:3306/escaperoom";
     private static final String USER = "root";
-    private static final String PASSWORD = "";
+    private static final String PASSWORD = "2345638721";
 
     public static void main(String[] args) throws SQLException {
         // Prueba de inserción
@@ -23,9 +23,16 @@ public class DatabaseManager {
 
         //Room room= new Room("lax",5);
 
+
         ClientService clientService = new ClientService();
         clientService.addClient(client);
         //clientService.seeClients();
+
+        Room room= new Room("lax",5);
+        getAllRoomNames();
+
+        //RoomService roomService = new RoomService();
+        //roomService.seeRooms();
         //roomService.deleteRoom(1);
         //room = roomService.getRoom(1);
         //room.setName("Eatata");
