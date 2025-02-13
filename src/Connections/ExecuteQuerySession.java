@@ -27,7 +27,7 @@ public class ExecuteQuerySession {
                     boolean finishedBoolean = false;
                     if(finished!=0){finishedBoolean = true;}
                     int sesionId = rs.getInt("sesionId");
-                    this.session=new Session(id, localDateTime, finishedBoolean, sesionId);
+                    this.session=new Session(id, localDateTime,finishedBoolean,sesionId);
                 } else {
                     System.out.println("No se encontró ninguna sesión con ID ");
                 }
