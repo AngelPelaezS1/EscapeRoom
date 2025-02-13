@@ -1,6 +1,7 @@
 package Controller;
 
 
+import Model.Room;
 import Model.Session;
 
 import java.time.LocalDateTime;
@@ -8,6 +9,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 import static Controller.RoomController.showRooms;
+import static Services.RoomService.getRoom;
 
 public class SessionController {
     static Scanner sc = new Scanner(System.in);
@@ -19,10 +21,10 @@ public class SessionController {
         showRooms();
 
         System.out.println("Introduce la posicion de la sala de esta sesion.");
-        int indice = sc.nextInt();
+        int index = sc.nextInt();
         sc.nextLine();
-        //metodo para que devuelva room
-        //room.getId(index);
+        Room room=getRoom(index);
+        idRooms=room.getId();
         System.out.println("Introduce fecha y hora(yyyy-MM-dd HH:mm.");
         String dateTimeInput = sc.nextLine();
         LocalDateTime playedTime = null;
@@ -32,13 +34,9 @@ public class SessionController {
             System.out.println("Formato incorrecto, usa yyyy-MM-dd HH:mm.");
             return;
         }
-
-        System.out.println("Introduce la sala a la que pertenece esta sesion.");
-        int roomId = sc.nextInt();
         sc.nextLine();
+        Session session = new Session(playedTime,idRooms);
 
-        Session session = new Session(playedTime,roomId);
-        //metodo para añadir session
     }
 
     public static void removeSession() {

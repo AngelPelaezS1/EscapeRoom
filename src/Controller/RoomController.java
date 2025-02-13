@@ -25,6 +25,8 @@ public class RoomController {
         addRoom(room);
     }
 
+    public static void showRooms(){seeRooms();}
+
     public static void removeRoom(){
         System.out.println("Lista de rooms:");
         showRooms();
