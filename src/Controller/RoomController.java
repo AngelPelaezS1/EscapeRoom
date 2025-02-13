@@ -26,7 +26,6 @@ public class RoomController {
     }
 
     public static void showRooms() {
-
         seeRooms();
     }
 

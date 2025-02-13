@@ -16,7 +16,7 @@ public class SessionMenu {
                 System.out.println("1.-Crear sesion");
                 System.out.println("2.-Eliminar sesion");
                 System.out.println("3.-Mostrar sesion");
-                System.out.println("4.-Modificar sesion");
+                System.out.println("4.-Marcar sesion como finalizada");
                 System.out.println("5.-Atras");
                 System.out.print("Elige una opción: ");
 
