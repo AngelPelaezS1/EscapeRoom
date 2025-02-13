@@ -1,5 +1,6 @@
-package Connections;
+package Connections.Query;
 
+import Connections.ConnectionSQL;
 import Model.Room;
 
 import java.sql.Connection;

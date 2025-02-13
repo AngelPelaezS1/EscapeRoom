@@ -1,4 +1,5 @@
-package Connections;
+package Connections.Query;
+import Connections.ConnectionSQL;
 import Model.Session;
 
 import java.sql.*;
