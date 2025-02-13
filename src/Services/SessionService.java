@@ -1,5 +1,5 @@
 package Services;
-import Connections.ExecuteQuerySession;
+import Connections.Query.ExecuteQuerySession;
 import Model.Session;
 import java.time.LocalDateTime;
 

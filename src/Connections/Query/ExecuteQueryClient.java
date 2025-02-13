@@ -1,4 +1,5 @@
-package Connections;
+package Connections.Query;
+import Connections.ConnectionSQL;
 import Model.Client;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

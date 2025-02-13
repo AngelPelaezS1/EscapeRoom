@@ -1,5 +1,5 @@
 package Services;
-import Connections.ExecuteQueryRoom;
+import Connections.Query.ExecuteQueryRoom;
 import Model.Room;
 
 public class RoomService {

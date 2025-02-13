@@ -1,11 +1,13 @@
 package Controller;
 
 import Model.Object;
+import Model.Room;
 
 import javax.xml.transform.Source;
 import java.util.Scanner;
 
 import static Controller.RoomController.showRooms;
+import static Services.RoomService.getRoom;
 
 public class ObjectController {
 
@@ -20,8 +22,8 @@ public class ObjectController {
         System.out.println("Selecciona la posicion de la habitacion a la que quieres añadir un objeto");
         choose=sc.nextInt();
         sc.nextLine();
-        //metodo servicio que devuelva la room por posicion
-        // room.getId(idRoom);
+        Room room =getRoom(choose);
+        idRoom=room.getId();
         System.out.println("Cual es el nombre del objeto?");
         name=sc.nextLine();
         System.out.println("Cual es el material del objeto?");
@@ -35,10 +37,13 @@ public class ObjectController {
     public static void showObject(){
         Scanner sc= new Scanner(System.in);
         int choose;
+        int idRoom;
         showRooms();
         System.out.println("Selecciona la posicion de la habitacion de que quieres mostrar  objetos");
         choose=sc.nextInt();
         sc.nextLine();
+        Room room =getRoom(choose);
+        idRoom=room.getId();
         //metodo servicio que devuelva los objetos de la room;
     }
     public static void removeObject(){
