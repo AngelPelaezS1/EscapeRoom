@@ -14,8 +14,15 @@ public class Session {
         this.roomId = roomId;
     }
 
+
+    public Session(int id, LocalDateTime playedTime, boolean finished, int roomId) {
+        this.id = id;
+        this.playedTime = playedTime;
+        this.finished = finished;
+
     public Session(LocalDateTime playedTime, int roomId) {
         this.playedTime = playedTime;
+
         this.roomId = roomId;
     }
 
