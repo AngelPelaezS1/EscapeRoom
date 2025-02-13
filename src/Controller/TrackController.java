@@ -32,6 +32,17 @@ public class TrackController {
         //metodo para añadir una nueva track
     }
 
+    public static void showTracks(){
+        showRooms();
+        System.out.println("Introduce la posicion de la room que quieras ver las pistas");
+        int indice = sc.nextInt();
+        sc.nextLine();
+        //metodo que devuelva los tracks de la room
+
+    }
+
+
+
 
     public static void removeTrack(){
         showTracks();
@@ -45,16 +56,6 @@ public class TrackController {
             sc.nextLine();
         }
         //metodo para eliminar track
-    }
-
-    public static void showTracks(){
-        int idRooms = 0;
-        showRooms();
-        System.out.println("Introduce la posicion de la room que quieras ver las pistas.");
-        int indice = sc.nextInt();
-        sc.nextLine();
-        //metodo que devuelva los tracks de la room
-
     }
 
 

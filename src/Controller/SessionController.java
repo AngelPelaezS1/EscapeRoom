@@ -14,8 +14,6 @@ public class SessionController {
 
     public static void createSesion() {
         int idRooms = 0;
-        boolean finished = true;
-        boolean exit = true;
 
         System.out.println("Lista de salas:");
         showRooms();
@@ -34,22 +32,6 @@ public class SessionController {
             System.out.println("Formato incorrecto, usa yyyy-MM-dd HH:mm.");
             return;
         }
-        /*do {
-            System.out.println("Has acabado la partida? (Si/No).");
-            String choose = sc.nextLine();
-            String lowerCase = choose.toLowerCase();
-            char election = lowerCase.charAt(1);
-
-            if (election == 's') {
-                finished = true;
-                exit = false;
-            } else if (election == 'n') {
-                finished = false;
-                exit = false;
-            } else {
-                System.out.println("Error, escribe si o no.");
-            }
-        } while (exit);*/
 
         System.out.println("Introduce la sala a la que pertenece esta sesion.");
         int roomId = sc.nextInt();
@@ -80,48 +62,52 @@ public class SessionController {
         //metodo para listar sesiones
 
     }
-}
 
+    public static void markSessionAsPassed(){
+        boolean finished = true;
+        boolean exit = true;
+        showSessions();
+        System.out.println("Introduce la posicion de la sesion que quieres marcar como pasada.");
+        int index = sc.nextInt();
+        sc.nextLine();
 
-   /* public static void modifySesion(){
-            showSessions();
-            System.out.println("Introduce la posicion de la sesion a modificar.");
-            int index = sc.nextInt();
+        while(index < 0){
+            System.out.println("Error, introduce un numero valido.");
+            index = sc.nextInt();
             sc.nextLine();
+        }
 
-            while(index < 0){
-                System.out.println("Error, introduce un numero valido.");
-                index = sc.nextInt();
-                sc.nextLine();
+        //Session session = getSession(index);
+
+            /*while(session.isFinished){
+             System.out.println("Esta sesion ya esta marcada");
+             }
+        */
+
+        do{
+            System.out.println("Has acabado la partida? (Si/No).");
+            String choose = sc.nextLine();
+            String lowerCase = choose.toLowerCase();
+            char election = lowerCase.charAt(1);
+
+            if(election == 's'){
+                finished = true;
+                exit = false;
+            }else if(election == 'n'){
+                finished = false;
+                exit = false;
+            }else{
+                System.out.println("Error, escribe si o no.");
             }
+        }while(exit);
 
-            //Session session = getSession(index);
-
-            System.out.println("Elige una opción: 1-Fecha y hora, .");
-            int choose = sc.nextInt();
-            sc.nextLine();
-
-            switch (choose) {
-                case 1:
-                    System.out.println("Introduce el nuevo nombre:");
-                    String newName = sc.nextLine();
-                    //setName
-                    //updateSession(session);
-                    System.out.println("Nombre actualizado.");
-                    break;
-                case 2:
-                    System.out.println("Introduce la nueva dificultad:");
-                    int newDifficulty = sc.nextInt();
-                    sc.nextLine();
-                    //;
-                    updateRoom(room);
-                    System.out.println("Dificultad actualizada.");
-                    break;
-                default:
-                    System.out.println("Introduce un numero del 1 al 2.");
-            }
+        if (finished){
+           /*session.setFinished(true);
+           updateSession(session);
+           System.out.println("Sesión marcada como pasada exitosamente.");*/
+        }else{
+            System.out.println("La sesión no ha sido marcada como pasada.");
         }
     }
+}
 
-    }
-}*/
