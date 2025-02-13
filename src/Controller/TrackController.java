@@ -33,17 +33,6 @@ public class TrackController {
     }
 
 
-
-    public static void showTracks(){
-        showRooms();
-        System.out.println("Introduce la posicion de la room que quieras ver las pistas");
-        int indice = sc.nextInt();
-        sc.nextLine();
-        //metodo que devuelva los tracks de la room
-
-    }
-
-
     public static void removeTrack(){
         showTracks();
         System.out.println("Introduce la posicion de la pista a eliminar.");
