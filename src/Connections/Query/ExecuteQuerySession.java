@@ -1,7 +1,6 @@
 package Connections.Query;
 import Connections.ConnectionSQL;
 import Model.Session;
-
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.time.ZoneId;

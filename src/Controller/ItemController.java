@@ -1,15 +1,14 @@
 package Controller;
 
-import Model.Object;
+import Model.Item;
 import Model.Room;
 
-import javax.xml.transform.Source;
 import java.util.Scanner;
 
 import static Controller.RoomController.showRooms;
 import static Services.RoomService.getRoom;
 
-public class ObjectController {
+public class ItemController {
 
     public static void createObject(){
         Scanner sc= new Scanner(System.in);
@@ -31,7 +30,7 @@ public class ObjectController {
         System.out.println("Cual es el precio del objeto?");
         price=sc.nextFloat();
         sc.nextLine();
-        Object object =new Object(name, material,price,idRoom);
+        Item item =new Item(name, material,price,idRoom);
         // metodo servicio crear objeto
     }
     public static void showObject(){

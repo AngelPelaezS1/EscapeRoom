@@ -1,19 +1,20 @@
 package Connections.Query;
 import Connections.ConnectionSQL;
-import Model.Object;
+import Model.Item;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class ExecuteQueryObject {
-    private Object object;
+public class ExecuteQueryItem {
+    private Item item;
 
-    public static Object getObject() {
-        return this.object;
+    public Item getItem() {
+        return this.item;
     }
 
-    public ExecuteQueryObject(String query){
+    public ExecuteQueryItem(String query){
         ConnectionSQL connectionSQL = ConnectionSQL.getInstanceConnectionSQL();
         try (Connection connection = ConnectionSQL.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -25,7 +26,7 @@ public class ExecuteQueryObject {
                     String material = rs.getString("material");
                     float price = rs.getFloat("price");
                     int rooms_id = rs.getInt("rooms_id");
-                    this.object=new Object(id, name, material, price, rooms_id);
+                    this.item=new Item(id, name, material, price, rooms_id);
                 } else {
                     System.out.println("No se encontró ninguna objecto con ID ");
                 }
