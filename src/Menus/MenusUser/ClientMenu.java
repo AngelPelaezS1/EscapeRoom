@@ -1,13 +1,13 @@
 package Menus.MenusUser;
 
-import java.util.Scanner;
+import Controller.ClientController;
 
-import static Controller.ClientController.*;
+import java.util.Scanner;
 
 
 public class ClientMenu {
 
-        public static void clientStart() {
+        public void clientStart() {
             Scanner sc = new Scanner(System.in);
             int choose;
             boolean exit = true;
@@ -26,13 +26,16 @@ public class ClientMenu {
                     sc.nextLine();
 
                     switch (choose) {
-                        case 1:showClient();
+                        case 1: ClientController clientController = new ClientController();
+                                clientController.showClient();
                             break;
-                        case 2:
+                        case 2: ClientController clientController2 = new ClientController();
+                                clientController2.modifyClient();
                             break;
-                        case 3:modifyClient();
+                        case 3: ClientController clientController3 = new ClientController();
+                                clientController3.removeClient();
                             break;
-                        case 4: removeClient();
+                        case 4:
                             exit = false;
                             break;
                         default:

@@ -9,7 +9,7 @@ import static Controller.ClientController.showClient;
 import static Services.ClientService.getClient;
 
 public class CertificateController {
-    public static void createCertificate(){
+    public void createCertificate(){
         Scanner sc= new Scanner(System.in);
         String name="Certificate";
         String achievement="felicidades te has pasado la sala";
@@ -25,10 +25,10 @@ public class CertificateController {
         Certificate certificate= new Certificate(name,achievement,gift,clientId);
         //addCertificate;
     }
-    public static void  showCertificate(){
+    public void showCertificate(){
         //metodo servicio que devuelve los certificados y el nombre de los clientes;
     }
-    public static void deleteCertificate(){
+    public void deleteCertificate(){
         Scanner sc= new Scanner(System.in);
         int choose;
         showCertificate();

@@ -14,7 +14,7 @@ import static Services.SessionService.*;
 public class SessionController {
     static Scanner sc = new Scanner(System.in);
 
-    public static void createSesion() {
+    public void createSesion() {
         int idRooms = 0;
 
         System.out.println("Lista de salas:");
@@ -43,7 +43,7 @@ public class SessionController {
 
     }
 
-    public static void removeSession() {
+    public void removeSession() {
         showSessions();
         System.out.println("Introduce la posicion de la sesion a eliminar.");
         int index = sc.nextInt();
@@ -60,12 +60,12 @@ public class SessionController {
         System.out.println("Sesion eliminada con exito.");
     }
 
-    public static void showSessions() {
+    public void showSessions() {
         seeSessions();
 
     }
 
-    public static void markSessionAsPassed() {
+    public void markSessionAsPassed() {
         boolean finished = true;
         boolean exit = true;
         showSessions();

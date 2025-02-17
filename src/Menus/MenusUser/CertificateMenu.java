@@ -3,7 +3,7 @@ package Menus.MenusUser;
 import java.util.Scanner;
 
 public class CertificateMenu {
-    public static void certificateStart() {
+    public void certificateStart() {
     Scanner sc = new Scanner(System.in);
     int choose;
     boolean exit = true;

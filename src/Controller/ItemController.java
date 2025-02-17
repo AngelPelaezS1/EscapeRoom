@@ -10,7 +10,7 @@ import static Services.RoomService.getRoom;
 
 public class ItemController {
 
-    public static void createObject(){
+    public void createObject(){
         Scanner sc= new Scanner(System.in);
         int choose;
         int idRoom=0;
@@ -33,7 +33,7 @@ public class ItemController {
         Item item =new Item(name, material,price,idRoom);
         // metodo servicio crear objeto
     }
-    public static void showObject(){
+    public void showObject(){
         Scanner sc= new Scanner(System.in);
         int choose;
         int idRoom;
@@ -45,7 +45,7 @@ public class ItemController {
         idRoom=room.getId();
         //metodo servicio que devuelva los objetos de la room;
     }
-    public static void removeObject(){
+    public void removeObject(){
         Scanner sc= new Scanner(System.in);
         int choose;
         showObject();
@@ -55,7 +55,7 @@ public class ItemController {
         // metodo servivcio que devuelva objeto por posicion;
         //metodo servicio para eliminar por posicion;
     }
-    public static void modyfyObject(){
+    public void modyfyObject(){
         Scanner sc= new Scanner(System.in);
         int choose;
         int idRoom;
