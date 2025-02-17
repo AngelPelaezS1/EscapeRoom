@@ -2,6 +2,8 @@ package Menus.MenusItems;
 
 import java.util.Scanner;
 
+import static Controller.ObjectController.*;
+
 public class ItemMenu {
 
     public static void itemStart() {
@@ -22,13 +24,13 @@ public class ItemMenu {
                 sc.nextLine();
 
                 switch (choose) {
-                    case 1: // metodo para crear item;
+                    case 1: createObject();
                         break;
-                    case 2: // metodo para eliminar item;
+                    case 2: removeObject();
                         break;
-                    case 3: // metodo para mostar todas las items;
+                    case 3: showObject();
                         break;
-                    case 4: // metodo para modificar item;
+                    case 4: modyfyObject();
                         break;
                     case 5:
                         exit = false;
