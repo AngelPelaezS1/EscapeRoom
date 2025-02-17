@@ -14,6 +14,14 @@ public class Object {
         this.roomId=roomId;
     }
 
+    public Object(int id, String name, String material, float price, int roomId) {
+        this.id = id;
+        this.name = name;
+        this.material = material;
+        this.price = price;
+        this.roomId = roomId;
+    }
+
     public int getId() {
         return id;
     }

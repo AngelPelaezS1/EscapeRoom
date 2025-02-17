@@ -2,34 +2,34 @@ package Connections;
 
 import Model.Client;
 import Model.Room;
+import Model.Session;
 import Services.ClientService;
 import Services.RoomService;
+import Services.SessionService;
 
 
 import java.sql.*;
+import java.time.LocalDateTime;
 
 public class DatabaseManager {
     // Configuración de la base de datos
     private static final String URL = "jdbc:mysql://localhost:3306/escaperoom";
     private static final String USER = "root";
-    private static final String PASSWORD = "2345638721";
+    private static final String PASSWORD = "fn348MySQL";
 
     public static void main(String[] args) throws SQLException {
         // Prueba de inserción
         //addRoom("El Misterio del Laberinto", 4);
         //addRoom("El Misterio del Terror", 2);
 
-        Client client= new Client("Jose","Jose@jose.com",true,-1);
+        //Client client= new Client("Jose","Jose@jose.com",true,-1);
 
         //Room room= new Room("lax",5);
-
-
-        ClientService clientService = new ClientService();
-        clientService.addClient(client);
+        getAllRoomNames();
         //clientService.seeClients();
 
-        Room room= new Room("lax",5);
-        getAllRoomNames();
+       // Room room= new Room("lax",5);
+        //getAllRoomNames();
 
         //RoomService roomService = new RoomService();
         //roomService.seeRooms();
