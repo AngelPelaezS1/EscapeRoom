@@ -6,7 +6,7 @@ import static Controller.SessionController.*;
 
 public class SessionMenu {
 
-    public static void sessionStart(){
+    public void sessionStart(){
         Scanner sc = new Scanner(System.in);
         int choose;
         boolean exit = true;

@@ -7,7 +7,7 @@ import static Controller.ClientController.*;
 
 public class ClientMenu {
 
-        public static void clientStart() {
+        public void clientStart() {
             Scanner sc = new Scanner(System.in);
             int choose;
             boolean exit = true;

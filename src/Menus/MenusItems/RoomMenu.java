@@ -6,7 +6,7 @@ import static Controller.RoomController.*;
 
 public class RoomMenu {
 
-    public static void roomStart() {
+    public void roomStart() {
         Scanner sc = new Scanner(System.in);
         int choose;
         boolean exit = true;

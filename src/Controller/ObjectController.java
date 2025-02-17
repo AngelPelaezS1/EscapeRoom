@@ -3,7 +3,6 @@ package Controller;
 import Model.Object;
 import Model.Room;
 
-import javax.xml.transform.Source;
 import java.util.Scanner;
 
 import static Controller.RoomController.showRooms;
@@ -11,7 +10,7 @@ import static Services.RoomService.getRoom;
 
 public class ObjectController {
 
-    public static void createObject(){
+    public void createObject(){
         Scanner sc= new Scanner(System.in);
         int choose;
         int idRoom=0;
@@ -34,7 +33,7 @@ public class ObjectController {
         Object object =new Object(name, material,price,idRoom);
         // metodo servicio crear objeto
     }
-    public static void showObject(){
+    public void showObject(){
         Scanner sc= new Scanner(System.in);
         int choose;
         int idRoom;
@@ -46,7 +45,7 @@ public class ObjectController {
         idRoom=room.getId();
         //metodo servicio que devuelva los objetos de la room;
     }
-    public static void removeObject(){
+    public void removeObject(){
         Scanner sc= new Scanner(System.in);
         int choose;
         showObject();
@@ -56,7 +55,7 @@ public class ObjectController {
         // metodo servivcio que devuelva objeto por posicion;
         //metodo servicio para eliminar por posicion;
     }
-    public static void modyfyObject(){
+    public void modyfyObject(){
         Scanner sc= new Scanner(System.in);
         int choose;
         int idRoom;

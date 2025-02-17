@@ -9,7 +9,7 @@ import static Services.ClientService.*;
 
 public class ClientController {
 
-    public static Client createClient(int sesionID) {
+    public Client createClient(int sesionID) {
         Scanner sc = new Scanner(System.in);
 
         String name;
@@ -45,11 +45,11 @@ public class ClientController {
         return client;
     }
 
-    public static void showClient(){
+    public void showClient(){
         seeClients();
     }
 
-    public static void removeClient(){
+    public void removeClient(){
         Scanner sc= new Scanner(System.in);
         int choose;
         showClient();
@@ -58,7 +58,7 @@ public class ClientController {
         sc.nextLine();
         deleteClient(choose);
     }
-    public static void modifyClient(){
+    public void modifyClient(){
         Scanner sc= new Scanner(System.in);
         int choose;
         String name;

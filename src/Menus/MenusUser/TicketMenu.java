@@ -5,7 +5,7 @@ import java.util.Scanner;
 import static Controller.TicketController.*;
 
 public class TicketMenu {
-    public static void ticketStart() {
+    public void ticketStart() {
         Scanner sc = new Scanner(System.in);
         int choose;
         boolean exit = true;

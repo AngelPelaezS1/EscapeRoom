@@ -6,7 +6,7 @@ import static Controller.ObjectController.*;
 
 public class ItemMenu {
 
-    public static void itemStart() {
+    public void itemStart() {
         Scanner sc = new Scanner(System.in);
         int choose;
         boolean exit = true;

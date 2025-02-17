@@ -6,7 +6,7 @@ import static Controller.TrackController.*;
 
 public class TrackMenu {
 
-    public static void trackStart() {
+    public void trackStart() {
         Scanner sc = new Scanner(System.in);
         int choose;
         boolean exit = true;
