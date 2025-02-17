@@ -1,11 +1,7 @@
 package Controller;
-
 import Model.Client;
-
 import java.util.Scanner;
-
 import static Services.ClientService.*;
-
 
 public class ClientController {
 
