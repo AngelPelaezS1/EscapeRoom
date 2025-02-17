@@ -1,8 +1,8 @@
 package Menus.MenusItems;
 
-import java.util.Scanner;
+import Controller.ObjectController;
 
-import static Controller.ObjectController.*;
+import java.util.Scanner;
 
 public class ItemMenu {
 
@@ -24,13 +24,17 @@ public class ItemMenu {
                 sc.nextLine();
 
                 switch (choose) {
-                    case 1: createObject();
+                    case 1: ObjectController objectController = new ObjectController();
+                            objectController.createObject();
                         break;
-                    case 2: removeObject();
+                    case 2: ObjectController objectController1 = new ObjectController();
+                            objectController1.removeObject();
                         break;
-                    case 3: showObject();
+                    case 3: ObjectController objectController2 = new ObjectController();
+                            objectController2.showObject();
                         break;
-                    case 4: modyfyObject();
+                    case 4: ObjectController objectController3 = new ObjectController();
+                            objectController3.modyfyObject();
                         break;
                     case 5:
                         exit = false;
