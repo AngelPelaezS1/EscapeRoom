@@ -20,7 +20,7 @@ public class ItemService {
 
     public Item getItem(int itemPosition){
         ExecuteQueryItem executeQueryItem =new ExecuteQueryItem("SELECT * FROM objects ORDER BY id LIMIT 1 OFFSET "+(itemPosition-1));
-        return ExecuteQueryItem.getItem();
+        return executeQueryItem.getItem();
     }
 
     public void updateObject(Item item){
