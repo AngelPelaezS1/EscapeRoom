@@ -14,6 +14,7 @@ public class ClientMenu {
             do {
 
                 try {
+
                     System.out.println(" ");
                     System.out.println("*** Gestor de clientes***");
                     System.out.println("1.-Mostrar clientes ");

@@ -13,6 +13,7 @@ public class MainMenu {
       boolean exit = true;
       do {
           try {
+
               System.out.println(" ");
               System.out.println("***Bienvenido al gestor del scape room***");
               System.out.println("1.-Gestión de Escaperoom");

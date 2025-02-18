@@ -4,8 +4,6 @@ import Controller.ItemController;
 
 import java.util.Scanner;
 
-import static Controller.ItemController.*;
-
 
 public class ItemMenu {
 
@@ -15,6 +13,8 @@ public class ItemMenu {
         boolean exit = true;
         do {
             try {
+
+                System.out.println(" ");
                 System.out.println("***Bienvenido al gestor de items***");
                 System.out.println("1.-Crear item");
                 System.out.println("2.-Eliminar item");

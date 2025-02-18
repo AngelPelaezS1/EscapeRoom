@@ -16,8 +16,8 @@ public class SessionController {
 
 
     public static void createSesion() {
-        RoomService service= new RoomService();
-        SessionService sessionService= new SessionService();
+        RoomService service = new RoomService();
+        SessionService sessionService = new SessionService();
 
         int idRooms = 0;
 
@@ -44,12 +44,13 @@ public class SessionController {
 
         Session session = new Session(playedTime, idRooms);
         sessionService.addSession(session);
+        System.out.println("Session creada con exito.");
 
     }
 
 
     public static void removeSession() {
-        SessionService service= new SessionService();
+        SessionService service = new SessionService();
 
         showSessions();
         System.out.println("Introduce la posicion de la sesion a eliminar.");
@@ -61,61 +62,49 @@ public class SessionController {
             index = sc.nextInt();
             sc.nextLine();
         }
-
         service.deleteSession(index);
-      
         System.out.println("Sesion eliminada con exito.");
     }
 
     public static void showSessions() {
-        SessionService service= new SessionService();
+        SessionService service = new SessionService();
+        System.out.println("Lista de sesiones:");
         service.seeSessions();
     }
 
     public static void markSessionAsPassed() {
-        SessionService service= new SessionService();
+        SessionService service = new SessionService();
 
         boolean finished = true;
         boolean exit = true;
+
         showSessions();
         System.out.println("Introduce la posicion de la sesion que quieres marcar como pasada.");
         int index = sc.nextInt();
         sc.nextLine();
-
-        while (index < 0) {
-            System.out.println("Error, introduce un numero valido.");
-            index = sc.nextInt();
-            sc.nextLine();
-        }
-
         Session session = service.getSession(index);
 
-        if (session.isFinished()) {
-            System.out.println("Esta sesión ya está marcada como pasada.");
-            return;
-        }
+        do {
+            System.out.println("Marca si se ha pasado la partida. (Si/No).");
+            String option = sc.nextLine();
+            String lowerCase = option.toLowerCase();
+            char election = lowerCase.charAt(1);
 
-            do {
-                System.out.println("Marca si se ha pasado la partida. (Si/No).");
-                String choose = sc.nextLine().trim().toLowerCase();
-
-                if (choose.equals("si")) {
-                    finished = true;
-                    exit = false;
-                } else if (choose.equals("no")) {
-                    finished = false;
-                    exit = false;
-                } else {
-                    System.out.println("Error, escribe 'si' o 'no'.");
-                }
-            } while (exit);
-
-            if (finished) {
+            if (election == 's') {
+                finished = true;
+                exit = false;
                 session.setFinished(true);
                 service.updateSession(session);
-                System.out.println("Sesión marcada como pasada.");
-            } else {
+                System.out.println("Sesion marcada como pasada.");
+            } else if (election == 'n') {
+                finished = false;
+                exit = false;
+                session.setFinished(false);
+                service.updateSession(session);
                 System.out.println("La sesión no ha sido marcada como pasada.");
+            } else {
+                System.out.println("Porfavor escriba si o no:");
             }
-        }
+        } while (exit);
     }
+}

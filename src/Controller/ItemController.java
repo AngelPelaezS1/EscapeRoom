@@ -21,7 +21,7 @@ public class ItemController {
         String material;
         float price;
         showRooms();
-        System.out.println("Selecciona la posicion de la habitacion a la que quieres añadir un objeto");
+        System.out.println("Selecciona la posicion de la habitacion a la que quieres añadir un objeto.");
         choose = sc.nextInt();
         sc.nextLine();
         Room room = roomService.getRoom(choose);
@@ -35,6 +35,7 @@ public class ItemController {
         sc.nextLine();
         Item item = new Item(name, material, price, idRoom);
         itemService.addItem(item);
+        System.out.println("Objeto creado con exito.");
     }
 
     public void showItem() {
@@ -44,11 +45,12 @@ public class ItemController {
         int choose;
         int idRoom;
         showRooms();
-        System.out.println("Selecciona la posicion de la habitacion de que quieres mostrar  objetos");
+        System.out.println("Selecciona la posicion de la sala de que quieres mostrar  objetos.");
         choose = sc.nextInt();
         sc.nextLine();
         Room room = roomService.getRoom(choose);
         idRoom = room.getId();
+        System.out.println("Lista de objetos de la sala " +room.getName()+ ":");
         itemService.seeItem();
     }
 
@@ -57,10 +59,11 @@ public class ItemController {
         ItemService service = new ItemService();
         int choose;
         showItem();
-        System.out.println("Selecciona la posicion del objeto que quieres eliminar)");
+        System.out.println("Selecciona la posicion del objeto que quieres eliminar.");
         choose = sc.nextInt();
         sc.nextLine();
         service.deleteItem(choose);
+        System.out.println("Objeto eliminado con exito.");
     }
 
     public void modyfyItem() {
@@ -73,15 +76,15 @@ public class ItemController {
         float price;
 
         showItem();
-        System.out.println("Selecciona la posicion del objeto que quieres modificar");
+        System.out.println("Selecciona la posicion del objeto que quieres modificar.");
         choose = sc.nextInt();
         sc.nextLine();
         Item item = service.getItem(choose);
         idRoom = item.getRoomId();
         System.out.println("Que quieres modificar:");
-        System.out.println("1.-Nombre");
-        System.out.println("2.-Material");
-        System.out.println("3.-Price");
+        System.out.println("1.-Nombre.");
+        System.out.println("2.-Material.");
+        System.out.println("3.-Price.");
         choose = sc.nextInt();
         sc.nextLine();
 
@@ -91,12 +94,14 @@ public class ItemController {
                 name = sc.nextLine();
                 item.setName(name);
                 service.updateItem(item);
+                System.out.println("Nombre actualizado.");
                 break;
             case 2:
                 System.out.println("De que material esta hecho?");
                 material = sc.nextLine();
                 item.setMaterial(material);
                 service.updateItem(item);
+                System.out.println("Material actualizado.");
                 break;
             case 3:
                 System.out.println("Que precio tiene ? ");
@@ -104,9 +109,10 @@ public class ItemController {
                 sc.nextLine();
                 item.setPrice(price);
                 service.updateItem(item);
+                System.out.println("Precio actualizado.");
                 break;
             default:
-                System.out.println("Introduce un numero del 1 al 3");
+                System.out.println("Introduce un numero del 1 al 3.");
         }
     }
 }

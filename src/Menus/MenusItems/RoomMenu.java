@@ -12,6 +12,8 @@ public class RoomMenu {
         boolean exit = true;
         do {
             try {
+
+                System.out.println(" ");
                 System.out.println("***Bienvenido al gestor de salas***");
                 System.out.println("1.-Crear sala");
                 System.out.println("2.-Eliminar sala");

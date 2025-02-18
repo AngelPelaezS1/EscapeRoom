@@ -2,12 +2,10 @@ package Controller;
 
 import Model.Room;
 import Model.Track;
-
-import java.util.Scanner;
-
-import Controller.RoomController;
 import Services.RoomService;
 import Services.TrackService;
+
+import java.util.Scanner;
 
 import static Controller.RoomController.showRooms;
 
@@ -23,7 +21,7 @@ public class TrackController {
         int choose = sc.nextInt();
         sc.nextLine();
         Room room= roomService.getRoom(choose);
-        idRooms=room.getId();
+        idRooms = room.getId();
 
         System.out.println("Introduce el nombre de la pista.");
         String name = sc.nextLine();
@@ -31,9 +29,9 @@ public class TrackController {
         String topics = sc.nextLine();
         System.out.println("Haz una breve descripcion.");
         String details = sc.nextLine();
-        sc.nextLine();
         Track track = new Track(name, topics,details,idRooms);
         service.addTrack(track);
+        System.out.println("Pista añadida con exito.");
     }
 
     public void showTracks(){
@@ -61,6 +59,7 @@ public class TrackController {
             sc.nextLine();
         }
         trackService.deleteTrack(index);
+        System.out.println("Pista eliminada con exito.");
     }
 
 
@@ -88,18 +87,21 @@ public class TrackController {
                 String newName = sc.nextLine();
                 track.setName(newName);
                 trackService.updateTrack(track);
+                System.out.println("Nombre actualizado.");
                 break;
             case 2:
                 System.out.println("Introduce el nuevo tema.");
                 String newTopic = sc.nextLine();
                 track.setTopics(newTopic);
                 trackService.updateTrack(track);
+                System.out.println("Tema actualizado.");
                 break;
             case 3:
                 System.out.println("Introduce la nueva descripcion.");
                 String newDetails = sc.nextLine();
                 track.setDetails(newDetails);
                 trackService.updateTrack(track);
+                System.out.println("Descripcion actualizada.");
                 break;
             default:
                 System.out.println("Introduce un numero del 1 al 3.");

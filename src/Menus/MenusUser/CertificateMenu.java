@@ -1,7 +1,8 @@
 package Menus.MenusUser;
 
-import java.util.Scanner;
 import Controller.CertificateController;
+
+import java.util.Scanner;
 
 public class CertificateMenu {
     public void certificateStart() {
@@ -10,6 +11,7 @@ public class CertificateMenu {
     boolean exit = true;
     do {
         try {
+
             System.out.println(" ");
             System.out.println("*** Gestor de certificados***");
             System.out.println("1.-Historico de Certificados");
