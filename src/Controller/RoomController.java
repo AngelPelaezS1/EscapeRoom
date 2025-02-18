@@ -1,15 +1,17 @@
 package Controller;
 
 import Model.Room;
+import Services.RoomService;
 
 import java.util.Scanner;
-
 import static Services.RoomService.*;
+
 
 public class RoomController {
     static Scanner sc = new Scanner(System.in);
 
     public static void createRoom(){
+        RoomService service= new RoomService();
         System.out.println("Introduce el nombre de la habitacion.");
         String name = sc.nextLine();
         System.out.println("Introduce la dificultad (1-10).");
@@ -22,14 +24,16 @@ public class RoomController {
         }
         System.out.println("Sala " +name+ ", creada con exito.");
         Room room = new Room(name, difficulty);
-        addRoom(room);
+        service.addRoom(room);
     }
 
     public static void showRooms() {
-        seeRooms();
+        RoomService service =new RoomService();
+        service.seeRooms();
     }
 
     public static void removeRoom(){
+        RoomService service= new RoomService();
         System.out.println("Lista de rooms:");
         showRooms();
         System.out.println("Introduce la posicion de la sala a eliminar.");
@@ -42,10 +46,11 @@ public class RoomController {
             sc.nextLine();
         }
         System.out.println("Sala eliminada con exito.");
-        deleteRoom(index);
+        service.deleteRoom(index);
     }
 
     public static void modifyRoom(){
+        RoomService service= new RoomService();
         showRooms();
         System.out.println("Introduce la posicion de la sala a modificar.");
         int index = sc.nextInt();
@@ -57,7 +62,7 @@ public class RoomController {
             sc.nextLine();
         }
 
-        Room room = getRoom(index);
+        Room room = service.getRoom(index);
 
             System.out.println("Elige una opción: 1-Nombre, 2-Dificultad.");
             int choose = sc.nextInt();
@@ -68,7 +73,7 @@ public class RoomController {
                     System.out.println("Introduce el nuevo nombre:");
                     String newName = sc.nextLine();
                     room.setName(newName);
-                    updateRoom(room);
+                    service.updateRoom(room);
                     System.out.println("Nombre actualizado.");
                     break;
                 case 2:
@@ -76,7 +81,7 @@ public class RoomController {
                     int newDifficulty = sc.nextInt();
                     sc.nextLine();
                     room.setDifficulty(newDifficulty);
-                    updateRoom(room);
+                    service.updateRoom(room);
                     System.out.println("Dificultad actualizada.");
                     break;
                 default:
