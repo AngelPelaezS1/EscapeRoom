@@ -2,12 +2,8 @@ package Menus.MenusUser;
 
 import java.util.Scanner;
 
-import static Menus.MenusUser.CertificateMenu.certificateStart;
-import static Menus.MenusUser.ClientMenu.clientStart;
-import static Menus.MenusUser.TicketMenu.ticketStart;
-
 public class UserMenu {
-    public static void userStart() {
+    public void userStart() {
         Scanner sc = new Scanner(System.in);
         int choose;
         boolean exit = true;
@@ -26,11 +22,14 @@ public class UserMenu {
                 sc.nextLine();
 
                 switch (choose) {
-                    case 1:clientStart();
+                    case 1:ClientMenu clientMenu = new ClientMenu();
+                           clientMenu.clientStart();
                         break;
-                    case 2:ticketStart();
+                    case 2:TicketMenu ticketMenu = new TicketMenu();
+                           ticketMenu.ticketStart();
                         break;
-                    case 3:certificateStart();
+                    case 3:CertificateMenu certificateMenu = new CertificateMenu();
+                           certificateMenu.certificateStart();
                         break;
                     case 4:
                         exit = false;

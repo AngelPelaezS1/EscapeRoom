@@ -1,11 +1,11 @@
 package Menus.MenusUser;
 
+import Controller.TicketController;
+
 import java.util.Scanner;
 
-import static Controller.TicketController.*;
-
 public class TicketMenu {
-    public static void ticketStart() {
+    public void ticketStart() {
         Scanner sc = new Scanner(System.in);
         int choose;
         boolean exit = true;
@@ -24,17 +24,17 @@ public class TicketMenu {
                 sc.nextLine();
 
                 switch (choose) {
-                    case 1:
-                        createTicketClient();
+                    case 1: TicketController ticketController  = new TicketController();
+                            ticketController.createTicketClient();
                         break;
-                    case 2:
-                        createTicket();
+                    case 2: TicketController ticketController1  = new TicketController();
+                            ticketController1.createTicket();
                         break;
-                    case 3:
-                       showTicket();
+                    case 3: TicketController ticketController2  = new TicketController();
+                            ticketController2.showTicket();
                        break;
-                    case 4:
-                        deleteTicket();
+                    case 4: TicketController ticketController3  = new TicketController();
+                            ticketController3.deleteTicket();
                     case 5:
                         exit=false;
                     default:

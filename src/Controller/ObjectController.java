@@ -1,18 +1,16 @@
 package Controller;
 
-import Model.Item;
-import Model.Room;
-import Services.RoomService;
+import Model.Object;
 
+import javax.xml.transform.Source;
 import java.util.Scanner;
 
 import static Controller.RoomController.showRooms;
 
-public class ItemController {
+public class ObjectController {
 
-    public void createObject(){
+    public static void createObject(){
         Scanner sc= new Scanner(System.in);
-        RoomService service= new RoomService();
         int choose;
         int idRoom=0;
         String name;
@@ -22,8 +20,8 @@ public class ItemController {
         System.out.println("Selecciona la posicion de la habitacion a la que quieres añadir un objeto");
         choose=sc.nextInt();
         sc.nextLine();
-        Room room =service.getRoom(choose);
-        idRoom=room.getId();
+        //metodo servicio que devuelva la room por posicion
+        // room.getId(idRoom);
         System.out.println("Cual es el nombre del objeto?");
         name=sc.nextLine();
         System.out.println("Cual es el material del objeto?");
@@ -31,23 +29,19 @@ public class ItemController {
         System.out.println("Cual es el precio del objeto?");
         price=sc.nextFloat();
         sc.nextLine();
-        Item item =new Item(name, material,price,idRoom);
+        Object object =new Object(name, material,price,idRoom);
         // metodo servicio crear objeto
     }
-    public void showObject(){
+    public static void showObject(){
         Scanner sc= new Scanner(System.in);
-        RoomService service= new RoomService();
         int choose;
-        int idRoom;
         showRooms();
         System.out.println("Selecciona la posicion de la habitacion de que quieres mostrar  objetos");
         choose=sc.nextInt();
         sc.nextLine();
-        Room room =service.getRoom(choose);
-        idRoom=room.getId();
         //metodo servicio que devuelva los objetos de la room;
     }
-    public void removeObject(){
+    public static void removeObject(){
         Scanner sc= new Scanner(System.in);
         int choose;
         showObject();
@@ -57,7 +51,7 @@ public class ItemController {
         // metodo servivcio que devuelva objeto por posicion;
         //metodo servicio para eliminar por posicion;
     }
-    public void modyfyObject(){
+    public static void modyfyObject(){
         Scanner sc= new Scanner(System.in);
         int choose;
         int idRoom;

@@ -10,7 +10,7 @@ import static Controller.ClientController.showClient;
 
 
 public class CertificateController {
-    public static void createCertificate(){
+    public void createCertificate(){
         Scanner sc= new Scanner(System.in);
         ClientService service= new ClientService();
         String name="Certificate";
@@ -27,10 +27,10 @@ public class CertificateController {
         Certificate certificate= new Certificate(name,achievement,gift,clientId);
         //addCertificate;
     }
-    public static void  showCertificate(){
+    public void showCertificate(){
         //metodo servicio que devuelve los certificados y el nombre de los clientes;
     }
-    public static void deleteCertificate(){
+    public void deleteCertificate(){
         Scanner sc= new Scanner(System.in);
         int choose;
         showCertificate();

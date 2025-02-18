@@ -1,5 +1,6 @@
 package Controller;
 
+import Menus.MenusItems.RoomMenu;
 import Model.Client;
 import Model.Room;
 import Model.Ticket;
@@ -8,12 +9,20 @@ import Services.RoomService;
 
 import java.util.Scanner;
 
+
 import static Controller.ClientController.createClient;
 import static Controller.ClientController.showClient;
 import static Controller.RoomController.showRooms;
 
+import Controller.ClientController;
+import Controller.ClientController;
+import Controller.RoomController;
+import Services.ClientService;
+import Services.RoomService;
+
+
 public class TicketController {
-    public static void createTicketClient(){
+    public void createTicketClient(){
         Scanner sc= new Scanner(System.in);
         RoomService roomService=new RoomService();
         ClientService clientService=new ClientService();
@@ -23,6 +32,7 @@ public class TicketController {
         float price= 24.95f;
 
         System.out.println("Selecciona la posicion de la room a la que quieres añadir un ticket:");
+        RoomMenu roomMenu = new RoomMenu();
         showRooms();
         choose=sc.nextInt();
         sc.nextLine();
@@ -44,7 +54,7 @@ public class TicketController {
         //metodo servicio para asignar tiket a user
         System.out.println("Se le ha asignado ticket");
     }
-    public static void createTicket(){
+    public void createTicket(){
         Scanner sc= new Scanner(System.in);
         RoomService roomService= new RoomService();
         int idUser;
@@ -66,8 +76,10 @@ public class TicketController {
         Ticket ticket= new Ticket(idUser,price);
         //metodo servicio para asignar tiket a user;
     }
+
     public static void showTicket(){
         ClientService clientService = new ClientService();
+
         Scanner sc= new Scanner(System.in);
         int idUser=0;
         int choose;
@@ -78,7 +90,7 @@ public class TicketController {
         Client client=clientService.getClient(choose);
         //print tiket por posicion ;
     }
-    public static void deleteTicket(){
+    public void deleteTicket(){
         Scanner sc=new Scanner(System.in);
         int choose;
         showTicket();

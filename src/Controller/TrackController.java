@@ -4,12 +4,12 @@ import Model.Track;
 
 import java.util.Scanner;
 
-import static Controller.RoomController.showRooms;
+import Controller.RoomController;
 
 public class TrackController {
     static Scanner sc = new Scanner(System.in);
 
-    public static void createTrack(){
+    public void createTrack(){
         int idRooms = 0;
         showRooms();
         System.out.println("Introduce la posicion de la room a la quieres añadir la pista.");
@@ -32,7 +32,7 @@ public class TrackController {
         //metodo para añadir una nueva track
     }
 
-    public static void showTracks(){
+    public void showTracks(){
         showRooms();
         System.out.println("Introduce la posicion de la room que quieras ver las pistas.");
         int indice = sc.nextInt();
@@ -45,7 +45,7 @@ public class TrackController {
 
 
 
-    public static void removeTrack(){
+    public void removeTrack(){
         showTracks();
         System.out.println("Introduce la posicion de la pista a eliminar.");
         int index = sc.nextInt();
@@ -60,7 +60,7 @@ public class TrackController {
     }
 
 
-    public static void modifyTrack(){
+    public void modifyTrack(){
         showTracks();
         System.out.println("Introduce la posicion de la pista a modificar.");
         int index = sc.nextInt();

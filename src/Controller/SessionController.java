@@ -14,9 +14,11 @@ import static Controller.RoomController.showRooms;
 public class SessionController {
     static Scanner sc = new Scanner(System.in);
 
+
     public static void createSesion() {
         RoomService service= new RoomService();
         SessionService sessionService= new SessionService();
+
         int idRooms = 0;
 
         System.out.println("Lista de salas:");
@@ -45,8 +47,10 @@ public class SessionController {
 
     }
 
+
     public static void removeSession() {
         SessionService service= new SessionService();
+
         showSessions();
         System.out.println("Introduce la posicion de la sesion a eliminar.");
         int index = sc.nextInt();
@@ -70,6 +74,7 @@ public class SessionController {
 
     public static void markSessionAsPassed() {
         SessionService service= new SessionService();
+
         boolean finished = true;
         boolean exit = true;
         showSessions();
