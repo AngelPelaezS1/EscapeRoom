@@ -7,7 +7,7 @@ import static Services.ClientService.*;
 
 public class ClientController {
 
-    public static Client createClient(int sesionID) {
+    public Client createClient(int sesionID) {
         Scanner sc = new Scanner(System.in);
         ClientService service= new ClientService();
         String name;
@@ -43,12 +43,15 @@ public class ClientController {
         return client;
     }
 
+
     public static void showClient(){
         ClientService service=new ClientService();
         service.seeClients();
+
+
     }
 
-    public static void removeClient(){
+    public void removeClient(){
         Scanner sc= new Scanner(System.in);
         ClientService service=new ClientService();
         int choose;
@@ -58,7 +61,7 @@ public class ClientController {
         sc.nextLine();
         service.deleteClient(choose);
     }
-    public static void modifyClient(){
+    public void modifyClient(){
         Scanner sc= new Scanner(System.in);
        ClientService service =new ClientService();
         int choose;

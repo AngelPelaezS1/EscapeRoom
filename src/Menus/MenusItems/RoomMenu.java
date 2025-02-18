@@ -1,12 +1,12 @@
 package Menus.MenusItems;
 
-import java.util.Scanner;
+import Controller.RoomController;
 
-import static Controller.RoomController.*;
+import java.util.Scanner;
 
 public class RoomMenu {
 
-    public static void roomStart() {
+    public void roomStart() {
         Scanner sc = new Scanner(System.in);
         int choose;
         boolean exit = true;
@@ -24,14 +24,17 @@ public class RoomMenu {
                 sc.nextLine();
 
                 switch (choose) {
-                    case 1: createRoom();
+                    case 1: RoomController roomController = new RoomController();
+                            roomController.createRoom();
                         break;
-                    case 2: removeRoom();
+                    case 2: RoomController roomController1 = new RoomController();
+                            roomController1.removeRoom();
                         break;
-                    case 3: showRooms();
+                    case 3: RoomController roomController2 = new RoomController();
+                            roomController2.showRooms();
                         break;
-                    case 4: modifyRoom();
-
+                    case 4: RoomController roomController3 = new RoomController();
+                            roomController3.modifyRoom();
                         break;
                     case 5:
                         exit = false;

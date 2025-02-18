@@ -1,12 +1,12 @@
 package Menus.MenusItems;
 
-import java.util.Scanner;
+import Controller.TrackController;
 
-import static Controller.TrackController.*;
+import java.util.Scanner;
 
 public class TrackMenu {
 
-    public static void trackStart() {
+    public void trackStart() {
         Scanner sc = new Scanner(System.in);
         int choose;
         boolean exit = true;
@@ -24,13 +24,17 @@ public class TrackMenu {
                 sc.nextLine();
 
                 switch (choose) {
-                    case 1: createTrack();
+                    case 1: TrackController trackController = new TrackController();
+                            trackController.createTrack();
                         break;
-                    case 2: removeTrack();
+                    case 2: TrackController trackController1 = new TrackController();
+                            trackController1.removeTrack();
                         break;
-                    case 3: showTracks();
+                    case 3: TrackController trackController2 = new TrackController();
+                            trackController2.showTracks();
                         break;
-                    case 4: modifyTrack();
+                    case 4: TrackController trackController3 = new TrackController();
+                            trackController3.modifyTrack();
                         break;
                     case 5:
                         exit = false;

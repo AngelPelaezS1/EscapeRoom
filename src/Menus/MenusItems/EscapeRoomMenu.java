@@ -1,14 +1,9 @@
 package Menus.MenusItems;
 
 import java.util.Scanner;
-
-import static Menus.MenusItems.TrackMenu.trackStart;
-import static Menus.MenusItems.ItemMenu.itemStart;
-import static Menus.MenusItems.RoomMenu.roomStart;
-import static Menus.MenusItems.SessionMenu.sessionStart;
 public class EscapeRoomMenu {
 
-    public static void escapeRoomStart() {
+    public void escapeRoomStart() {
 
         Scanner sc = new Scanner(System.in);
         int choose;
@@ -31,13 +26,17 @@ public class EscapeRoomMenu {
 
                 switch (choose) {
 
-                    case 1: roomStart();
+                    case 1: RoomMenu roomMenu = new RoomMenu();
+                            roomMenu.roomStart();
                     break;
-                    case 2: sessionStart();
+                    case 2: SessionMenu sessionMenu = new SessionMenu();
+                            sessionMenu.sessionStart();
                     break;
-                    case 3: itemStart();
+                    case 3: ItemMenu itemMenu = new ItemMenu();
+                            itemMenu.itemStart();
                     break;
-                    case 4: trackStart();
+                    case 4: TrackMenu trackMenu = new TrackMenu();
+                            trackMenu.trackStart();
                     break;
                     case 5: exit = false;
                     break;

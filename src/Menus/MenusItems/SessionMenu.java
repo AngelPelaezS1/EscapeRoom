@@ -1,12 +1,12 @@
 package Menus.MenusItems;
 
-import java.util.Scanner;
+import Controller.SessionController;
 
-import static Controller.SessionController.*;
+import java.util.Scanner;
 
 public class SessionMenu {
 
-    public static void sessionStart(){
+    public void sessionStart(){
         Scanner sc = new Scanner(System.in);
         int choose;
         boolean exit = true;
@@ -24,13 +24,18 @@ public class SessionMenu {
                 sc.nextLine();
 
                 switch (choose) {
-                    case 1: createSesion();
+                    case 1:
+                            SessionController sessionController = new SessionController();
+                            sessionController.createSesion();
                         break;
-                    case 2: removeSession();
+                    case 2: SessionController sessionController1 = new SessionController();
+                            sessionController1.removeSession();
                         break;
-                    case 3: showSessions();
+                    case 3: SessionController sessionController2 = new SessionController();
+                            sessionController2.showSessions();
                         break;
-                    case 4: markSessionAsPassed();
+                    case 4: SessionController sessionController3 = new SessionController();
+                            sessionController3.markSessionAsPassed();
                         break;
                     case 5:
                         exit = false;

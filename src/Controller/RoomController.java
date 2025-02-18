@@ -10,8 +10,10 @@ import static Services.RoomService.*;
 public class RoomController {
     static Scanner sc = new Scanner(System.in);
 
+
     public static void createRoom(){
         RoomService service= new RoomService();
+
         System.out.println("Introduce el nombre de la habitacion.");
         String name = sc.nextLine();
         System.out.println("Introduce la dificultad (1-10).");
@@ -27,10 +29,7 @@ public class RoomController {
         service.addRoom(room);
     }
 
-    public static void showRooms() {
-        RoomService service =new RoomService();
-        service.seeRooms();
-    }
+
 
     public static void removeRoom(){
         RoomService service= new RoomService();
@@ -49,8 +48,10 @@ public class RoomController {
         service.deleteRoom(index);
     }
 
+
     public static void modifyRoom(){
         RoomService service= new RoomService();
+
         showRooms();
         System.out.println("Introduce la posicion de la sala a modificar.");
         int index = sc.nextInt();
