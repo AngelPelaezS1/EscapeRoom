@@ -2,19 +2,23 @@ package Controller;
 
 import Model.Room;
 import Model.Session;
+import Services.RoomService;
+import Services.SessionService;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 import static Controller.RoomController.showRooms;
-import static Services.RoomService.getRoom;
-import static Services.SessionService.*;
 
 public class SessionController {
     static Scanner sc = new Scanner(System.in);
 
-    public void createSesion() {
+
+    public static void createSesion() {
+        RoomService service= new RoomService();
+        SessionService sessionService= new SessionService();
+
         int idRooms = 0;
 
         System.out.println("Lista de salas:");
@@ -24,7 +28,7 @@ public class SessionController {
         int index = sc.nextInt();
         sc.nextLine();
 
-        Room room = getRoom(index);
+        Room room = service.getRoom(index);
         idRooms = room.getId();
 
         System.out.println("Introduce fecha y hora (yyyy-MM-dd HH:mm.)");
@@ -39,11 +43,14 @@ public class SessionController {
         sc.nextLine();
 
         Session session = new Session(playedTime, idRooms);
-        addSession(session);
+        sessionService.addSession(session);
 
     }
 
-    public void removeSession() {
+
+    public static void removeSession() {
+        SessionService service= new SessionService();
+
         showSessions();
         System.out.println("Introduce la posicion de la sesion a eliminar.");
         int index = sc.nextInt();
@@ -55,17 +62,19 @@ public class SessionController {
             sc.nextLine();
         }
 
-        deleteSession(index);
+        service.deleteSession(index);
       
         System.out.println("Sesion eliminada con exito.");
     }
 
-    public void showSessions() {
-        seeSessions();
-
+    public static void showSessions() {
+        SessionService service= new SessionService();
+        service.seeSessions();
     }
 
-    public void markSessionAsPassed() {
+    public static void markSessionAsPassed() {
+        SessionService service= new SessionService();
+
         boolean finished = true;
         boolean exit = true;
         showSessions();
@@ -79,7 +88,7 @@ public class SessionController {
             sc.nextLine();
         }
 
-        Session session = getSession(index);
+        Session session = service.getSession(index);
 
         if (session.isFinished()) {
             System.out.println("Esta sesión ya está marcada como pasada.");
@@ -103,7 +112,7 @@ public class SessionController {
 
             if (finished) {
                 session.setFinished(true);
-                updateSession(session);
+                service.updateSession(session);
                 System.out.println("Sesión marcada como pasada.");
             } else {
                 System.out.println("La sesión no ha sido marcada como pasada.");

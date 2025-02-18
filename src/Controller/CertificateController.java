@@ -2,6 +2,7 @@ package Controller;
 
 import Model.Certificate;
 import Model.Client;
+import Services.ClientService;
 
 import java.util.Scanner;
 
@@ -11,6 +12,7 @@ import static Services.ClientService.getClient;
 public class CertificateController {
     public void createCertificate(){
         Scanner sc= new Scanner(System.in);
+        ClientService service= new ClientService();
         String name="Certificate";
         String achievement="felicidades te has pasado la sala";
         String gift="Enhorabuena, has ganado una taza";
@@ -20,7 +22,7 @@ public class CertificateController {
         showClient();
         choose=sc.nextInt();
         sc.nextLine();
-        Client client= getClient(choose);
+        Client client= service.getClient(choose);
         clientId=client.getId();
         Certificate certificate= new Certificate(name,achievement,gift,clientId);
         //addCertificate;
