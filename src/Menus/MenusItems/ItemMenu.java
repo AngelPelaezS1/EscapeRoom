@@ -2,7 +2,8 @@ package Menus.MenusItems;
 
 import java.util.Scanner;
 
-import static Controller.ObjectController.*;
+import static Controller.ItemController.*;
+
 
 public class ItemMenu {
 

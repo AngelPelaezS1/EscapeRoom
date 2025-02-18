@@ -7,7 +7,7 @@ import Services.ClientService;
 import java.util.Scanner;
 
 import static Controller.ClientController.showClient;
-import static Services.ClientService.getClient;
+
 
 public class CertificateController {
     public static void createCertificate(){
