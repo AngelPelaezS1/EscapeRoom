@@ -1,34 +1,33 @@
 package Connections.Query;
 import Connections.ConnectionSQL;
-import Model.Item;
+import Model.Track;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class ExecuteQueryItem {
-    private Item item;
+public class ExecuteQueryTrack {
+    private Track track;
 
-    public Item getItem() {return this.item;}
+    public Track getTrack() {return this.track;}
 
-    public ExecuteQueryItem(String query){
+    public ExecuteQueryTrack(String query){
         ConnectionSQL connectionSQL = ConnectionSQL.getInstanceConnectionSQL();
         try (Connection connection = ConnectionSQL.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            if(query.contains("SELECT * FROM objects ORDER BY id LIMIT 1 OFFSET ")){
+            if(query.contains("SELECT * FROM tracks ORDER BY id LIMIT 1 OFFSET ")){
                 ResultSet rs = preparedStatement.executeQuery();
                 if (rs.next()) {
-                    int id = rs.getInt("id");
                     String name = rs.getString("name");
-                    String material = rs.getString("material");
-                    float price = rs.getFloat("price");
+                    String topics = rs.getString("topics");
+                    String track_details = rs.getString("track_details");
                     int rooms_id = rs.getInt("rooms_id");
-                    this.item=new Item(id, name, material, price, rooms_id);
+                    this.track=new Track(name, topics, track_details, rooms_id);
                 } else {
-                    System.out.println("No se encontró ninguna objecto con ID ");
+                    System.out.println("No se encontró ningun track con ID ");
                 }
-            }else if(query.contains("SELECT name FROM objects")){
+            }else if(query.contains("SELECT name FROM tracks")){
                 ResultSet rs = preparedStatement.executeQuery();
                 System.out.println("Lista :");
                 while (rs.next()) {

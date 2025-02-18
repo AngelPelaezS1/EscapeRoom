@@ -20,10 +20,10 @@ public class ItemService {
 
     public Item getItem(int itemPosition){
         ExecuteQueryItem executeQueryItem =new ExecuteQueryItem("SELECT * FROM objects ORDER BY id LIMIT 1 OFFSET "+(itemPosition-1));
-        return ExecuteQueryItem.getItem();
+        return executeQueryItem.getItem();
     }
 
-    public void updateObject(Item item){
+    public void updateItem(Item item){
         ExecuteQueryItem executeQueryItem =new ExecuteQueryItem("UPDATE objects SET name = '"+item.getName()+"', material = '"+item.getMaterial()+"', price = "+item.getPrice()+", rooms_Id = "+item.getRoomId()+" WHERE id = "+item.getId());
     }
 }

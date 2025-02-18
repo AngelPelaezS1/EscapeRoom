@@ -1,34 +1,35 @@
 package Connections.Query;
 import Connections.ConnectionSQL;
-import Model.Item;
-
+import Model.Certificate;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class ExecuteQueryItem {
-    private Item item;
+public class ExecuteQueryCertificate {
+    private Certificate certificate;
 
-    public Item getItem() {return this.item;}
+    public Certificate getCertificate() {
+        return this.certificate;
+    }
 
-    public ExecuteQueryItem(String query){
+    public ExecuteQueryCertificate(String query){
         ConnectionSQL connectionSQL = ConnectionSQL.getInstanceConnectionSQL();
         try (Connection connection = ConnectionSQL.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            if(query.contains("SELECT * FROM objects ORDER BY id LIMIT 1 OFFSET ")){
+            if(query.contains("SELECT * FROM certificates ORDER BY id LIMIT 1 OFFSET ")){
                 ResultSet rs = preparedStatement.executeQuery();
                 if (rs.next()) {
                     int id = rs.getInt("id");
                     String name = rs.getString("name");
-                    String material = rs.getString("material");
-                    float price = rs.getFloat("price");
-                    int rooms_id = rs.getInt("rooms_id");
-                    this.item=new Item(id, name, material, price, rooms_id);
+                    String achievement = rs.getString("achievement");
+                    String gift = rs.getString("gift");
+                    int players_id = rs.getInt("players_id");
+                    this.certificate=new Certificate(id, name, achievement, gift, players_id);
                 } else {
-                    System.out.println("No se encontró ninguna objecto con ID ");
+                    System.out.println("No se encontró ninguna certificate con ID ");
                 }
-            }else if(query.contains("SELECT name FROM objects")){
+            }else if(query.contains("SELECT name FROM certificates")){
                 ResultSet rs = preparedStatement.executeQuery();
                 System.out.println("Lista :");
                 while (rs.next()) {

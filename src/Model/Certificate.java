@@ -14,6 +14,14 @@ public class Certificate {
         this.playersId = playersId;
     }
 
+    public Certificate(int id, String name, String achievement, String gift, int playersId) {
+        this.id = id;
+        this.name = name;
+        this.achievement = achievement;
+        this.gift = gift;
+        this.playersId = playersId;
+    }
+
     public int getId() {
         return id;
     }
