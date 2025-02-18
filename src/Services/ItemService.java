@@ -4,11 +4,7 @@ import Model.Item;
 
 public class ItemService {
     public void addItem(Item item){
-        String name=item.getName();
-        String material=item.getMaterial();
-        float price=item.getPrice();
-        int rooms_Id=item.getId();
-        ExecuteQueryItem executeQueryItem =new ExecuteQueryItem("INSERT INTO objects (name, material, price, rooms_Id) VALUES ('"+name+"', '"+material+"', "+price+", "+rooms_Id+")");
+        ExecuteQueryItem executeQueryItem =new ExecuteQueryItem("INSERT INTO objects (name, material, price, rooms_Id) VALUES ('"+item.getName()+"', '"+item.getMaterial()+"', "+item.getPrice()+", "+item.getId()+")");
     }
     public void deleteItem(int itemPosition){
         ExecuteQueryItem executeQueryItem =new ExecuteQueryItem("DELETE FROM objects WHERE id = ( " +

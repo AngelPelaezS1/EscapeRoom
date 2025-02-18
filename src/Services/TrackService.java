@@ -5,11 +5,7 @@ import Model.Track;
 
 public class TrackService {
     public void addTrack(Track track){
-        String name=track.getName();
-        String topics=track.getTopics();
-        String track_details=track.getDetails();
-        int rooms_Id=track.getId();
-        ExecuteQueryTrack executeQueryTrack =new ExecuteQueryTrack("INSERT INTO tracks (name, topics, track_details, rooms_Id) VALUES ('"+name+"', '"+topics+"', '"+track_details+"', "+rooms_Id+")");
+        ExecuteQueryTrack executeQueryTrack =new ExecuteQueryTrack("INSERT INTO tracks (name, topics, track_details, rooms_Id) VALUES ('"+track.getName()+"', '"+track.getTopics()+"', '"+track.getDetails()+"', "+track.getId()+")");
     }
     public void deleteTrack(int trackPosition){
         ExecuteQueryTrack executeQueryTrack =new ExecuteQueryTrack("DELETE FROM tracks WHERE id = ( " +

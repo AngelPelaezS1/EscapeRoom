@@ -5,12 +5,9 @@ import java.time.LocalDateTime;
 
 public class SessionService {
     public void addSession(Session session){
-        LocalDateTime played_time=session.getPlayedTime();
-        boolean finished=session.isFinished();
         int finichedBoolean=0;
-        if(finished){finichedBoolean=1;}
-        int rooms_id=session.getRoomId();
-        ExecuteQuerySession executeQuerySession =new ExecuteQuerySession("INSERT INTO sessions (played_time, finished, rooms_id) VALUES ('"+played_time+"', "+finichedBoolean+", "+rooms_id+")");
+        if(session.isFinished()){finichedBoolean=1;}
+        ExecuteQuerySession executeQuerySession =new ExecuteQuerySession("INSERT INTO sessions (played_time, finished, rooms_id) VALUES ('"+session.getPlayedTime()+"', "+finichedBoolean+", "+session.getRoomId()+")");
     }
     public void deleteSession(int sessionPosition){
         ExecuteQuerySession executeQuerySession =new ExecuteQuerySession("DELETE FROM sessions WHERE id = ( " +

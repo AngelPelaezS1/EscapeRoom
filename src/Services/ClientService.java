@@ -4,12 +4,9 @@ import Model.Client;
 
 public class ClientService {
     public void addClient(Client client){
-        String name=client.getName();
-        String mail=client.getMail();
         int notifications=0;
         if(client.isNotifications()==true){notifications=1;}
-        int sesionId=client.getSesionId();
-        ExecuteQueryClient executeQueryClient =new ExecuteQueryClient("INSERT INTO clients (name, mail, notification, sessions_id) VALUES ('"+name+"', '"+mail+"', "+notifications+", "+sesionId+")");
+        ExecuteQueryClient executeQueryClient =new ExecuteQueryClient("INSERT INTO clients (name, mail, notification, sessions_id) VALUES ('"+client.getName()+"', '"+client.getMail()+"', "+notifications+", "+client.getSesionId()+")");
     }
     public void deleteClient(int clientPosition){
         ExecuteQueryClient executeQueryClient =new ExecuteQueryClient("DELETE FROM clients WHERE id = ( " +
