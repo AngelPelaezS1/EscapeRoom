@@ -1,10 +1,13 @@
 package Controller;
 
+import Model.Room;
 import Model.Track;
 
 import java.util.Scanner;
 
 import Controller.RoomController;
+import Services.RoomService;
+import Services.TrackService;
 
 import static Controller.RoomController.showRooms;
 
@@ -13,12 +16,14 @@ public class TrackController {
 
     public void createTrack(){
         int idRooms = 0;
+        RoomService roomService= new RoomService();
+        TrackService service=new TrackService();
         showRooms();
         System.out.println("Introduce la posicion de la room a la quieres añadir la pista.");
-        int indice = sc.nextInt();
+        int choose = sc.nextInt();
         sc.nextLine();
-        //metodo para que devuelva room
-        //room.getId(indice);
+        Room room= roomService.getRoom(choose);
+        idRooms=room.getId();
 
         System.out.println("Introduce el nombre de la pista.");
         String name = sc.nextLine();
@@ -26,29 +31,26 @@ public class TrackController {
         String topics = sc.nextLine();
         System.out.println("Haz una breve descripcion.");
         String details = sc.nextLine();
-        System.out.println("Introduce a que room pertenece la pista.");
-        int roomId = sc.nextInt();
         sc.nextLine();
-        Track track = new Track(name, topics,details,roomId);
-
-        //metodo para añadir una nueva track
+        Track track = new Track(name, topics,details,idRooms);
+        service.addTrack(track);
     }
 
     public void showTracks(){
+        TrackService service=new TrackService();
+        RoomService roomService= new RoomService();
         showRooms();
         System.out.println("Introduce la posicion de la room que quieras ver las pistas.");
-        int indice = sc.nextInt();
+        int choose = sc.nextInt();
         sc.nextLine();
+        roomService.getRoom(choose);
         System.out.println("Lista de pistas:");
-        //metodo que devuelva los tracks de la room
-
+        service.seeTrack();
     }
-
-
-
 
     public void removeTrack(){
         showTracks();
+        TrackService trackService= new TrackService();
         System.out.println("Introduce la posicion de la pista a eliminar.");
         int index = sc.nextInt();
         sc.nextLine();
@@ -58,11 +60,12 @@ public class TrackController {
             index = sc.nextInt();
             sc.nextLine();
         }
-        //metodo para eliminar track
+        trackService.deleteTrack(index);
     }
 
 
     public void modifyTrack(){
+        TrackService trackService= new TrackService();
         showTracks();
         System.out.println("Introduce la posicion de la pista a modificar.");
         int index = sc.nextInt();
@@ -73,7 +76,7 @@ public class TrackController {
             index = sc.nextInt();
             sc.nextLine();
         }
-        //metodo para coger la track de la lista(por indice);
+        Track track= trackService.getTrack(index);
 
         System.out.println("Elige una opción: 1-Nombre, 2-Tema, 3-Descripcion.");
         int choose = sc.nextInt();
@@ -83,20 +86,20 @@ public class TrackController {
             case 1:
                 System.out.println("Introduce el nuevo nombre.");
                 String newName = sc.nextLine();
-                //setname;
-                //metodo para modificar
+                track.setName(newName);
+                trackService.updateTrack(track);
                 break;
             case 2:
                 System.out.println("Introduce el nuevo tema.");
                 String newTopic = sc.nextLine();
-                //setTopics
-                //metodo para modificar
+                track.setTopics(newTopic);
+                trackService.updateTrack(track);
                 break;
             case 3:
                 System.out.println("Introduce la nueva descripcion.");
                 String newDetails = sc.nextLine();
-                //setDetails
-                //metodo para modificar
+                track.setDetails(newDetails);
+                trackService.updateTrack(track);
                 break;
             default:
                 System.out.println("Introduce un numero del 1 al 3.");

@@ -10,7 +10,7 @@ public class ConnectionSQL {
     private String PASSWORD;
 
     private ConnectionSQL(){
-        this.URL="jdbc:mysql://localhost:3306/escaperoom";
+        this.URL="jdbc:mysql://localhost:3306/escaperoom?serverTimezone=Europe/Madrid";
         this.USER="root";
         this.PASSWORD="192837";
     }

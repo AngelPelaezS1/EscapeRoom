@@ -2,6 +2,7 @@ package Controller;
 
 import Model.Item;
 import Model.Room;
+import Services.ItemService;
 import Services.RoomService;
 
 import java.util.Scanner;
@@ -10,55 +11,61 @@ import static Controller.RoomController.showRooms;
 
 public class ItemController {
 
-    public void createItem(){
-        Scanner sc= new Scanner(System.in);
-        RoomService service= new RoomService();
+    public void createItem() {
+        Scanner sc = new Scanner(System.in);
+        RoomService roomService = new RoomService();
+        ItemService itemService = new ItemService();
         int choose;
-        int idRoom=0;
+        int idRoom = 0;
         String name;
         String material;
         float price;
         showRooms();
         System.out.println("Selecciona la posicion de la habitacion a la que quieres añadir un objeto");
-        choose=sc.nextInt();
+        choose = sc.nextInt();
         sc.nextLine();
-        Room room =service.getRoom(choose);
-        idRoom=room.getId();
+        Room room = roomService.getRoom(choose);
+        idRoom = room.getId();
         System.out.println("Cual es el nombre del objeto?");
-        name=sc.nextLine();
+        name = sc.nextLine();
         System.out.println("Cual es el material del objeto?");
-        material=sc.nextLine();
+        material = sc.nextLine();
         System.out.println("Cual es el precio del objeto?");
-        price=sc.nextFloat();
+        price = sc.nextFloat();
         sc.nextLine();
-        Item item =new Item(name, material,price,idRoom);
-        // metodo servicio crear objeto
+        Item item = new Item(name, material, price, idRoom);
+        itemService.addItem(item);
     }
-    public void showItem(){
-        Scanner sc= new Scanner(System.in);
-        RoomService service= new RoomService();
+
+    public void showItem() {
+        Scanner sc = new Scanner(System.in);
+        RoomService roomService = new RoomService();
+        ItemService itemService = new ItemService();
         int choose;
         int idRoom;
         showRooms();
         System.out.println("Selecciona la posicion de la habitacion de que quieres mostrar  objetos");
-        choose=sc.nextInt();
+        choose = sc.nextInt();
         sc.nextLine();
-        Room room =service.getRoom(choose);
-        idRoom=room.getId();
-        //metodo servicio que devuelva los objetos de la room;
+        Room room = roomService.getRoom(choose);
+        idRoom = room.getId();
+        itemService.seeItem();
     }
-    public void removeItem(){
-        Scanner sc= new Scanner(System.in);
+
+    public void removeItem() {
+        Scanner sc = new Scanner(System.in);
+        ItemService service = new ItemService();
         int choose;
         showItem();
         System.out.println("Selecciona la posicion del objeto que quieres eliminar)");
-        choose= sc.nextInt();
+        choose = sc.nextInt();
         sc.nextLine();
-        // metodo servivcio que devuelva objeto por posicion;
-        //metodo servicio para eliminar por posicion;
+        service.deleteItem(choose);
     }
-    public void modyfyItem(){
-        Scanner sc= new Scanner(System.in);
+
+    public void modyfyItem() {
+        Scanner sc = new Scanner(System.in);
+        ItemService service = new ItemService();
         int choose;
         int idRoom;
         String name;
@@ -67,39 +74,39 @@ public class ItemController {
 
         showItem();
         System.out.println("Selecciona la posicion del objeto que quieres modificar");
-        choose=sc.nextInt();
+        choose = sc.nextInt();
         sc.nextLine();
-        // metodo servivcio que devuelva objeto por posicion;
-        // idRoom=object.getRoomId;
+        Item item = service.getItem(choose);
+        idRoom = item.getRoomId();
         System.out.println("Que quieres modificar:");
         System.out.println("1.-Nombre");
         System.out.println("2.-Material");
         System.out.println("3.-Price");
-        choose= sc.nextInt();
+        choose = sc.nextInt();
         sc.nextLine();
 
-        switch (choose){
+        switch (choose) {
             case 1:
                 System.out.println("Que nombre quieres poner?");
-                name=sc.nextLine();
-                //object.setName(name);
+                name = sc.nextLine();
+                item.setName(name);
+                service.updateItem(item);
                 break;
             case 2:
                 System.out.println("De que material esta hecho?");
-                material=sc.nextLine();
-                //object.setMaterial(material);
+                material = sc.nextLine();
+                item.setMaterial(material);
+                service.updateItem(item);
                 break;
             case 3:
                 System.out.println("Que precio tiene ? ");
-                price=sc.nextFloat();
+                price = sc.nextFloat();
                 sc.nextLine();
-                //object.setPrice(price);
+                item.setPrice(price);
+                service.updateItem(item);
                 break;
             default:
                 System.out.println("Introduce un numero del 1 al 3");
-                //metodo servicio para hacer el update del object;
         }
-
     }
-
 }
