@@ -21,19 +21,19 @@ public class ClientMenu {
                     System.out.println("3.-Modificar clientes");
                     System.out.println("4.-Atras");
                     System.out.print("Elige una opción: ");
-
+                    ClientController clientController = new ClientController();
                     choose = sc.nextInt();
                     sc.nextLine();
 
                     switch (choose) {
-                        case 1: ClientController clientController = new ClientController();
+                        case 1:
                                 clientController.showClient();
                             break;
-                        case 2: ClientController clientController2 = new ClientController();
-                                clientController2.modifyClient();
+                        case 2:
+                                clientController.modifyClient();
                             break;
-                        case 3: ClientController clientController3 = new ClientController();
-                                clientController3.removeClient();
+                        case 3:
+                                clientController.removeClient();
                             break;
                         case 4:
                             exit = false;

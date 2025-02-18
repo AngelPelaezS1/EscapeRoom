@@ -19,22 +19,22 @@ public class TicketMenu {
                 System.out.println("4.-Eliminar tikets");
                 System.out.println("5.-Atras");
                 System.out.print("Elige una opción: ");
-
+                TicketController ticketController  = new TicketController();
                 choose = sc.nextInt();
                 sc.nextLine();
 
                 switch (choose) {
-                    case 1: TicketController ticketController  = new TicketController();
+                    case 1:
                             ticketController.createTicketClient();
                         break;
-                    case 2: TicketController ticketController1  = new TicketController();
-                            ticketController1.createTicket();
+                    case 2:
+                            ticketController.createTicket();
                         break;
-                    case 3: TicketController ticketController2  = new TicketController();
-                            ticketController2.showTicket();
+                    case 3:
+                            ticketController.showTicket();
                        break;
-                    case 4: TicketController ticketController3  = new TicketController();
-                            ticketController3.deleteTicket();
+                    case 4:
+                            ticketController.deleteTicket();
                     case 5:
                         exit=false;
                     default:

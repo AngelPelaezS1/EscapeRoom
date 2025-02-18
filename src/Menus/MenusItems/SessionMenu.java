@@ -19,23 +19,22 @@ public class SessionMenu {
                 System.out.println("4.-Marcar sesion como finalizada");
                 System.out.println("5.-Atras");
                 System.out.print("Elige una opción: ");
-
+                SessionController sessionController = new SessionController();
                 choose = sc.nextInt();
                 sc.nextLine();
 
                 switch (choose) {
                     case 1:
-                            SessionController sessionController = new SessionController();
                             sessionController.createSesion();
                         break;
-                    case 2: SessionController sessionController1 = new SessionController();
-                            sessionController1.removeSession();
+                    case 2:
+                            sessionController.removeSession();
                         break;
-                    case 3: SessionController sessionController2 = new SessionController();
-                            sessionController2.showSessions();
+                    case 3:
+                            sessionController.showSessions();
                         break;
-                    case 4: SessionController sessionController3 = new SessionController();
-                            sessionController3.markSessionAsPassed();
+                    case 4:
+                            sessionController.markSessionAsPassed();
                         break;
                     case 5:
                         exit = false;

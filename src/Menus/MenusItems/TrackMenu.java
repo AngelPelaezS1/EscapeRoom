@@ -19,22 +19,22 @@ public class TrackMenu {
                 System.out.println("4.-Modificar pista");
                 System.out.println("5.-Atras");
                 System.out.print("Elige una opción: ");
-
+                TrackController trackController = new TrackController();
                 choose = sc.nextInt();
                 sc.nextLine();
 
                 switch (choose) {
-                    case 1: TrackController trackController = new TrackController();
+                    case 1:
                             trackController.createTrack();
                         break;
-                    case 2: TrackController trackController1 = new TrackController();
-                            trackController1.removeTrack();
+                    case 2:
+                            trackController.removeTrack();
                         break;
-                    case 3: TrackController trackController2 = new TrackController();
-                            trackController2.showTracks();
+                    case 3:
+                            trackController.showTracks();
                         break;
-                    case 4: TrackController trackController3 = new TrackController();
-                            trackController3.modifyTrack();
+                    case 4:
+                            trackController.modifyTrack();
                         break;
                     case 5:
                         exit = false;
