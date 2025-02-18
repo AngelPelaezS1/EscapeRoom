@@ -47,6 +47,10 @@ public class Track {
         this.topics = topics;
     }
 
+    public void setRoomId(int roomId) {
+        this.roomId = roomId;
+    }
+
     @Override
     public String toString() {
         return "Track{" +
