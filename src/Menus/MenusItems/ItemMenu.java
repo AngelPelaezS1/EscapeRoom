@@ -1,12 +1,13 @@
 package Menus.MenusItems;
 
-import Controller.ObjectController;
-
 import java.util.Scanner;
+
+import static Controller.ItemController.*;
+
 
 public class ItemMenu {
 
-    public void itemStart() {
+    public static void itemStart() {
         Scanner sc = new Scanner(System.in);
         int choose;
         boolean exit = true;
@@ -24,17 +25,13 @@ public class ItemMenu {
                 sc.nextLine();
 
                 switch (choose) {
-                    case 1: ObjectController objectController = new ObjectController();
-                            objectController.createObject();
+                    case 1: createObject();
                         break;
-                    case 2: ObjectController objectController1 = new ObjectController();
-                            objectController1.removeObject();
+                    case 2: removeObject();
                         break;
-                    case 3: ObjectController objectController2 = new ObjectController();
-                            objectController2.showObject();
+                    case 3: showObject();
                         break;
-                    case 4: ObjectController objectController3 = new ObjectController();
-                            objectController3.modyfyObject();
+                    case 4: modyfyObject();
                         break;
                     case 5:
                         exit = false;
