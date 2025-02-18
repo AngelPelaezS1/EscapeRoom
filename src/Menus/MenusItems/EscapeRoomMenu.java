@@ -17,7 +17,7 @@ public class EscapeRoomMenu {
                 System.out.println("2.-Gestión de sesiones");
                 System.out.println("3.-Gestión de items");
                 System.out.println("4.-Gestión de pistas");
-                System.out.println("5.-Salir de la aplicación");
+                System.out.println("5.-Atras");
 
                 System.out.print("Elige una opción: ");
 

@@ -13,6 +13,7 @@ import java.util.Scanner;
 import static Controller.ClientController.createClient;
 import static Controller.ClientController.showClient;
 import static Controller.RoomController.showRooms;
+import static Controller.SessionController.showSessions;
 
 public class TicketController {
     public void createTicketClient(){
@@ -64,6 +65,7 @@ public class TicketController {
         sc.nextLine();
         Room room=roomService.getRoom(choose);
         System.out.println("Selecciona la posicion de la sesion para la que quieres el ticket");
+        showSessions();
         choose=sc.nextInt();
         sc.nextLine();
         sesionId=room.getId();
