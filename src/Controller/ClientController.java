@@ -3,11 +3,11 @@ import Model.Client;
 import Services.ClientService;
 
 import java.util.Scanner;
-import static Services.ClientService.*;
+
 
 public class ClientController {
 
-    public Client createClient(int sesionID) {
+    public static Client createClient(int sesionID) {
         Scanner sc = new Scanner(System.in);
         ClientService service= new ClientService();
         String name;

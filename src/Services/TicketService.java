@@ -18,7 +18,7 @@ public class TicketService {
 
     public Ticket getTicket(int ticketPosition){
         ExecuteQueryTicket executeQueryTicket =new ExecuteQueryTicket("SELECT * FROM tickets ORDER BY id LIMIT 1 OFFSET "+(ticketPosition-1));
-        return ExecuteQueryTicket.getTicket();
+        return executeQueryTicket.getTicket();
     }
 
     public void updateTicket(Ticket ticket){
