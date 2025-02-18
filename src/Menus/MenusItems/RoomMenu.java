@@ -19,22 +19,22 @@ public class RoomMenu {
                 System.out.println("4.-Modificar sala");
                 System.out.println("5.-Atras");
                 System.out.print("Elige una opción: ");
-
+                RoomController roomController = new RoomController();
                 choose = sc.nextInt();
                 sc.nextLine();
 
                 switch (choose) {
-                    case 1: RoomController roomController = new RoomController();
+                    case 1:
                             roomController.createRoom();
                         break;
-                    case 2: RoomController roomController1 = new RoomController();
-                            roomController1.removeRoom();
+                    case 2:
+                            roomController.removeRoom();
                         break;
-                    case 3: RoomController roomController2 = new RoomController();
-                            roomController2.showRooms();
+                    case 3:
+                            roomController.showRooms();
                         break;
-                    case 4: RoomController roomController3 = new RoomController();
-                            roomController3.modifyRoom();
+                    case 4:
+                            roomController.modifyRoom();
                         break;
                     case 5:
                         exit = false;
