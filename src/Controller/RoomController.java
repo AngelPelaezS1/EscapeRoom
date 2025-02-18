@@ -29,6 +29,10 @@ public class RoomController {
         service.addRoom(room);
     }
 
+    public static  void showRooms(){
+        RoomService service = new RoomService();
+        service.seeRooms();
+    }
 
 
     public static void removeRoom(){

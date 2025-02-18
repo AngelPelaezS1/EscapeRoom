@@ -6,6 +6,8 @@ import java.util.Scanner;
 
 import Controller.RoomController;
 
+import static Controller.RoomController.showRooms;
+
 public class TrackController {
     static Scanner sc = new Scanner(System.in);
 

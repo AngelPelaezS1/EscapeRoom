@@ -14,11 +14,7 @@ import static Controller.ClientController.createClient;
 import static Controller.ClientController.showClient;
 import static Controller.RoomController.showRooms;
 
-import Controller.ClientController;
-import Controller.ClientController;
-import Controller.RoomController;
-import Services.ClientService;
-import Services.RoomService;
+
 
 
 public class TicketController {
@@ -70,8 +66,7 @@ public class TicketController {
         System.out.println("Selecciona la posicion de la sesion para la que quieres el ticket");
         choose=sc.nextInt();
         sc.nextLine();
-        //sesionID=room.getID();
-
+        sesionId=room.getId();
         idUser=createClient(sesionId).getId();
         Ticket ticket= new Ticket(idUser,price);
         //metodo servicio para asignar tiket a user;

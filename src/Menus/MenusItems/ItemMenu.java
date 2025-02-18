@@ -1,5 +1,7 @@
 package Menus.MenusItems;
 
+import Controller.ItemController;
+
 import java.util.Scanner;
 
 import static Controller.ItemController.*;
@@ -20,18 +22,18 @@ public class ItemMenu {
                 System.out.println("4.-Modificar item");
                 System.out.println("5.-Atras");
                 System.out.print("Elige una opción: ");
-
+                ItemController itemController = new ItemController();
                 choose = sc.nextInt();
                 sc.nextLine();
 
                 switch (choose) {
-                    case 1: createObject();
+                    case 1: itemController.createItem();
                         break;
-                    case 2: removeObject();
+                    case 2: itemController.removeItem();
                         break;
-                    case 3: showObject();
+                    case 3: itemController.showItem();
                         break;
-                    case 4: modyfyObject();
+                    case 4: itemController.modyfyItem();
                         break;
                     case 5:
                         exit = false;

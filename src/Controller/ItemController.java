@@ -10,7 +10,7 @@ import static Controller.RoomController.showRooms;
 
 public class ItemController {
 
-    public void createObject(){
+    public void createItem(){
         Scanner sc= new Scanner(System.in);
         RoomService service= new RoomService();
         int choose;
@@ -34,7 +34,7 @@ public class ItemController {
         Item item =new Item(name, material,price,idRoom);
         // metodo servicio crear objeto
     }
-    public void showObject(){
+    public void showItem(){
         Scanner sc= new Scanner(System.in);
         RoomService service= new RoomService();
         int choose;
@@ -47,17 +47,17 @@ public class ItemController {
         idRoom=room.getId();
         //metodo servicio que devuelva los objetos de la room;
     }
-    public void removeObject(){
+    public void removeItem(){
         Scanner sc= new Scanner(System.in);
         int choose;
-        showObject();
+        showItem();
         System.out.println("Selecciona la posicion del objeto que quieres eliminar)");
         choose= sc.nextInt();
         sc.nextLine();
         // metodo servivcio que devuelva objeto por posicion;
         //metodo servicio para eliminar por posicion;
     }
-    public void modyfyObject(){
+    public void modyfyItem(){
         Scanner sc= new Scanner(System.in);
         int choose;
         int idRoom;
@@ -65,7 +65,7 @@ public class ItemController {
         String material;
         float price;
 
-        showObject();
+        showItem();
         System.out.println("Selecciona la posicion del objeto que quieres modificar");
         choose=sc.nextInt();
         sc.nextLine();
