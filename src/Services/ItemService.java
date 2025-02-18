@@ -23,7 +23,7 @@ public class ItemService {
         return executeQueryItem.getItem();
     }
 
-    public void updateObject(Item item){
+    public void updateItem(Item item){
         ExecuteQueryItem executeQueryItem =new ExecuteQueryItem("UPDATE objects SET name = '"+item.getName()+"', material = '"+item.getMaterial()+"', price = "+item.getPrice()+", rooms_Id = "+item.getRoomId()+" WHERE id = "+item.getId());
     }
 }
