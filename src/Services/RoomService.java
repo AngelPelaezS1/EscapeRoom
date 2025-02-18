@@ -4,9 +4,7 @@ import Model.Room;
 
 public class RoomService {
     public void addRoom(Room room){
-        String name=room.getName();
-        int difficulty=room.getDifficulty();
-        ExecuteQueryRoom executeQueryRoom =new ExecuteQueryRoom("INSERT INTO rooms (name, difficulty) VALUES ('"+name+"', "+difficulty+")");
+        ExecuteQueryRoom executeQueryRoom =new ExecuteQueryRoom("INSERT INTO rooms (name, difficulty) VALUES ('"+room.getName()+"', "+room.getDifficulty()+")");
     }
     public void deleteRoom(int roomPosition){
         ExecuteQueryRoom executeQueryRoom =new ExecuteQueryRoom("DELETE FROM rooms WHERE id = ( " +
