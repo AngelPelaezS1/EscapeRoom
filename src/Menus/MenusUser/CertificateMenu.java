@@ -1,6 +1,7 @@
 package Menus.MenusUser;
 
 import java.util.Scanner;
+import Controller.CertificateController;
 
 public class CertificateMenu {
     public void certificateStart() {
@@ -15,14 +16,15 @@ public class CertificateMenu {
             System.out.println("2.-Dar Certificado");
             System.out.println("3.-Atras");
             System.out.print("Elige una opción: ");
-
+            CertificateController controller= new CertificateController();
             choose = sc.nextInt();
             sc.nextLine();
 
+
             switch (choose) {
-                case 1:// print historico de Certificado;
+                case 1: controller.createCertificate();
                     break;
-                case 2:// dar certificado;
+                case 2: controller.showCertificate();
                     break;
                 case 3:
                     exit = false;

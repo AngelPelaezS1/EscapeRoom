@@ -2,16 +2,19 @@ package Controller;
 
 import Model.Certificate;
 import Model.Client;
+import Services.CertificatesService;
 import Services.ClientService;
 
 import java.util.Scanner;
 
 import static Controller.ClientController.showClient;
+import Services.CertificatesService;
 
 
 public class CertificateController {
     public void createCertificate(){
         Scanner sc= new Scanner(System.in);
+        CertificatesService certificatesService=new CertificatesService();
         ClientService service= new ClientService();
         String name="Certificate";
         String achievement="felicidades te has pasado la sala";
@@ -25,19 +28,20 @@ public class CertificateController {
         Client client= service.getClient(choose);
         clientId=client.getId();
         Certificate certificate= new Certificate(name,achievement,gift,clientId);
-        //addCertificate;
+        certificatesService.addCertificate(certificate);
     }
     public void showCertificate(){
-        //metodo servicio que devuelve los certificados y el nombre de los clientes;
+        CertificatesService service= new CertificatesService();
+        service.seeCertificates();
     }
     public void deleteCertificate(){
         Scanner sc= new Scanner(System.in);
+        CertificatesService service = new CertificatesService();
         int choose;
         showCertificate();
         System.out.println("Selecciona la posicion del certificado que quieres eliminar");
         choose=sc.nextInt();
         sc.nextLine();
-        //metodo para elminar certificado por posicion;
-
+        service.deleteCertificate(choose);
     }
 }
