@@ -77,9 +77,13 @@ public class TrackController {
         }
         Track track= trackService.getTrack(index);
 
-        System.out.println("Elige una opción: 1-Nombre, 2-Tema, 3-Descripcion.");
+        System.out.println("Elige una opción:");
         int choose = sc.nextInt();
         sc.nextLine();
+        System.out.println("1.Nombre.");
+        System.out.println("2.Tema.");
+        System.out.println("3.Descripcion");
+
 
         switch(choose){
             case 1:

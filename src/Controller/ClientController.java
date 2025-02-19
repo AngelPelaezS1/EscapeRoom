@@ -21,21 +21,21 @@ public class ClientController {
         name = sc.nextLine();
         System.out.println("Introduce un email: ");
         mail = sc.nextLine();
-        do{
-                System.out.println("Quieres recibir notificaciones ? si/no");
-                choose = sc.nextLine();
-                String lowerCase = choose.toLowerCase();
-                char election = lowerCase.charAt(1);
-                if(election =='y'){
-                    notifications=true;
-                    exit=false;
-                }else if (election=='n') {
-                    notifications=false;
-                    exit=false;
-                }else{
-                    System.out.println("Porfavor escriba si o no:");
-                }
-        }while(exit);
+        do {
+            System.out.println("¿Quieres recibir notificaciones? (si/no)");
+            choose = sc.nextLine().trim().toLowerCase();
+
+            if (choose.equals("si")) {
+                notifications = true;
+                exit = false;
+            } else if (choose.equals("no")) {
+                notifications = false;
+                exit = false;
+            } else {
+                System.out.println("Por favor, escribe 'si' o 'no':");
+            }
+        } while (exit);
+
 
         Client client =new Client(name,mail,notifications,sesionID);
         service.addClient(client);
