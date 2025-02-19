@@ -35,8 +35,7 @@ public class ExecuteQueryClient {
             ResultSet rs = preparedStatement.executeQuery();
             System.out.println("Lista :");
             while (rs.next()) {
-                String name = rs.getString("name");
-                System.out.println(name);
+                System.out.println(rs.getString("name"));
             }
         }else{
             preparedStatement.executeUpdate();
