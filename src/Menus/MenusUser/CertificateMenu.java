@@ -10,7 +10,6 @@ public class CertificateMenu {
     int choose;
     boolean exit = true;
     do {
-        try {
 
             System.out.println(" ");
             System.out.println("*** Gestor de certificados***");
@@ -35,10 +34,7 @@ public class CertificateMenu {
                     System.out.println("Valor incorrecto");
                     break;
             }
-        } catch (Exception e) {
-            System.out.println("Error: Debes ingresar un número entero.");
-            sc.nextLine();
-        }
+
     } while (exit);
-}
+  }
 }

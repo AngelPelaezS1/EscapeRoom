@@ -12,7 +12,6 @@ public class MainMenu {
       int choose;
       boolean exit = true;
       do {
-          try {
 
               System.out.println(" ");
               System.out.println("***Bienvenido al gestor del scape room***");
@@ -40,10 +39,6 @@ public class MainMenu {
                       System.out.println("Valor incorrecto");
                       break;
               }
-          } catch (Exception e) {
-              System.out.println("Error: Debes ingresar un número entero.");
-              sc.nextLine();
-          }
       } while (exit);
   }
 }

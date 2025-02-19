@@ -1,7 +1,6 @@
 package Services;
 import Connections.Query.ExecuteQuerySession;
 import Model.Session;
-import java.time.LocalDateTime;
 
 public class SessionService {
     public void addSession(Session session){
@@ -18,6 +17,7 @@ public class SessionService {
     }
 
     public Session getSession(int sessionPosition){
+        //Todo: no poner logica en el constructor
         ExecuteQuerySession executeQuerySession =new ExecuteQuerySession("SELECT * FROM sessions ORDER BY id LIMIT 1 OFFSET "+(sessionPosition-1));
         return executeQuerySession.getSession();
     }
