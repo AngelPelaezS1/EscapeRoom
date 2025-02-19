@@ -12,7 +12,6 @@ public class ItemMenu {
         int choose;
         boolean exit = true;
         do {
-            try {
 
                 System.out.println(" ");
                 System.out.println("***Bienvenido al gestor de items***");
@@ -42,10 +41,6 @@ public class ItemMenu {
                         System.out.println("Valor incorrecto");
                         break;
                 }
-            } catch (Exception e) {
-                System.out.println("Error: Debes ingresar un número entero.");
-                sc.nextLine();
-            }
         } while (exit);
     }
 }

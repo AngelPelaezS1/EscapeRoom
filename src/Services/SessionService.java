@@ -18,7 +18,9 @@ public class SessionService {
     }
 
     public Session getSession(int sessionPosition){
-        executeQuerySession =new ExecuteQuerySession("SELECT * FROM sessions ORDER BY id LIMIT 1 OFFSET "+(sessionPosition-1));
+
+        ExecuteQuerySession executeQuerySession =new ExecuteQuerySession("SELECT * FROM sessions ORDER BY id LIMIT 1 OFFSET "+(sessionPosition-1));
+
         return executeQuerySession.getSession();
     }
     public void updateSession(Session session){

@@ -13,8 +13,6 @@ public class ClientMenu {
             boolean exit = true;
             do {
 
-                try {
-
                     System.out.println(" ");
                     System.out.println("*** Gestor de clientes***");
                     System.out.println("1.-Mostrar clientes ");
@@ -43,10 +41,6 @@ public class ClientMenu {
                             System.out.println("Valor incorrecto");
                             break;
                     }
-                } catch (Exception e) {
-                    System.out.println("Error: Debes ingresar un número entero.");
-                    sc.nextLine();
-                }
             } while (exit);
         }
     }
