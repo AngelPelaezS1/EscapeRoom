@@ -104,7 +104,7 @@ public class ItemController {
                 System.out.println("Material actualizado.");
                 break;
             case 3:
-                System.out.println("Que precio tiene ? ");
+                System.out.println("Que precio quieres poner? ");
                 price = sc.nextFloat();
                 sc.nextLine();
                 item.setPrice(price);
