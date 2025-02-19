@@ -3,23 +3,22 @@ import Connections.Query.ExecuteQueryCertificate;
 import Model.Certificate;
 
 public class CertificatesService {
+    ExecuteQueryCertificate executeQueryCertificate;
     public void addCertificate(Certificate certificate){
-        ExecuteQueryCertificate executeQueryCertificate =new ExecuteQueryCertificate("INSERT INTO certificates (name, achievement, gift, players_id) VALUES ('"+certificate.getName()+"', '"+certificate.getAchievement()+"', "+certificate.getGift()+", "+certificate.getPlayersId()+")");
+        executeQueryCertificate =new ExecuteQueryCertificate("INSERT INTO certificates (name, achievement, gift, players_id) VALUES ('"+certificate.getName()+"', '"+certificate.getAchievement()+"', "+certificate.getGift()+", "+certificate.getPlayersId()+")");
     }
     public void deleteCertificate(int certificatePosition){
-        ExecuteQueryCertificate executeQueryCertificate =new ExecuteQueryCertificate("DELETE FROM certificates WHERE id = ( " +
+        executeQueryCertificate =new ExecuteQueryCertificate("DELETE FROM certificates WHERE id = ( " +
                 "SELECT id FROM (SELECT id FROM certificates ORDER BY id LIMIT 1 OFFSET "+(certificatePosition-1)+") AS subquery)");
     }
     public void seeCertificates(){
-        ExecuteQueryCertificate executeQueryCertificate=new ExecuteQueryCertificate("SELECT name FROM certificates");
+        executeQueryCertificate=new ExecuteQueryCertificate("SELECT name FROM certificates");
     }
-
     public Certificate getCertificate(int certificatePosition){
-        ExecuteQueryCertificate executeQueryCertificate =new ExecuteQueryCertificate("SELECT * FROM certificates ORDER BY id LIMIT 1 OFFSET "+(certificatePosition-1));
+        executeQueryCertificate =new ExecuteQueryCertificate("SELECT * FROM certificates ORDER BY id LIMIT 1 OFFSET "+(certificatePosition-1));
         return executeQueryCertificate.getCertificate();
     }
-
     public void updateCertificate(Certificate certificate){
-        ExecuteQueryCertificate executeQueryCertificate =new ExecuteQueryCertificate("UPDATE certificates SET name = '"+certificate.getName()+"', achievement = '"+certificate.getAchievement()+"', gift = '"+certificate.getGift()+"' WHERE id = "+certificate.getId());
+        executeQueryCertificate =new ExecuteQueryCertificate("UPDATE certificates SET name = '"+certificate.getName()+"', achievement = '"+certificate.getAchievement()+"', gift = '"+certificate.getGift()+"' WHERE id = "+certificate.getId());
     }
 }
