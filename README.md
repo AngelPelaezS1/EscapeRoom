@@ -140,7 +140,7 @@ Antonio Carrasco, Angel Pelaez, Jofre Coca.
 
 ## 🚨 Notas Importantes
 
-- Este proyecto es ideal para aprender y aplicar Spring MVC, JPA, y la gestión segura de bases de datos.
+- Este proyecto es ideal para aprender  MVC, JPA, y la gestión segura de bases de datos.
 - El patrón de diseño MVC asegura que las funcionalidades estén bien organizadas y escalables.
 - La integración con MySQL proporciona una base de datos robusta y flexible para almacenar las entidades gestionadas.
 
