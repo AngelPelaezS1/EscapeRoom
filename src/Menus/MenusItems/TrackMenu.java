@@ -12,6 +12,8 @@ public class TrackMenu {
         boolean exit = true;
         do {
             try {
+
+                System.out.println(" ");
                 System.out.println("***Bienvenido al gestor de pistas***");
                 System.out.println("1.-Crear pista");
                 System.out.println("2.-Eliminar pista");

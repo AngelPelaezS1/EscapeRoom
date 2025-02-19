@@ -4,8 +4,6 @@ import Model.Room;
 import Services.RoomService;
 
 import java.util.Scanner;
-import static Services.RoomService.*;
-
 
 public class RoomController {
     static Scanner sc = new Scanner(System.in);

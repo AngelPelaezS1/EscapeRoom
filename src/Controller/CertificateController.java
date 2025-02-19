@@ -8,7 +8,6 @@ import Services.ClientService;
 import java.util.Scanner;
 
 import static Controller.ClientController.showClient;
-import Services.CertificatesService;
 
 
 public class CertificateController {
@@ -27,10 +26,13 @@ public class CertificateController {
         sc.nextLine();
         Client client= service.getClient(choose);
         clientId=client.getId();
+
         Certificate certificate= new Certificate(name,achievement,gift,clientId);
         certificatesService.addCertificate(certificate);
+        System.out.println("Ceritificado creadocon exito.");
     }
     public void showCertificate(){
+        System.out.println("Lista de certificados:");
         CertificatesService service= new CertificatesService();
         service.seeCertificates();
     }
@@ -43,5 +45,6 @@ public class CertificateController {
         choose=sc.nextInt();
         sc.nextLine();
         service.deleteCertificate(choose);
+        System.out.println("Certificado eliminado con exito.");
     }
 }

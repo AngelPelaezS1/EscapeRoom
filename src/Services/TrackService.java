@@ -1,11 +1,10 @@
 package Services;
-import Connections.Query.ExecuteQueryItem;
 import Connections.Query.ExecuteQueryTrack;
 import Model.Track;
 
 public class TrackService {
     public void addTrack(Track track){
-        ExecuteQueryTrack executeQueryTrack =new ExecuteQueryTrack("INSERT INTO tracks (name, topics, track_details, rooms_Id) VALUES ('"+track.getName()+"', '"+track.getTopics()+"', '"+track.getDetails()+"', "+track.getId()+")");
+        ExecuteQueryTrack executeQueryTrack =new ExecuteQueryTrack("INSERT INTO tracks (name, topics, track_details, rooms_Id) VALUES ('"+track.getName()+"', '"+track.getTopics()+"', '"+track.getDetails()+"', "+track.getRoomId()+")");
     }
     public void deleteTrack(int trackPosition){
         ExecuteQueryTrack executeQueryTrack =new ExecuteQueryTrack("DELETE FROM tracks WHERE id = ( " +
@@ -21,6 +20,6 @@ public class TrackService {
     }
 
     public void updateTrack(Track track){
-        ExecuteQueryTrack executeQueryTrack =new ExecuteQueryTrack("UPDATE tracks SET name = '"+track.getName()+"', topics = '"+track.getTopics()+"', track_details = "+track.getDetails()+", rooms_Id = "+track.getRoomId()+" WHERE id = "+track.getId());
+        ExecuteQueryTrack executeQueryTrack =new ExecuteQueryTrack("UPDATE tracks SET name = '"+track.getName()+"', topics = '"+track.getTopics()+"', track_details = '"+track.getDetails()+"', rooms_Id = "+track.getRoomId()+" WHERE id = "+track.getId());
     }
 }

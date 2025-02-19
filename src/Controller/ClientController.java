@@ -39,15 +39,15 @@ public class ClientController {
 
         Client client =new Client(name,mail,notifications,sesionID);
         service.addClient(client);
-        System.out.println("Cliente creado");
+        System.out.println("Cliente creado con exito.");
         return client;
     }
 
 
     public static void showClient(){
+        System.out.println("Lista de clientes:");
         ClientService service=new ClientService();
         service.seeClients();
-
 
     }
 
@@ -60,10 +60,11 @@ public class ClientController {
         choose=sc.nextInt();
         sc.nextLine();
         service.deleteClient(choose);
+        System.out.println("Cliente eliminado con exito.");
     }
     public void modifyClient(){
         Scanner sc= new Scanner(System.in);
-       ClientService service =new ClientService();
+        ClientService service =new ClientService();
         int choose;
         String name;
         String mail;
@@ -89,12 +90,14 @@ public class ClientController {
                 name=sc.nextLine();
                 client.setName(name);
                 service.updateClient(client);
+                System.out.println("Nombre actualizado.");
                 break;
             case 2:
                 System.out.println("Porque mail desea sustituirlo:");
                 mail=sc.nextLine();
-                 client.setMail(mail);
-                 service.updateClient(client);
+                client.setMail(mail);
+                service.updateClient(client);
+                System.out.println("Mail actualizado.");
                 break;
             case 3:
                 do{
@@ -102,16 +105,18 @@ public class ClientController {
                 option = sc.nextLine();
                 String lowerCase = option .toLowerCase();
                 char election = lowerCase.charAt(1);
-                if(election =='y'){
+                if(election =='s'){
                     notifications=true;
                     exit=false;
                     client.setNotifications(notifications);
                     service.updateClient(client);
+                    System.out.println("Notificaciones activadas.");
                 }else if (election=='n') {
                     notifications=false;
                     exit=false;
                     client.setNotifications(notifications);
                     service.updateClient(client);
+                    System.out.println("Notificaciones desactivadas.");
                 }else{
                     System.out.println("Porfavor escriba si o no:");
                 }

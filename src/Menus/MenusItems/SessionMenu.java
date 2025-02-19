@@ -12,6 +12,8 @@ public class SessionMenu {
         boolean exit = true;
         do {
             try {
+
+                System.out.println(" ");
                 System.out.println("***Bienvenido al gestor de sesiones***");
                 System.out.println("1.-Crear sesion");
                 System.out.println("2.-Eliminar sesion");
