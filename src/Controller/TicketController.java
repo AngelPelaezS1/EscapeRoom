@@ -53,6 +53,7 @@ public class TicketController {
     public void createTicket(){
         Scanner sc= new Scanner(System.in);
         RoomService roomService= new RoomService();
+        SessionService sessionService= new SessionService();
         TicketService ticketService= new TicketService();
         int idUser;
         int sesionId=0;
@@ -68,7 +69,8 @@ public class TicketController {
         showSessions();
         choose=sc.nextInt();
         sc.nextLine();
-        sesionId=room.getId();
+        Session session= sessionService.getSession(choose);
+        sesionId=session.getId();
         idUser=createClient(sesionId).getId();
         Ticket ticket= new Ticket(idUser,price);
         ticketService.addTicket(ticket);
@@ -84,6 +86,7 @@ public class TicketController {
         int choose;
         showClient();
         System.out.println("Selecciona la posicion del cliente al que quieres mostrar los  tickets:");
+        sessionService.seeSessions();
         choose=sc.nextInt();
         sc.nextLine();
         Client client=clientService.getClient(choose);
