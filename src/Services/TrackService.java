@@ -19,6 +19,6 @@ public class TrackService {
         return executeQueryTrack.getTrack();
     }
     public void updateTrack(Track track){
-        executeQueryTrack=new ExecuteQueryTrack("UPDATE tracks SET name = '"+track.getName()+"', topics = '"+track.getTopics()+"', track_details = '"+track.getDetails()+"', rooms_Id = "+track.getRoomId()+" WHERE id = "+track.getId());
+        executeQueryTrack=new ExecuteQueryTrack("UPDATE tracks SET name = '"+track.getName()+"', topics = '"+track.getTopics()+"', track_details = '"+track.getDetails()+"', rooms_id = "+track.getRoomId()+" WHERE id = "+track.getId());
     }
 }

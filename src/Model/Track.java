@@ -15,6 +15,14 @@ public class Track {
         this.roomId = roomId;
     }
 
+    public Track(int id, String name, String topics, String details, int roomId) {
+        this.id = id;
+        this.name = name;
+        this.topics = topics;
+        this.details = details;
+        this.roomId = roomId;
+    }
+
     public int getId() {
         return id;
     }
