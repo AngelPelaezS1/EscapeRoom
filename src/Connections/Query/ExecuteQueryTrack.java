@@ -24,7 +24,7 @@ public class ExecuteQueryTrack {
         if(query.contains("SELECT * FROM tracks ORDER BY id LIMIT 1 OFFSET ")){
             ResultSet rs = preparedStatement.executeQuery();
             if (rs.next()) {
-                this.track=new Track(rs.getString("name"), rs.getString("topics"), rs.getString("track_details"), rs.getInt("rooms_id"));
+                this.track=new Track(rs.getInt("id"), rs.getString("name"), rs.getString("topics"), rs.getString("track_details"), rs.getInt("rooms_id"));
             } else {
                 System.out.println("No se encontró ningun track con ID ");
             }
