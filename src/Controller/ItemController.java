@@ -122,5 +122,9 @@ public class ItemController {
         }
     }
 
+    public void totalValue(){
+        ItemService service = new ItemService();
+        service.totalValueObjects();
+    }
 
 }

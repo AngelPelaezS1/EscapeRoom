@@ -28,24 +28,26 @@ public class ExecuteQueryItem {
     }
 
     private void selectQuery(String query, PreparedStatement preparedStatement) throws SQLException {
-        if(query.contains("SELECT * FROM objects ORDER BY id LIMIT 1 OFFSET ")){
+        if (query.contains("SELECT * FROM objects ORDER BY id LIMIT 1 OFFSET ")) {
             ResultSet rs = preparedStatement.executeQuery();
             if (rs.next()) {
-                this.item=new Item(rs.getInt("id"), rs.getString("name"), rs.getString("material"), rs.getFloat("price"), rs.getInt("rooms_id"));
+                this.item = new Item(rs.getInt("id"), rs.getString("name"), rs.getString("material"), rs.getFloat("price"), rs.getInt("rooms_id"));
             } else {
                 System.out.println("No se encontró ninguna objecto con ID ");
             }
-        }else if(query.contains("SELECT name FROM objects")){
+        } else if (query.contains("SELECT name FROM objects")) {
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
                 System.out.println(rs.getString("name"));
             }
-        }else if(query.contains("SELECT SUM(price) AS total_price FROM objects")){
+        } else if (query.contains("SELECT SUM(price) AS total_price FROM objects")) {
             ResultSet rs = preparedStatement.executeQuery();
-            totalValueObjects = rs.getDouble("total_price");
-        }else{
-            preparedStatement.executeUpdate();
+            if (rs.next()) { // Mueve el cursor a la primera fila
+                totalValueObjects = rs.getDouble("total_price");
+            } else {
+                totalValueObjects = 0; // Si no hay registros, devuelve 0 en lugar de -1
+            }
         }
     }
 }
