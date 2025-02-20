@@ -29,10 +29,10 @@ public class ClientMenu {
                                 clientController.showClient();
                             break;
                         case 2:
-                                clientController.modifyClient();
+                                clientController.removeClient();
                             break;
                         case 3:
-                                clientController.removeClient();
+                                clientController.modifyClient();
                             break;
                         case 4:
                             exit = false;
