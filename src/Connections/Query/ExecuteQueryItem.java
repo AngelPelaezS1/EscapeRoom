@@ -9,8 +9,13 @@ import java.sql.SQLException;
 
 public class ExecuteQueryItem {
     private Item item;
+    private double totalValueObjects=-1;
 
     public Item getItem() {return this.item;}
+
+    public double getTotalValueObjects() {
+        return totalValueObjects;
+    }
 
     public ExecuteQueryItem(String query){
         ConnectionSQL connectionSQL = ConnectionSQL.getInstanceConnectionSQL();
@@ -32,10 +37,12 @@ public class ExecuteQueryItem {
             }
         }else if(query.contains("SELECT name FROM objects")){
             ResultSet rs = preparedStatement.executeQuery();
-            System.out.println("Lista :");
             while (rs.next()) {
                 System.out.println(rs.getString("name"));
             }
+        }else if(query.contains("SELECT SUM(price) AS total_price FROM objects")){
+            ResultSet rs = preparedStatement.executeQuery();
+            totalValueObjects = rs.getDouble("total_price");
         }else{
             preparedStatement.executeUpdate();
         }
