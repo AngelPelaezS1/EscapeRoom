@@ -5,7 +5,7 @@ import Model.Ticket;
 public class TicketService {
     ExecuteQueryTicket executeQueryTicket;
     public void addTicket(Ticket ticket){
-        executeQueryTicket =new ExecuteQueryTicket("INSERT INTO tickets (price, players_id) VALUES ("+ticket.getPrice()+", "+ticket.getUserId()+")");
+        executeQueryTicket =new ExecuteQueryTicket("INSERT INTO tickets (price,players_id) VALUES ("+ticket.getPrice()+", "+ticket.getUserId()+")");
     }
     public void deleteTicket(int ticketPosition){
         executeQueryTicket =new ExecuteQueryTicket("DELETE FROM tickets WHERE id = ( " +
