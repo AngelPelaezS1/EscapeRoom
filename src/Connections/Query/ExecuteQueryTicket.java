@@ -17,7 +17,26 @@ public class ExecuteQueryTicket {
         ConnectionSQL connectionSQL = ConnectionSQL.getInstanceConnectionSQL();
         try (Connection connection = ConnectionSQL.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            selectQuery(query, preparedStatement);
+
+            if(query.contains("SELECT * FROM tickets ORDER BY id LIMIT 1 OFFSET ")){
+                ResultSet rs = preparedStatement.executeQuery();
+                if (rs.next()) {
+                    int id = rs.getInt("id");
+                    double price = rs.getDouble("price");
+                    int players_id = rs.getInt("players_id");
+                    this.ticket=new Ticket(id, price, players_id);
+                } else {
+                    System.out.println("No se encontró ninguna ticket con ID ");
+                }
+            }else if(query.contains("SELECT name FROM tickets")){
+                ResultSet rs = preparedStatement.executeQuery();
+                while (rs.next()) {
+                    String name = rs.getString("players_id");
+                    System.out.println(name);
+                }
+            }else{
+                preparedStatement.executeUpdate();
+            }
         } catch (SQLException e) {
             System.err.println("Error al ejecutar la query: " + e.getMessage());
         }
