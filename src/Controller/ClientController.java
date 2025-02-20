@@ -39,6 +39,7 @@ public class ClientController {
 
         Client client =new Client(name,mail,notifications,sesionID);
         service.addClient(client);
+
         System.out.println("Cliente creado con exito.");
         return client;
     }

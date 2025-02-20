@@ -20,6 +20,7 @@ public class ClientService {
         executeQueryClient =new ExecuteQueryClient("SELECT * FROM clients ORDER BY id LIMIT 1 OFFSET "+(clientPosition-1));
         return executeQueryClient.getClient();
     }
+
     public void updateClient(Client client){
         int notifications=0;
         if(client.isNotifications()){notifications=1;}

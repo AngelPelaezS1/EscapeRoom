@@ -75,7 +75,9 @@ public class TicketController {
         sc.nextLine();
         Session session= sessionService.getSession(choose);
         sesionId=session.getId();
-        idUser=createClient(sesionId).getId();
+        Client client =createClient(sesionId);
+        idUser=client.getId();
+        System.out.println( idUser);
         Ticket ticket= new Ticket(price,idUser);
         ticketService.addTicket(ticket);
         System.out.println("Ticket creado con exito.");
