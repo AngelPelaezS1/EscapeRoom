@@ -21,4 +21,9 @@ public class ItemService {
     public void updateItem(Item item){
         executeQueryItem =new ExecuteQueryItem("UPDATE objects SET name = '"+item.getName()+"', material = '"+item.getMaterial()+"', price = "+item.getPrice()+", rooms_Id = "+item.getRoomId()+" WHERE id = "+item.getId());
     }
+
+    public double totalValueObjects(){
+        executeQueryItem =new ExecuteQueryItem("SELECT SUM(price) AS total_price FROM objects");
+        return executeQueryItem.getTotalValueObjects();
+    }
 }
