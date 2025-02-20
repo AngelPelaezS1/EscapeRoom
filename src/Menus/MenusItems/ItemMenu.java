@@ -19,6 +19,7 @@ public class ItemMenu {
                 System.out.println("2.-Eliminar item");
                 System.out.println("3.-Mostrar items");
                 System.out.println("4.-Modificar item");
+                System.out.println("5.-Mostrar ");
                 System.out.println("5.-Atras");
                 System.out.print("Elige una opción: ");
                 ItemController itemController = new ItemController();
