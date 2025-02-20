@@ -26,21 +26,24 @@ public class TicketController {
         int choose;
         int sesionId=0;
         float price= 24.95f;
-
-        System.out.println("Selecciona la posicion de la room a la que quieres añadir un ticket:");
         RoomMenu roomMenu = new RoomMenu();
+        System.out.println("Lista de salas:");
         showRooms();
+        System.out.println("Selecciona la posicion de la room a la que quieres añadir un ticket:");
         choose=sc.nextInt();
         sc.nextLine();
         Room room=roomService.getRoom(choose);
+        System.out.println("Lista de sesiones:");
+        showSessions();
         System.out.println("Selecciona la posicion de la sesion para la que quieres el ticket");
         choose=sc.nextInt();
         sc.nextLine();
         Session session ;
         session =sessionService.getSession(choose);
         sesionId=session.getId();
-        System.out.println("Selecciona la posicion del cliente al que quieres añadir un ticket:");
+        System.out.println("Lista de clientes:");
         showClient();
+        System.out.println("Selecciona la posicion del cliente al que quieres añadir un ticket:");
         choose=sc.nextInt();
         sc.nextLine();
         Client client=clientService.getClient(choose);
@@ -59,13 +62,15 @@ public class TicketController {
         int choose;
         float price= 24.95f;
 
-        System.out.println("Selecciona la posicion de la sala a la que quieres añadir un ticket:");
+        System.out.println("Lista de salas:");
         showRooms();
+        System.out.println("Selecciona la posicion de la sala a la que quieres añadir un ticket:");
         choose=sc.nextInt();
         sc.nextLine();
         Room room=roomService.getRoom(choose);
-        System.out.println("Selecciona la posicion de la sesion para la que quieres el ticket");
+        System.out.println("Lista de sesiones:");
         showSessions();
+        System.out.println("Selecciona la posicion de la sesion para la que quieres el ticket");
         choose=sc.nextInt();
         sc.nextLine();
         sesionId=room.getId();
@@ -82,8 +87,9 @@ public class TicketController {
         Scanner sc= new Scanner(System.in);
         int idUser=0;
         int choose;
+        System.out.println("Lista de clientes:");
         showClient();
-        System.out.println("Selecciona la posicion del cliente al que quieres mostrar los  tickets:");
+        System.out.println("Selecciona la posicion del cliente al que quieres mostrar los  tickets.");
         choose=sc.nextInt();
         sc.nextLine();
         Client client=clientService.getClient(choose);
@@ -95,6 +101,7 @@ public class TicketController {
         TicketService ticketService = new TicketService();
         SessionService sessionService= new SessionService();
         int choose;
+        System.out.println("Lista de clientes:");
         showTicket();
         System.out.println("Selecciona la posicion del ticket que quieres eliminar :");
         choose= sc.nextInt();

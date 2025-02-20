@@ -20,10 +20,8 @@ public class SessionController {
         SessionService sessionService = new SessionService();
 
         int idRooms = 0;
-
         System.out.println("Lista de salas:");
         showRooms();
-
         System.out.println("Introduce la posicion de la sala de esta sesion.");
         int index = sc.nextInt();
         sc.nextLine();
@@ -51,7 +49,7 @@ public class SessionController {
 
     public static void removeSession() {
         SessionService service = new SessionService();
-
+        System.out.println("Lista de sesiones:");
         showSessions();
         System.out.println("Introduce la posicion de la sesion a eliminar.");
         int index = sc.nextInt();
@@ -75,7 +73,7 @@ public class SessionController {
     public static void markSessionAsPassed() {
         SessionService service = new SessionService();
         boolean exit = true;
-
+        System.out.println("Lista de sesiones:");
         showSessions();
         System.out.println("Introduce la posición de la sesión que quieres marcar como pasada.");
         int index = sc.nextInt();

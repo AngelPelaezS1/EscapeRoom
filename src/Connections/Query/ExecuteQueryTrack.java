@@ -29,7 +29,6 @@ public class ExecuteQueryTrack {
                 }
             }else if(query.contains("SELECT name FROM tracks")){
                 ResultSet rs = preparedStatement.executeQuery();
-                System.out.println("Lista :");
                 while (rs.next()) {
                     String name = rs.getString("name");
                     System.out.println(name);

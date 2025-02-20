@@ -16,6 +16,7 @@ public class TrackController {
         int idRooms = 0;
         RoomService roomService= new RoomService();
         TrackService service=new TrackService();
+        System.out.println("Lista de salas:");
         showRooms();
         System.out.println("Introduce la posicion de la room a la quieres añadir la pista.");
         int choose = sc.nextInt();
@@ -37,6 +38,7 @@ public class TrackController {
     public void showTracks(){
         TrackService service=new TrackService();
         RoomService roomService= new RoomService();
+        System.out.println("Lista de salas:");
         showRooms();
         System.out.println("Introduce la posicion de la room que quieras ver las pistas.");
         int choose = sc.nextInt();
@@ -47,6 +49,7 @@ public class TrackController {
     }
 
     public void removeTrack(){
+        System.out.println("Lista de pistas:");
         showTracks();
         TrackService trackService= new TrackService();
         System.out.println("Introduce la posicion de la pista a eliminar.");
@@ -65,6 +68,7 @@ public class TrackController {
 
     public void modifyTrack(){
         TrackService trackService= new TrackService();
+        System.out.println("Lista de pistas:");
         showTracks();
         System.out.println("Introduce la posicion de la pista a modificar.");
         int index = sc.nextInt();

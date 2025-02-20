@@ -29,7 +29,6 @@ public class ExecuteQueryTicket {
                 }
             }else if(query.contains("SELECT name FROM tickets")){
                 ResultSet rs = preparedStatement.executeQuery();
-                System.out.println("Lista :");
                 while (rs.next()) {
                     String name = rs.getString("players_id");
                     System.out.println(name);

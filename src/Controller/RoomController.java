@@ -29,13 +29,14 @@ public class RoomController {
 
     public static  void showRooms(){
         RoomService service = new RoomService();
+        System.out.println("Lista de salas:");
         service.seeRooms();
     }
 
 
     public static void removeRoom(){
         RoomService service= new RoomService();
-        System.out.println("Lista de rooms:");
+        System.out.println("Lista de salas:");
         showRooms();
         System.out.println("Introduce la posicion de la sala a eliminar.");
         int index = sc.nextInt();
@@ -53,7 +54,7 @@ public class RoomController {
 
     public static void modifyRoom(){
         RoomService service= new RoomService();
-
+        System.out.println("Lista de salas:");
         showRooms();
         System.out.println("Introduce la posicion de la sala a modificar.");
         int index = sc.nextInt();

@@ -55,6 +55,7 @@ public class ClientController {
         Scanner sc= new Scanner(System.in);
         ClientService service=new ClientService();
         int choose;
+        System.out.println("Lista de clientes:");
         showClient();
         System.out.println("Selecciona la  posición en la que se encuentra el usuario");
         choose=sc.nextInt();
@@ -72,6 +73,7 @@ public class ClientController {
         boolean notifications=true;
         boolean exit=true;
 
+        System.out.println("Lista de clientes:");
         showClient();
         System.out.println("Selecciona la  posición en la que se encuentra el usuario");
         choose=sc.nextInt();
