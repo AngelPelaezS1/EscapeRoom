@@ -32,7 +32,7 @@ public class ExecuteQueryItem {
             }
         }else if(query.contains("SELECT name FROM objects")){
             ResultSet rs = preparedStatement.executeQuery();
-            System.out.println("Lista :");
+
             while (rs.next()) {
                 System.out.println(rs.getString("name"));
             }

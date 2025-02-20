@@ -16,7 +16,8 @@ public class TrackController {
         int idRooms = 0;
         RoomService roomService= new RoomService();
         TrackService service=new TrackService();
-        System.out.println("Lista de pistas:");
+
+        System.out.println("Lista de salas:");
         showRooms();
         System.out.println("Introduce la posicion de la room a la quieres añadir la pista.");
         int choose = sc.nextInt();

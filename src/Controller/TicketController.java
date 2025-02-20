@@ -27,7 +27,6 @@ public class TicketController {
         int sesionId=0;
         float price= 24.95f;
         RoomMenu roomMenu = new RoomMenu();
-
         System.out.println("Lista de salas:");
         showRooms();
         System.out.println("Selecciona la posicion de la room a la que quieres añadir un ticket:");
@@ -90,10 +89,10 @@ public class TicketController {
         Scanner sc= new Scanner(System.in);
         int idUser=0;
         int choose;
-        System.out.println("lista de clientes:");
+
+        System.out.println("Lista de clientes:");
         showClient();
-        System.out.println("Selecciona la posicion del cliente al que quieres mostrar los  tickets:");
-        sessionService.seeSessions();
+        System.out.println("Selecciona la posicion del cliente al que quieres mostrar los  tickets.");
         choose=sc.nextInt();
         sc.nextLine();
         Client client=clientService.getClient(choose);

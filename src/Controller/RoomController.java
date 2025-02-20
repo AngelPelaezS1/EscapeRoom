@@ -30,6 +30,7 @@ public class RoomController {
     public static  void showRooms(){
         System.out.println("Lista de salas:");
         RoomService service = new RoomService();
+        System.out.println("Lista de salas:");
         service.seeRooms();
     }
 
