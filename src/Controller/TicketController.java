@@ -1,16 +1,15 @@
 package Controller;
 
-import Menus.MenusItems.RoomMenu;
 import Model.Client;
-import Model.Room;
 import Model.Session;
 import Model.Ticket;
 import Services.ClientService;
 import Services.RoomService;
-import Services.TicketService;
 import Services.SessionService;
+import Services.TicketService;
+
 import java.util.Scanner;
-import static Controller.ClientController.createClient;
+
 import static Controller.ClientController.showClient;
 import static Controller.RoomController.showRooms;
 import static Controller.SessionController.showSessions;
@@ -52,7 +51,7 @@ public class TicketController {
         ticketService.addTicket(ticket);
         System.out.println("Se le ha asignado ticket");
     }
-    public void createTicket(){
+    /*public void createTicket(){
         Scanner sc= new Scanner(System.in);
         RoomService roomService= new RoomService();
         SessionService sessionService= new SessionService();
@@ -83,7 +82,7 @@ public class TicketController {
         Ticket ticket= new Ticket(price,idUser);
         ticketService.addTicket(ticket);
         System.out.println("Ticket creado con exito.");
-    }
+    }*/
 
     public static void showTicket(){
         ClientService clientService = new ClientService();
@@ -95,7 +94,6 @@ public class TicketController {
         System.out.println("lista de clientes:");
         showClient();
         System.out.println("Selecciona la posicion del cliente al que quieres mostrar los  tickets:");
-        sessionService.seeSessions();
         choose=sc.nextInt();
         sc.nextLine();
         Client client=clientService.getClient(choose);

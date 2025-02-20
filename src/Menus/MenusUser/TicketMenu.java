@@ -10,14 +10,12 @@ public class TicketMenu {
         int choose;
         boolean exit = true;
         do {
-
                 System.out.println(" ");
                 System.out.println("*** Gestor de tickets***");
-                System.out.println("1.-Jugadores exisente");
-                System.out.println("2.-Nuevo jugador");
-                System.out.println("3.-Mostrar tickets");
-                System.out.println("4.-Eliminar tikets");
-                System.out.println("5.-Atras");
+                System.out.println("1.-Añadir ticket a jugador exisente");
+                System.out.println("2.-Mostrar tickets");
+                System.out.println("3.-Eliminar tikets");
+                System.out.println("4.-Atras");
                 System.out.print("Elige una opción: ");
                 TicketController ticketController  = new TicketController();
                 choose = sc.nextInt();
@@ -28,14 +26,11 @@ public class TicketMenu {
                             ticketController.createTicketClient();
                         break;
                     case 2:
-                            ticketController.createTicket();
-                        break;
-                    case 3:
                             ticketController.showTicket();
                        break;
-                    case 4:
+                    case 3:
                             ticketController.deleteTicket();
-                    case 5:
+                    case 4:
                         exit=false;
                     default:
                         System.out.println("Valor incorrecto");

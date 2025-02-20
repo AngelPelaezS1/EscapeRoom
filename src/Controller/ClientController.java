@@ -1,8 +1,11 @@
 package Controller;
 import Model.Client;
 import Services.ClientService;
-
+import Services.SessionService;
+import Model.Session;
 import java.util.Scanner;
+
+import static Controller.SessionController.showSessions;
 
 
 public class ClientController {
@@ -10,20 +13,19 @@ public class ClientController {
     public static Client createClient(int sessionID) {
         Scanner sc = new Scanner(System.in);
         ClientService service= new ClientService();
-        String name;
-        String mail;
-        String choose;
-        boolean notifications=true;
-        boolean exit=true;
+        SessionService sessionService= new SessionService();
+        boolean notifications = true;
+        boolean exit = true;
 
-        System.out.println("***Creacion de clientes***");
+        System.out.println("***Creación de clientes***");
         System.out.println("Introduce un nombre:");
-        name = sc.nextLine();
-        System.out.println("Introduce un email: ");
-        mail = sc.nextLine();
+        String name = sc.nextLine();
+        System.out.println("Introduce un email:");
+        String mail = sc.nextLine();
+
         do {
             System.out.println("¿Quieres recibir notificaciones? (si/no)");
-            choose = sc.nextLine().trim().toLowerCase();
+            String choose = sc.nextLine().trim().toLowerCase();
 
             if (choose.equals("si")) {
                 notifications = true;
@@ -36,11 +38,17 @@ public class ClientController {
             }
         } while (exit);
 
+        System.out.println("Lista de sesiones");
+        showSessions();
+        System.out.println("Selecciona la posicion de la sesion para la que quieres el ticket");
+        int index = sc.nextInt();
+        sc.nextLine();
+        Session session= sessionService.getSession(index);
+        sessionID=session.getId();
 
-        Client client =new Client(name,mail,notifications,sessionID);
+        Client client = new Client(name, mail, notifications, sessionID);
         service.addClient(client);
-
-        System.out.println("Cliente creado con exito.");
+        System.out.println("Cliente creado con éxito.");
         return client;
     }
 
@@ -103,27 +111,26 @@ public class ClientController {
                 System.out.println("Mail actualizado.");
                 break;
             case 3:
-                do{
-                System.out.println("Quieres recibir notificaciones ? si/no");
-                option = sc.nextLine();
-                String lowerCase = option .toLowerCase();
-                char election = lowerCase.charAt(1);
-                if(election =='s'){
-                    notifications=true;
-                    exit=false;
-                    client.setNotifications(notifications);
-                    service.updateClient(client);
-                    System.out.println("Notificaciones activadas.");
-                }else if (election=='n') {
-                    notifications=false;
-                    exit=false;
-                    client.setNotifications(notifications);
-                    service.updateClient(client);
-                    System.out.println("Notificaciones desactivadas.");
-                }else{
-                    System.out.println("Porfavor escriba si o no:");
-                }
-            }while(exit);
+                do {
+                    System.out.println("¿Quieres recibir notificaciones? (si/no)");
+                    String choose1 = sc.nextLine().trim().toLowerCase();
+
+                    if (choose1.equals("si")) {
+                        notifications = true;
+                        exit = false;
+                        client.setNotifications(notifications);
+                        service.updateClient(client);
+                        System.out.println("Notificaciones activadas.");
+                    } else if (choose1.equals("no")) {
+                        notifications = false;
+                        exit = false;
+                        client.setNotifications(notifications);
+                        service.updateClient(client);
+                        System.out.println("Notificaciones desactivadas.");
+                    } else {
+                        System.out.println("Por favor, escribe 'si' o 'no':");
+                    }
+                } while (exit);
             break;
             default:
                 System.out.println("introduce un numero entre 1 y 3");

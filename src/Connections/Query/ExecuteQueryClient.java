@@ -27,7 +27,7 @@ public class ExecuteQueryClient {
             if (rs.next()) {
                 boolean notificationBoolean = false;
                 if(rs.getInt("notification")!=0){notificationBoolean = true;}
-                this.client=new Client(rs.getInt("id"), rs.getString("name"), rs.getString("mail"), notificationBoolean, rs.getInt("sessions_id"));
+                this.client = new Client(rs.getInt("id"), rs.getString("name"), rs.getString("mail"), notificationBoolean, rs.getInt("sessions_id"));
             } else {
                 System.out.println("No se encontró ninguna client con ID ");
             }
