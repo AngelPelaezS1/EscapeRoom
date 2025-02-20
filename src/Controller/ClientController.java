@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class ClientController {
 
-    public static Client createClient(int sesionID) {
+    public static Client createClient(int sessionID) {
         Scanner sc = new Scanner(System.in);
         ClientService service= new ClientService();
         String name;
@@ -37,7 +37,7 @@ public class ClientController {
         } while (exit);
 
 
-        Client client =new Client(name,mail,notifications,sesionID);
+        Client client =new Client(name,mail,notifications,sessionID);
         service.addClient(client);
 
         System.out.println("Cliente creado con exito.");
