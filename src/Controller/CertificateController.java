@@ -20,9 +20,10 @@ public class CertificateController {
         String gift="Enhorabuena, has ganado una taza";
         int clientId=0;
         int choose;
-        System.out.println("Lista de clientes:");
+
+        System.out.println("Lista de salas:");
         showClient();
-        System.out.println("Selecciona la posicion del usuario al que quieres asignarle un certificado");
+        System.out.println("Selecciona la posicion del usuario al que quieres asignarle un certificado:");
         choose=sc.nextInt();
         sc.nextLine();
         Client client= service.getClient(choose);
@@ -41,6 +42,7 @@ public class CertificateController {
         Scanner sc= new Scanner(System.in);
         CertificatesService service = new CertificatesService();
         int choose;
+        System.out.println("Lista de certificados:");
         showCertificate();
         System.out.println("Selecciona la posicion del certificado que quieres eliminar");
         choose=sc.nextInt();

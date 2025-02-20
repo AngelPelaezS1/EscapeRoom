@@ -20,7 +20,6 @@ public class SessionController {
         SessionService sessionService = new SessionService();
 
         int idRooms = 0;
-
         System.out.println("Lista de salas:");
         showRooms();
         System.out.println("Introduce la posicion de la sala de esta sesion.");

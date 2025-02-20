@@ -73,6 +73,7 @@ public class ClientController {
         String option;
         boolean notifications=true;
         boolean exit=true;
+
         System.out.println("Lista de clientes:");
         showClient();
         System.out.println("Selecciona la  posición en la que se encuentra el usuario");

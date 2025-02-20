@@ -15,7 +15,26 @@ public class ExecuteQueryTrack {
         ConnectionSQL connectionSQL = ConnectionSQL.getInstanceConnectionSQL();
         try (Connection connection = ConnectionSQL.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            selectQuery(query, preparedStatement);
+            if(query.contains("SELECT * FROM tracks ORDER BY id LIMIT 1 OFFSET ")){
+                ResultSet rs = preparedStatement.executeQuery();
+                if (rs.next()) {
+                    String name = rs.getString("name");
+                    String topics = rs.getString("topics");
+                    String track_details = rs.getString("track_details");
+                    int rooms_id = rs.getInt("rooms_id");
+                    this.track=new Track(name, topics, track_details, rooms_id);
+                } else {
+                    System.out.println("No se encontró ningun track con ID ");
+                }
+            }else if(query.contains("SELECT name FROM tracks")){
+                ResultSet rs = preparedStatement.executeQuery();
+                while (rs.next()) {
+                    String name = rs.getString("name");
+                    System.out.println(name);
+                }
+            }else{
+                preparedStatement.executeUpdate();
+            }
         } catch (SQLException e) {
             System.err.println("Error al ejecutar la query: " + e.getMessage());
         }
@@ -30,7 +49,6 @@ public class ExecuteQueryTrack {
             }
         }else if(query.contains("SELECT name FROM tracks")){
             ResultSet rs = preparedStatement.executeQuery();
-            System.out.println("Lista :");
             while (rs.next()) {
                 System.out.println(rs.getString("name"));
             }
