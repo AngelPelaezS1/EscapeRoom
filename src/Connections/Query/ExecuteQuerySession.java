@@ -38,7 +38,6 @@ public class ExecuteQuerySession {
             }
         } else if (query.trim().toUpperCase().startsWith("SELECT")) {
             ResultSet rs = preparedStatement.executeQuery();
-            System.out.println("Lista de sesiones:");
             while (rs.next()) {
                 System.out.println(rs.getString("played_time"));
             }

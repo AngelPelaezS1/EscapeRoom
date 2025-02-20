@@ -31,7 +31,6 @@ public class ExecuteQueryRoom {
             }
         }else if(query.contains("SELECT name FROM rooms")){
             ResultSet rs = preparedStatement.executeQuery();
-            System.out.println("Lista:");
             while (rs.next()) {
                 System.out.println(rs.getString("name"));
             }
