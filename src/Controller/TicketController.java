@@ -38,7 +38,7 @@ public class TicketController {
         System.out.println("Selecciona la posicion de la sesion para la que quieres el ticket");
         choose=sc.nextInt();
         sc.nextLine();
-        Session session ;
+        Session session;
         session =sessionService.getSession(choose);
         sesionId=session.getId();
         System.out.println("Lista de clientes:");
@@ -56,6 +56,7 @@ public class TicketController {
     public void createTicket(){
         Scanner sc= new Scanner(System.in);
         RoomService roomService= new RoomService();
+        SessionService sessionService= new SessionService();
         TicketService ticketService= new TicketService();
         int idUser;
         int sesionId=0;
@@ -73,7 +74,8 @@ public class TicketController {
         System.out.println("Selecciona la posicion de la sesion para la que quieres el ticket");
         choose=sc.nextInt();
         sc.nextLine();
-        sesionId=room.getId();
+        Session session= sessionService.getSession(choose);
+        sesionId=session.getId();
         idUser=createClient(sesionId).getId();
         Ticket ticket= new Ticket(idUser,price);
         ticketService.addTicket(ticket);
@@ -87,6 +89,7 @@ public class TicketController {
         Scanner sc= new Scanner(System.in);
         int idUser=0;
         int choose;
+
         System.out.println("Lista de clientes:");
         showClient();
         System.out.println("Selecciona la posicion del cliente al que quieres mostrar los  tickets.");
@@ -101,7 +104,7 @@ public class TicketController {
         TicketService ticketService = new TicketService();
         SessionService sessionService= new SessionService();
         int choose;
-        System.out.println("Lista de clientes:");
+        System.out.println("Lista de tickets:");
         showTicket();
         System.out.println("Selecciona la posicion del ticket que quieres eliminar :");
         choose= sc.nextInt();

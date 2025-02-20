@@ -34,8 +34,7 @@ public class ExecuteQueryClient {
         }else if(query.contains("SELECT name FROM clients")){
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
-                String name = rs.getString("name");
-                System.out.println(name);
+                System.out.println(rs.getString("name"));
             }
         }else{
             preparedStatement.executeUpdate();

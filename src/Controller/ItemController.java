@@ -45,6 +45,7 @@ public class ItemController {
         ItemService itemService = new ItemService();
         int choose;
         int idRoom;
+
         System.out.println("Lista de salas:");
         showRooms();
         System.out.println("Selecciona la posicion de la sala de que quieres mostrar  objetos.");
@@ -60,6 +61,7 @@ public class ItemController {
         Scanner sc = new Scanner(System.in);
         ItemService service = new ItemService();
         int choose;
+
         System.out.println("Lista de objetos:");
         showItem();
         System.out.println("Selecciona la posicion del objeto que quieres eliminar.");
@@ -77,6 +79,7 @@ public class ItemController {
         String name;
         String material;
         float price;
+
         System.out.println("Lista de objetos:");
         showItem();
         System.out.println("Selecciona la posicion del objeto que quieres modificar.");
@@ -118,4 +121,6 @@ public class ItemController {
                 System.out.println("Introduce un numero del 1 al 3.");
         }
     }
+
+
 }

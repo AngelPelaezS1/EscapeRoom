@@ -1,13 +1,11 @@
 package Connections.Query;
 import Connections.ConnectionSQL;
 import Model.Session;
-
 import java.sql.*;
 import java.time.LocalDateTime;
 
 public class ExecuteQuerySession {
     private Session session;
-
     public Session getSession() {
         return this.session;
     }
@@ -45,12 +43,19 @@ public class ExecuteQuerySession {
                     String playedTime = rs.getString("played_time");
                     System.out.println(playedTime);
                 }
+                boolean finishedBoolean = (rs.getInt("finished") != 0);
+                this.session = new Session(rs.getInt("id"), localDateTime, finishedBoolean, rs.getInt("rooms_id"));
             } else {
-                preparedStatement.executeUpdate();
+                System.out.println("No se encontró ninguna sesión con ID.");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            System.err.println("Error al ejecutar la query: " + e.getMessage());
+        } else if (query.trim().toUpperCase().startsWith("SELECT")) {
+            ResultSet rs = preparedStatement.executeQuery();
+            System.out.println("Lista de sesiones:");
+            while (rs.next()) {
+                System.out.println(rs.getString("played_time"));
+            }
+        } else {
+            preparedStatement.executeUpdate();
         }
     }
 }

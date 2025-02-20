@@ -15,13 +15,11 @@ public class ExecuteQueryCertificate {
         ConnectionSQL connectionSQL = ConnectionSQL.getInstanceConnectionSQL();
         try (Connection connection = ConnectionSQL.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            selectQuery(query, preparedStatement);
+             selectQuery(query, preparedStatement);
         } catch (SQLException e) {
-            e.printStackTrace();
             System.err.println("Error al ejecutar la query: " + e.getMessage());
         }
     }
-
     private void selectQuery(String query, PreparedStatement preparedStatement) throws SQLException {
         if(query.contains("SELECT * FROM certificates ORDER BY id LIMIT 1 OFFSET ")){
             ResultSet rs = preparedStatement.executeQuery();

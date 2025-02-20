@@ -49,6 +49,7 @@ public class SessionController {
 
     public static void removeSession() {
         SessionService service = new SessionService();
+
         System.out.println("Lista de sesiones:");
         showSessions();
         System.out.println("Introduce la posicion de la sesion a eliminar.");
@@ -73,6 +74,7 @@ public class SessionController {
     public static void markSessionAsPassed() {
         SessionService service = new SessionService();
         boolean exit = true;
+
         System.out.println("Lista de sesiones:");
         showSessions();
         System.out.println("Introduce la posición de la sesión que quieres marcar como pasada.");

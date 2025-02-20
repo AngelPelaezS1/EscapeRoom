@@ -57,7 +57,7 @@ public class ClientController {
         int choose;
         System.out.println("Lista de clientes:");
         showClient();
-        System.out.println("Selecciona la  posición en la que se encuentra el usuario");
+        System.out.println("Selecciona la posición en la que se encuentra el usuario");
         choose=sc.nextInt();
         sc.nextLine();
         service.deleteClient(choose);
