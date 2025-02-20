@@ -11,8 +11,8 @@ public class UserMenu {
 
                 System.out.println(" ");
                 System.out.println("*** Gestor de clientes***");
-                System.out.println("1.-Cliente");
-                System.out.println("2.-Comprar tiket");
+                System.out.println("1.-Gestor de clientes");
+                System.out.println("2.-Gestor de tikets");
                 System.out.println("3.-Dar certificados");
                 System.out.println("4.-Atras");
                 System.out.print("Elige una opción: ");
