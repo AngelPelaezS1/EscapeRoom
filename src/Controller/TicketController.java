@@ -26,14 +26,12 @@ public class TicketController {
         int choose;
         int sesionId=0;
         float price= 24.95f;
-        RoomMenu roomMenu = new RoomMenu();
 
         System.out.println("Lista de salas:");
         showRooms();
         System.out.println("Selecciona la posicion de la room a la que quieres añadir un ticket:");
         choose=sc.nextInt();
         sc.nextLine();
-        Room room=roomService.getRoom(choose);
         System.out.println("Lista de sesiones:");
         showSessions();
         System.out.println("Selecciona la posicion de la sesion para la que quieres el ticket");
@@ -50,7 +48,7 @@ public class TicketController {
         Client client=clientService.getClient(choose);
         client.setSesionId(sesionId);
         idUser=client.getId();
-        Ticket ticket= new Ticket(idUser,price);
+        Ticket ticket= new Ticket(price,idUser);
         ticketService.addTicket(ticket);
         System.out.println("Se le ha asignado ticket");
     }
@@ -78,7 +76,7 @@ public class TicketController {
         Session session= sessionService.getSession(choose);
         sesionId=session.getId();
         idUser=createClient(sesionId).getId();
-        Ticket ticket= new Ticket(idUser,price);
+        Ticket ticket= new Ticket(price,idUser);
         ticketService.addTicket(ticket);
         System.out.println("Ticket creado con exito.");
     }

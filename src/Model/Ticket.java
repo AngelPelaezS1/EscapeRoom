@@ -5,7 +5,7 @@ public class Ticket {
     private int  userId;
     private double price;
 
-    public Ticket(int userId, double price) {
+    public Ticket( double price,int userId) {
         this.userId = userId;
         this.price = price;
     }
