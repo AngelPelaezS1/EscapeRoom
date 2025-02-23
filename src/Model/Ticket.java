@@ -5,12 +5,12 @@ public class Ticket {
     private int  userId;
     private double price;
 
-    public Ticket( double price,int userId) {
+    public Ticket( float price,int userId) {
         this.userId = userId;
         this.price = price;
     }
 
-    public Ticket(int id, double price, int userId) {
+    public Ticket(int id, float price, int userId) {
         this.id = id;
         this.userId = userId;
         this.price = price;

@@ -18,6 +18,7 @@ public class ClientService {
     public void seeClients(){
         executeQueryClient =new ExecuteQueryClient("SELECT name FROM clients");
     }
+
     public Client getClient(int clientPosition){
         executeQueryClient =new ExecuteQueryClient("SELECT * FROM clients ORDER BY id LIMIT 1 OFFSET "+(clientPosition-1));
         return executeQueryClient.getClient();

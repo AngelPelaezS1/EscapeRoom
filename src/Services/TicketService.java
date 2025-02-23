@@ -12,8 +12,9 @@ public class TicketService {
                 "SELECT id FROM (SELECT id FROM tickets ORDER BY id LIMIT 1 OFFSET "+(ticketPosition-1)+") AS subquery)");
     }
     public void seeTickets(){
-        executeQueryTicket =new ExecuteQueryTicket("SELECT name FROM tickets");
+        executeQueryTicket =new ExecuteQueryTicket("SELECT price FROM tickets");
     }
+
     public Ticket getTicket(int ticketPosition){
         executeQueryTicket =new ExecuteQueryTicket("SELECT * FROM tickets ORDER BY id LIMIT 1 OFFSET "+(ticketPosition-1));
         return executeQueryTicket.getTicket();
