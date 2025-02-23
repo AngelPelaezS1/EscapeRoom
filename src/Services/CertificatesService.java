@@ -5,7 +5,7 @@ import Model.Certificate;
 public class CertificatesService {
     ExecuteQueryCertificate executeQueryCertificate;
     public void addCertificate(Certificate certificate){
-        executeQueryCertificate =new ExecuteQueryCertificate("INSERT INTO certificates (name, achievement, gift, players_id) VALUES ('"+certificate.getName()+"', '"+certificate.getAchievement()+"', "+certificate.getGift()+", "+certificate.getPlayersId()+")");
+        executeQueryCertificate =new ExecuteQueryCertificate("INSERT INTO certificates (name, achievement, gift, players_id) VALUES ('"+certificate.getName()+"', '"+certificate.getAchievement()+"', '"+certificate.getGift()+"', "+certificate.getPlayersId()+")");
     }
     public void deleteCertificate(int certificatePosition){
         executeQueryCertificate =new ExecuteQueryCertificate("DELETE FROM certificates WHERE id = ( " +

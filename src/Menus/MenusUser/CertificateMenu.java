@@ -23,9 +23,9 @@ public class CertificateMenu {
 
 
             switch (choose) {
-                case 1: controller.createCertificate();
+                case 1: controller.showCertificate();
                     break;
-                case 2: controller.showCertificate();
+                case 2: controller.createCertificate();
                     break;
                 case 3:
                     exit = false;

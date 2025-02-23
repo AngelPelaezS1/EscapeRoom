@@ -84,19 +84,19 @@ public class TicketController {
         System.out.println("Ticket creado con exito.");
     }*/
 
-    public static void showTicket(){
+    public void showTicket(){
         ClientService clientService = new ClientService();
         SessionService sessionService= new SessionService();
         TicketService ticketService = new TicketService();
         Scanner sc= new Scanner(System.in);
         int idUser=0;
-        int choose;
+        int chooseTicket;
         System.out.println("lista de clientes:");
         showClient();
         System.out.println("Selecciona la posicion del cliente al que quieres mostrar los  tickets:");
-        choose=sc.nextInt();
+        chooseTicket=sc.nextInt();
         sc.nextLine();
-        Client client=clientService.getClient(choose);
+        Client client=clientService.getClient(chooseTicket);
         System.out.println("Lista de tickets del cliente " +client.getName()+ " :");
         ticketService.seeTickets();
     }
@@ -104,12 +104,13 @@ public class TicketController {
         Scanner sc=new Scanner(System.in);
         TicketService ticketService = new TicketService();
         SessionService sessionService= new SessionService();
-        int choose;
+        int chooseTicket;
         System.out.println("Lista de tickets:");
         showTicket();
         System.out.println("Selecciona la posicion del ticket que quieres eliminar :");
-        choose= sc.nextInt();
+        chooseTicket= sc.nextInt();
         sc.nextLine();
-        ticketService.deleteTicket(choose);
+        ticketService.deleteTicket(chooseTicket);
+        System.out.println("Ticket eliminado con exito.");
     }
 }
