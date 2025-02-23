@@ -9,24 +9,23 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-import static Controller.RoomController.showRooms;
-
 public class SessionController {
     static Scanner sc = new Scanner(System.in);
 
-
     public static void createSesion() {
-        RoomService service = new RoomService();
+        RoomService roomService = new RoomService();
         SessionService sessionService = new SessionService();
 
         int idRooms = 0;
+        System.out.println(" ");
         System.out.println("Lista de salas:");
-        showRooms();
+        roomService.seeRooms();
+        System.out.println(" ");
         System.out.println("Introduce la posicion de la sala de esta sesion.");
         int index = sc.nextInt();
         sc.nextLine();
 
-        Room room = service.getRoom(index);
+        Room room = roomService.getRoom(index);
         idRooms = room.getId();
 
         System.out.println("Introduce fecha y hora (yyyy-MM-dd HH:mm.)");
@@ -46,12 +45,14 @@ public class SessionController {
 
     }
 
-
     public static void removeSession() {
         SessionService service = new SessionService();
+        RoomService roomService = new RoomService();
 
+        System.out.println(" ");
         System.out.println("Lista de sesiones:");
-        showSessions();
+        roomService.seeRooms();
+        System.out.println(" ");
         System.out.println("Introduce la posicion de la sesion a eliminar.");
         int index = sc.nextInt();
         sc.nextLine();
@@ -67,6 +68,7 @@ public class SessionController {
 
     public static void showSessions() {
         SessionService service = new SessionService();
+        System.out.println(" ");
         System.out.println("Lista de sesiones:");
         service.seeSessions();
     }
@@ -74,9 +76,10 @@ public class SessionController {
     public static void markSessionAsPassed() {
         SessionService service = new SessionService();
         boolean exit = true;
-
+        System.out.println(" ");
         System.out.println("Lista de sesiones:");
-        showSessions();
+        service.seeSessions();
+        System.out.println(" ");
         System.out.println("Introduce la posición de la sesión que quieres marcar como pasada.");
         int index = sc.nextInt();
         sc.nextLine();

@@ -1,11 +1,10 @@
 package Controller;
 import Model.Client;
+import Model.Session;
 import Services.ClientService;
 import Services.SessionService;
-import Model.Session;
-import java.util.Scanner;
 
-import static Controller.SessionController.showSessions;
+import java.util.Scanner;
 
 
 public class ClientController {
@@ -17,6 +16,7 @@ public class ClientController {
         boolean notifications = true;
         boolean exit = true;
 
+        System.out.println(" ");
         System.out.println("***Creación de clientes***");
         System.out.println("Introduce un nombre:");
         String name = sc.nextLine();
@@ -38,8 +38,8 @@ public class ClientController {
             }
         } while (exit);
 
-        System.out.println("Lista de sesiones");
-        showSessions();
+        sessionService.seeSessions();
+        System.out.println(" ");
         System.out.println("Selecciona la posicion de la sesion para la que quieres el ticket");
         int index = sc.nextInt();
         sc.nextLine();
@@ -54,6 +54,7 @@ public class ClientController {
 
 
     public static void showClient(){
+        System.out.println(" ");
         System.out.println("Lista de clientes:");
         ClientService service=new ClientService();
         service.seeClients();
@@ -64,8 +65,10 @@ public class ClientController {
         Scanner sc= new Scanner(System.in);
         ClientService service=new ClientService();
         int choose;
+        System.out.println(" ");
         System.out.println("Lista de clientes:");
-        showClient();
+        service.seeClients();
+        System.out.println(" ");
         System.out.println("Selecciona la posición en la que se encuentra el usuario");
         choose=sc.nextInt();
         sc.nextLine();
@@ -82,13 +85,16 @@ public class ClientController {
         boolean notifications=true;
         boolean exit=true;
 
-        System.out.println("Lista de clientes:");
-        showClient();
+        System.out.println(" ");
+        service.seeClients();
+
+        System.out.println(" ");
         System.out.println("Selecciona la  posición en la que se encuentra el usuario");
         choose=sc.nextInt();
         sc.nextLine();
         Client client=service.getClient(choose);
 
+        System.out.println(" ");
         System.out.println("*** Que deseas modificar?***");
         System.out.println("1.-Nombre");
         System.out.println("2.-Mail");

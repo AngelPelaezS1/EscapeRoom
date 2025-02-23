@@ -7,8 +7,6 @@ import Services.RoomService;
 
 import java.util.Scanner;
 
-import static Controller.RoomController.showRooms;
-
 public class ItemController {
 
     public void createItem() {
@@ -20,8 +18,10 @@ public class ItemController {
         String name;
         String material;
         float price;
+        System.out.println(" ");
         System.out.println("Lista de salas:");
-        showRooms();
+        roomService.seeRooms();
+        System.out.println(" ");
         System.out.println("Selecciona la posicion de la habitacion a la que quieres añadir un objeto.");
         choose = sc.nextInt();
         sc.nextLine();
@@ -47,7 +47,8 @@ public class ItemController {
         int idRoom;
 
         System.out.println("Lista de salas:");
-        showRooms();
+        roomService.seeRooms();
+        System.out.println(" ");
         System.out.println("Selecciona la posicion de la sala de que quieres mostrar  objetos.");
         choose = sc.nextInt();
         sc.nextLine();
@@ -62,8 +63,10 @@ public class ItemController {
         ItemService service = new ItemService();
         int choose;
 
+        System.out.println(" ");
         System.out.println("Lista de objetos:");
-        showItem();
+        service.seeItem();
+        System.out.println(" ");
         System.out.println("Selecciona la posicion del objeto que quieres eliminar.");
         choose = sc.nextInt();
         sc.nextLine();
@@ -79,14 +82,16 @@ public class ItemController {
         String name;
         String material;
         float price;
-
+        System.out.println(" ");
         System.out.println("Lista de objetos:");
-        showItem();
+        service.seeItem();
+        System.out.println(" ");
         System.out.println("Selecciona la posicion del objeto que quieres modificar.");
         choose = sc.nextInt();
         sc.nextLine();
         Item item = service.getItem(choose);
         idRoom = item.getRoomId();
+        System.out.println(" ");
         System.out.println("Que quieres modificar:");
         System.out.println("1.-Nombre.");
         System.out.println("2.-Material.");
@@ -124,6 +129,7 @@ public class ItemController {
 
     public void totalValue(){
         ItemService service = new ItemService();
+        System.out.println(" ");
         service.totalValueObjects();
     }
 

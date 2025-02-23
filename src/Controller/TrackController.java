@@ -7,8 +7,6 @@ import Services.TrackService;
 
 import java.util.Scanner;
 
-import static Controller.RoomController.showRooms;
-
 public class TrackController {
     static Scanner sc = new Scanner(System.in);
 
@@ -17,8 +15,10 @@ public class TrackController {
         RoomService roomService= new RoomService();
         TrackService service=new TrackService();
 
+        System.out.println(" ");
         System.out.println("Lista de salas:");
-        showRooms();
+        roomService.seeRooms();
+        System.out.println(" ");
         System.out.println("Introduce la posicion de la room a la quieres añadir la pista.");
         int choose = sc.nextInt();
         sc.nextLine();
@@ -37,10 +37,12 @@ public class TrackController {
     }
 
     public void showTracks(){
-        TrackService service=new TrackService();
-        RoomService roomService= new RoomService();
+        TrackService service = new TrackService();
+        RoomService roomService = new RoomService();
+        System.out.println(" ");
         System.out.println("Lista de salas:");
-        showRooms();
+        roomService.seeRooms();
+        System.out.println(" ");
         System.out.println("Introduce la posicion de la room que quieras ver las pistas.");
         int choose = sc.nextInt();
         sc.nextLine();
@@ -50,9 +52,11 @@ public class TrackController {
     }
 
     public void removeTrack(){
+        TrackService service = new TrackService();
+        System.out.println(" ");
         System.out.println("Lista de pistas:");
-        showTracks();
-        TrackService trackService= new TrackService();
+        service.seeTrack();
+        System.out.println(" ");
         System.out.println("Introduce la posicion de la pista a eliminar.");
         int index = sc.nextInt();
         sc.nextLine();
@@ -62,15 +66,17 @@ public class TrackController {
             index = sc.nextInt();
             sc.nextLine();
         }
-        trackService.deleteTrack(index);
+        service.deleteTrack(index);
         System.out.println("Pista eliminada con exito.");
     }
 
 
     public void modifyTrack(){
-        TrackService trackService= new TrackService();
+        TrackService service = new TrackService();
+        System.out.println(" ");
         System.out.println("Lista de pistas:");
-        showTracks();
+        service.seeTrack();
+        System.out.println(" ");
         System.out.println("Introduce la posicion de la pista a modificar.");
         int index = sc.nextInt();
         sc.nextLine();
@@ -80,8 +86,8 @@ public class TrackController {
             index = sc.nextInt();
             sc.nextLine();
         }
-        Track track= trackService.getTrack(index);
-
+        Track track= service.getTrack(index);
+        System.out.println(" ");
         System.out.println("Elige una opción:");
         System.out.println("1.Nombre.");
         System.out.println("2.Tema.");
@@ -94,21 +100,21 @@ public class TrackController {
                 System.out.println("Introduce el nuevo nombre.");
                 String newName = sc.nextLine();
                 track.setName(newName);
-                trackService.updateTrack(track);
+                service.updateTrack(track);
                 System.out.println("Nombre actualizado.");
                 break;
             case 2:
                 System.out.println("Introduce el nuevo tema.");
                 String newTopic = sc.nextLine();
                 track.setTopics(newTopic);
-                trackService.updateTrack(track);
+                service.updateTrack(track);
                 System.out.println("Tema actualizado.");
                 break;
             case 3:
                 System.out.println("Introduce la nueva descripcion.");
                 String newDetails = sc.nextLine();
                 track.setDetails(newDetails);
-                trackService.updateTrack(track);
+                service.updateTrack(track);
                 System.out.println("Descripcion actualizada.");
                 break;
             default:

@@ -11,7 +11,7 @@ public class RoomController {
 
     public static void createRoom(){
         RoomService service= new RoomService();
-
+        System.out.println(" ");
         System.out.println("Introduce el nombre de la habitacion.");
         String name = sc.nextLine();
         System.out.println("Introduce la dificultad (1-10).");
@@ -27,18 +27,19 @@ public class RoomController {
         service.addRoom(room);
     }
 
-    public static  void showRooms(){
+    public static void showRooms(){
         System.out.println("Lista de salas:");
         RoomService service = new RoomService();
-        System.out.println("Lista de salas:");
         service.seeRooms();
     }
 
 
     public static void removeRoom(){
         RoomService service= new RoomService();
+        System.out.println(" ");
         System.out.println("Lista de salas:");
-        showRooms();
+        service.seeRooms();
+        System.out.println(" ");
         System.out.println("Introduce la posicion de la sala a eliminar.");
         int index = sc.nextInt();
         sc.nextLine();
@@ -55,8 +56,10 @@ public class RoomController {
 
     public static void modifyRoom(){
         RoomService service= new RoomService();
+        System.out.println(" ");
         System.out.println("Lista de salas:");
         showRooms();
+        System.out.println(" ");
         System.out.println("Introduce la posicion de la sala a modificar.");
         int index = sc.nextInt();
         sc.nextLine();
