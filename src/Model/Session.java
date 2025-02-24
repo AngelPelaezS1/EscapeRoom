@@ -5,15 +5,23 @@ import java.time.LocalDateTime;
 public class Session {
     private int id;
     private LocalDateTime playedTime;
-    private boolean finished;
+    private boolean finished=false;
     private int roomId;
 
-    public Session(int id, LocalDateTime playedTime, boolean finished, int roomId) {
+
+    public Session(LocalDateTime playedTime, int roomId) {
+        this.playedTime = playedTime;
+        this.roomId = roomId;
+    }
+
+
+    public Session(int id, LocalDateTime playedTime ,boolean finished,int roomId) {
         this.id = id;
         this.playedTime = playedTime;
         this.finished = finished;
-        this.roomId = roomId;
+        this.roomId=roomId;
     }
+
 
     public int getId() {
         return id;

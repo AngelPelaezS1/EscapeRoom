@@ -1,59 +1,83 @@
 package Controller;
-
 import Model.Client;
+import Model.Session;
+import Services.ClientService;
+import Services.SessionService;
 
 import java.util.Scanner;
 
 
 public class ClientController {
 
-    public static void createClient() {
+    public static Client createClient(int sessionID) {
         Scanner sc = new Scanner(System.in);
-        String name;
-        String mail;
-        String choose;
-        boolean notifications=true;
-        boolean exit=true;
+        ClientService service= new ClientService();
+        SessionService sessionService= new SessionService();
+        boolean notifications = true;
+        boolean exit = true;
 
-        System.out.println("***Creacion de clientes***");
+        System.out.println(" ");
+        System.out.println("***Creación de clientes***");
         System.out.println("Introduce un nombre:");
-        name = sc.nextLine();
-        System.out.println("Introduce un email: ");
-        mail = sc.nextLine();
-        do{
-                System.out.println("Quieres recibir notificaciones ? si/no");
-                choose = sc.nextLine();
-                String lowerCase = choose.toLowerCase();
-                char election = lowerCase.charAt(1);
-                if(election =='y'){
-                    notifications=true;
-                    exit=false;
-                }else if (election=='n') {
-                    notifications=false;
-                    exit=false;
-                }else{
-                    System.out.println("Porfavor escriba si o no:");
-                }
-        }while(exit);
-        Client client =new Client(name,mail,notifications);
-        System.out.println("Cliente creado");
+        String name = sc.nextLine();
+        System.out.println("Introduce un email:");
+        String mail = sc.nextLine();
+
+        do {
+            System.out.println("¿Quieres recibir notificaciones? (si/no)");
+            String choose = sc.nextLine().trim().toLowerCase();
+
+            if (choose.equals("si")) {
+                notifications = true;
+                exit = false;
+            } else if (choose.equals("no")) {
+                notifications = false;
+                exit = false;
+            } else {
+                System.out.println("Por favor, escribe 'si' o 'no':");
+            }
+        } while (exit);
+        System.out.println(" ");
+        sessionService.seeSessions();
+        System.out.println(" ");
+        System.out.println("Selecciona la posicion de la sesion para la que quieres el ticket");
+        int index = sc.nextInt();
+        sc.nextLine();
+        Session session= sessionService.getSession(index);
+        sessionID=session.getId();
+
+        Client client = new Client(name, mail, notifications, sessionID);
+        service.addClient(client);
+        System.out.println("Cliente creado con éxito.");
+        return client;
     }
+
 
     public static void showClient(){
-        //metodo  de servicio listar usuarios
+        System.out.println(" ");
+        System.out.println("Lista de clientes:");
+        ClientService service=new ClientService();
+        service.seeClients();
+
     }
 
-    public static void removeClient(){
+    public void removeClient(){
         Scanner sc= new Scanner(System.in);
+        ClientService service=new ClientService();
         int choose;
-        showClient();
-        System.out.println("Selecciona la  posición en la que se encuentra el usuario");
+        System.out.println(" ");
+        System.out.println("Lista de clientes:");
+        service.seeClients();
+        System.out.println(" ");
+        System.out.println("Selecciona la posición en la que se encuentra el usuario");
         choose=sc.nextInt();
         sc.nextLine();
-        //metodo de servicio para eliminar usuario en x posicion
+        service.deleteClient(choose);
+        System.out.println("Cliente eliminado con exito.");
     }
-    public static void modifyClient(){
+    public void modifyClient(){
         Scanner sc= new Scanner(System.in);
+        ClientService service =new ClientService();
         int choose;
         String name;
         String mail;
@@ -61,12 +85,16 @@ public class ClientController {
         boolean notifications=true;
         boolean exit=true;
 
-        showClient();
+        System.out.println(" ");
+        service.seeClients();
+
+        System.out.println(" ");
         System.out.println("Selecciona la  posición en la que se encuentra el usuario");
         choose=sc.nextInt();
         sc.nextLine();
-        // metodo de servicio que devuelve el usuario en x posicion;
-        // hacer un cliente con la info
+        Client client=service.getClient(choose);
+
+        System.out.println(" ");
         System.out.println("*** Que deseas modificar?***");
         System.out.println("1.-Nombre");
         System.out.println("2.-Mail");
@@ -77,35 +105,38 @@ public class ClientController {
             case 1:
                 System.out.println("Porque nombre desea sustituirlo:");
                 name=sc.nextLine();
-                // client.setName(name);
-                //metodo servicio update;
+                client.setName(name);
+                service.updateClient(client);
+                System.out.println("Nombre actualizado.");
                 break;
             case 2:
                 System.out.println("Porque mail desea sustituirlo:");
                 mail=sc.nextLine();
-                // client.setMail(mail);
-                //metodo servicio updateclient;
+                client.setMail(mail);
+                service.updateClient(client);
+                System.out.println("Mail actualizado.");
                 break;
             case 3:
-                do{
-                System.out.println("Quieres recibir notificaciones ? si/no");
-                option = sc.nextLine();
-                String lowerCase = option .toLowerCase();
-                char election = lowerCase.charAt(1);
-                if(election =='y'){
-                    notifications=true;
-                    exit=false;
-                    //client.setNotifications(notifications);
-                    //metodo servicio updateclient
-                }else if (election=='n') {
-                    notifications=false;
-                    exit=false;
-                    //client.setNotifications(notifications);
-                    //metodo servicio updateclient
-                }else{
-                    System.out.println("Porfavor escriba si o no:");
-                }
-            }while(exit);
+                do {
+                    System.out.println("¿Quieres recibir notificaciones? (si/no)");
+                    String choose1 = sc.nextLine().trim().toLowerCase();
+
+                    if (choose1.equals("si")) {
+                        notifications = true;
+                        exit = false;
+                        client.setNotifications(notifications);
+                        service.updateClient(client);
+                        System.out.println("Notificaciones activadas.");
+                    } else if (choose1.equals("no")) {
+                        notifications = false;
+                        exit = false;
+                        client.setNotifications(notifications);
+                        service.updateClient(client);
+                        System.out.println("Notificaciones desactivadas.");
+                    } else {
+                        System.out.println("Por favor, escribe 'si' o 'no':");
+                    }
+                } while (exit);
             break;
             default:
                 System.out.println("introduce un numero entre 1 y 3");

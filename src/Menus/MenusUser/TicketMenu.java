@@ -1,40 +1,43 @@
 package Menus.MenusUser;
 
+import Controller.TicketController;
+
 import java.util.Scanner;
 
 public class TicketMenu {
-    public static void ticketStart() {
+    public void ticketStart() {
         Scanner sc = new Scanner(System.in);
         int choose;
         boolean exit = true;
         do {
-            try {
                 System.out.println(" ");
                 System.out.println("*** Gestor de tickets***");
-                System.out.println("1.-Jugadores exisente");
-                System.out.println("2.-Nuevo jugador");
-                System.out.println("3.-Atras");
+                System.out.println("1.-Añadir ticket a jugador exisente");
+                System.out.println("2.-Mostrar tickets");
+                System.out.println("3.-Eliminar tikets");
+                System.out.println("4.-Atras");
                 System.out.print("Elige una opción: ");
-
+                TicketController ticketController  = new TicketController();
                 choose = sc.nextInt();
                 sc.nextLine();
 
                 switch (choose) {
-                    case 1:// print jugadores;
+                    case 1:
+                            ticketController.createTicketClient();
                         break;
-                    case 2:// nuevo jugador y dar tiket;
-                        break;
+                    case 2:
+                            ticketController.showTicket();
+                       break;
                     case 3:
-                        exit = false;
+                            ticketController.deleteTicket();
+                            break;
+                    case 4:
+                        exit=false;
                         break;
                     default:
                         System.out.println("Valor incorrecto");
                         break;
                 }
-            } catch (Exception e) {
-                System.out.println("Error: Debes ingresar un número entero.");
-                sc.nextLine();
-            }
         } while (exit);
     }
 }

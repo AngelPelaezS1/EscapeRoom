@@ -1,18 +1,18 @@
 package Menus;
 
-import java.util.Scanner;
+import Menus.MenusItems.EscapeRoomMenu;
+import Menus.MenusUser.UserMenu;
 
-import static Menus.MenusUser.ClientMenu.clientStart;
-import static Menus.MenusItems.EscapeRoomMenu.escapeRoomStart;
+import java.util.Scanner;
 
 public class MainMenu {
 
-  public static void Start() {
+  public void Start() {
       Scanner sc = new Scanner(System.in);
       int choose;
       boolean exit = true;
       do {
-          try {
+
               System.out.println(" ");
               System.out.println("***Bienvenido al gestor del scape room***");
               System.out.println("1.-Gestión de Escaperoom");
@@ -25,9 +25,11 @@ public class MainMenu {
 
               switch (choose) {
 
-                  case 1: escapeRoomStart();
+                  case 1: EscapeRoomMenu escapeRoomMenu = new EscapeRoomMenu();
+                          escapeRoomMenu.escapeRoomStart();
                       break;
-                  case 2: clientStart();
+                  case 2: UserMenu userMenu = new UserMenu();
+                          userMenu.userStart();
                       break;
                   case 3:
                       System.out.println("Saliendo de la aplicación...");
@@ -37,10 +39,6 @@ public class MainMenu {
                       System.out.println("Valor incorrecto");
                       break;
               }
-          } catch (Exception e) {
-              System.out.println("Error: Debes ingresar un número entero.");
-              sc.nextLine();
-          }
       } while (exit);
   }
 }

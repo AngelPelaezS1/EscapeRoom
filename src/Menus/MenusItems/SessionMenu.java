@@ -1,41 +1,41 @@
 package Menus.MenusItems;
 
-import Controller.TrackController;
+import Controller.SessionController;
 
 import java.util.Scanner;
 
-public class TrackMenu {
+public class SessionMenu {
 
-    public void trackStart() {
+    public void sessionStart(){
         Scanner sc = new Scanner(System.in);
         int choose;
         boolean exit = true;
         do {
 
                 System.out.println(" ");
-                System.out.println("***Bienvenido al gestor de pistas***");
-                System.out.println("1.-Crear pista");
-                System.out.println("2.-Eliminar pista");
-                System.out.println("3.-Mostrar pistas");
-                System.out.println("4.-Modificar pista");
+                System.out.println("***Bienvenido al gestor de sesiones***");
+                System.out.println("1.-Crear sesion");
+                System.out.println("2.-Eliminar sesion");
+                System.out.println("3.-Mostrar sesion");
+                System.out.println("4.-Marcar sesion como finalizada");
                 System.out.println("5.-Atras");
                 System.out.print("Elige una opción: ");
-                TrackController trackController = new TrackController();
+                SessionController sessionController = new SessionController();
                 choose = sc.nextInt();
                 sc.nextLine();
 
                 switch (choose) {
                     case 1:
-                            trackController.createTrack();
+                            sessionController.createSesion();
                         break;
                     case 2:
-                            trackController.removeTrack();
+                            sessionController.removeSession();
                         break;
                     case 3:
-                            trackController.showTracks();
+                            sessionController.showSessions();
                         break;
                     case 4:
-                            trackController.modifyTrack();
+                            sessionController.markSessionAsPassed();
                         break;
                     case 5:
                         exit = false;
@@ -47,4 +47,5 @@ public class TrackMenu {
         } while (exit);
     }
 }
+
 

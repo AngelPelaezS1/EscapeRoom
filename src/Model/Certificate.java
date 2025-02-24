@@ -7,6 +7,13 @@ public class Certificate {
     private String gift;
     private int playersId;
 
+    public Certificate(String name, String achievement, String gift, int playersId) {
+        this.name = name;
+        this.achievement = achievement;
+        this.gift = gift;
+        this.playersId = playersId;
+    }
+
     public Certificate(int id, String name, String achievement, String gift, int playersId) {
         this.id = id;
         this.name = name;
@@ -46,6 +53,7 @@ public class Certificate {
     public void setName(String name) {
         this.name = name;
     }
+
 
     @Override
     public String toString() {

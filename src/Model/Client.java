@@ -5,17 +5,22 @@ public class Client {
     private String name;
     private  String mail;
     private boolean notifications;
-    private int sesionId;
+    private int sessionId;
 
-    public Client( String name, String mail, boolean notifications) {
+    public Client( String name, String mail, boolean notifications, int sessionId) {
         this.name = name;
         this.mail = mail;
         this.notifications = notifications;
-
+        this.sessionId=sessionId;
     }
 
-
-
+    public Client(int id, String name, String mail, boolean notifications, int sessionId) {
+        this.id = id;
+        this.name = name;
+        this.mail = mail;
+        this.notifications = notifications;
+        this.sessionId = sessionId;
+    }
 
     public int getId() {
         return id;
@@ -33,8 +38,8 @@ public class Client {
         return notifications;
     }
 
-    public int getSesionId() {
-        return sesionId;
+    public int getSessionId() {
+        return sessionId;
     }
 
     public void setName(String name) {
@@ -49,8 +54,8 @@ public class Client {
         this.notifications = notifications;
     }
 
-    public void setSesionId(int sesionId) {
-        this.sesionId = sesionId;
+    public void setSessionId(int sessionId) {
+        this.sessionId = sessionId;
     }
 
     @Override
@@ -60,7 +65,7 @@ public class Client {
                 ", name='" + name + '\'' +
                 ", mail='" + mail + '\'' +
                 ", notifications=" + notifications +
-                ", sesionId=" + sesionId +
+                ", sesionId=" + sessionId +
                 '}';
     }
 }

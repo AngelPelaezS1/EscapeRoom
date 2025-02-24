@@ -1,13 +1,20 @@
 package Model;
 
-public class Object {
+public class Item {
     private int id;
     private String name;
     private String material;
     private float price;
     private int roomId;
 
-    public Object(int id, String name, String material, float price, int roomId) {
+    public Item(String name, String material, float price,int roomId) {
+        this.name = name;
+        this.material = material;
+        this.price = price;
+        this.roomId=roomId;
+    }
+
+    public Item(int id, String name, String material, float price, int roomId) {
         this.id = id;
         this.name = name;
         this.material = material;
