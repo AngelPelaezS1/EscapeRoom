@@ -25,7 +25,6 @@ public class TicketController {
         System.out.println(" ");
         System.out.println("Lista de salas:");
         roomService.seeRooms();
-        ticketService.seeTickets();
         System.out.println(" ");
         System.out.println("Selecciona la posicion de la sala a la que quieres añadir un ticket:");
         choose=sc.nextInt();

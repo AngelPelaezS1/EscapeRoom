@@ -30,8 +30,10 @@ public class TicketMenu {
                        break;
                     case 3:
                             ticketController.deleteTicket();
+                            break;
                     case 4:
                         exit=false;
+                        break;
                     default:
                         System.out.println("Valor incorrecto");
                         break;
