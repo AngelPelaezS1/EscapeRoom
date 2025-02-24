@@ -1,7 +1,7 @@
 # 🚀 Spring3_tasca3 - Sistema de Gestión de Entidades (EscapeRoom) MVC
 
 Una aplicación Java/Spring que permite gestionar diferentes entidades (certificados, clientes, objetos, etc.) en una base de datos MySQL, siguiendo el patrón MVC y utilizando consultas SQL seguras. El sistema implementa un CRUD completo para varias entidades, optimizando la interacción con la base de datos y garantizando una arquitectura escalable.
-
+https://gamma.app/docs/Spring3-tasca3--s5mu7gzf83w0exy?mode=doc presentacion
 ---
 
 ## 📌 Características Principales
