@@ -133,7 +133,7 @@ graph TD
 5. Abre un Pull Request.
 
 ## 🦸 Autores
-Antonio Carrasco, Angel Pelaez, Jofre Coca.
+Angel Pelaez, Antonio Carrasco, Jofre Coca.
 ---
 
 
