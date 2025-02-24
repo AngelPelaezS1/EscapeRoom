@@ -18,11 +18,12 @@ public class ExecuteQueryTrack {
             if(query.contains("SELECT * FROM tracks ORDER BY id LIMIT 1 OFFSET ")){
                 ResultSet rs = preparedStatement.executeQuery();
                 if (rs.next()) {
+                    int id = rs.getInt("id");
                     String name = rs.getString("name");
                     String topics = rs.getString("topics");
                     String track_details = rs.getString("track_details");
                     int rooms_id = rs.getInt("rooms_id");
-                    this.track=new Track(name, topics, track_details, rooms_id);
+                    this.track=new Track(id, name, topics, track_details, rooms_id);
                 } else {
                     System.out.println("No se encontró ningun track con ID ");
                 }

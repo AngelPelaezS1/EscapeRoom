@@ -31,8 +31,8 @@ public class TrackController {
         String topics = sc.nextLine();
         System.out.println("Haz una breve descripcion.");
         String details = sc.nextLine();
-        Track track = new Track(name, topics,details,idRooms);
-        service.addTrack(track);
+        Track track = new Track(name, topics, details, idRooms);
+
         System.out.println("Pista añadida con exito.");
     }
 
