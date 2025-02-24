@@ -72,11 +72,13 @@ public class RoomController {
 
         Room room = service.getRoom(index);
 
-            System.out.println("Elige una opción: 1-Nombre, 2-Dificultad.");
+            System.out.println("Elige una opción:");
+            System.out.println("1.Nombre.");
+            System.out.println("2.Dificultad.");
             int choose = sc.nextInt();
             sc.nextLine();
 
-            switch (choose) {
+            switch (choose){
                 case 1:
                     System.out.println("Introduce el nuevo nombre:");
                     String newName = sc.nextLine();
