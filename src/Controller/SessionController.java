@@ -37,7 +37,6 @@ public class SessionController {
             System.out.println("Formato incorrecto, usa (yyyy-MM-dd HH:mm.)");
             return;
         }
-        sc.nextLine();
 
         Session session = new Session(playedTime, idRooms);
         sessionService.addSession(session);
@@ -51,7 +50,7 @@ public class SessionController {
 
         System.out.println(" ");
         System.out.println("Lista de sesiones:");
-        roomService.seeRooms();
+        service.seeSessions();
         System.out.println(" ");
         System.out.println("Introduce la posicion de la sesion a eliminar.");
         int index = sc.nextInt();
@@ -97,7 +96,7 @@ public class SessionController {
             } else if (option.equals("no")) {
                 session.setFinished(false);
                 service.updateSession(session);
-                System.out.println("La sesión no ha sido marcada como pasada.");
+                System.out.println("La sesión ha sido marcada como no finalizada.");
                 exit = false;
             } else {
                 System.out.println("Por favor, escribe 'si' o 'no':");

@@ -28,6 +28,7 @@ public class RoomController {
     }
 
     public static void showRooms(){
+        System.out.println(" ");
         System.out.println("Lista de salas:");
         RoomService service = new RoomService();
         service.seeRooms();
@@ -57,7 +58,6 @@ public class RoomController {
     public static void modifyRoom(){
         RoomService service= new RoomService();
         System.out.println(" ");
-        System.out.println("Lista de salas:");
         showRooms();
         System.out.println(" ");
         System.out.println("Introduce la posicion de la sala a modificar.");

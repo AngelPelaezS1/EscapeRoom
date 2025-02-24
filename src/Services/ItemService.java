@@ -6,7 +6,7 @@ public class ItemService {
     ExecuteQueryItem executeQueryItem;
 
     public void addItem(Item item) {
-        executeQueryItem = new ExecuteQueryItem("INSERT INTO objects (name, material, price, rooms_Id) VALUES ('" + item.getName() + "', '" + item.getMaterial() + "', " + item.getPrice() + ", " + item.getRoomId() + ")");
+        executeQueryItem = new ExecuteQueryItem("INSERT INTO objects (name, material, price, rooms_id) VALUES ('" + item.getName() + "', '" + item.getMaterial() + "', " + item.getPrice() + ", " + item.getRoomId() + ")");
     }
 
     public void deleteItem(int itemPosition) {

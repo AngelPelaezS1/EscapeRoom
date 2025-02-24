@@ -48,6 +48,8 @@ public class ExecuteQueryItem {
             } else {
                 totalValueObjects = 0; // Si no hay registros, devuelve 0 en lugar de -1
             }
+        }else{
+            preparedStatement.executeUpdate();
         }
     }
 }

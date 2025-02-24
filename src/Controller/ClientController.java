@@ -37,7 +37,7 @@ public class ClientController {
                 System.out.println("Por favor, escribe 'si' o 'no':");
             }
         } while (exit);
-
+        System.out.println(" ");
         sessionService.seeSessions();
         System.out.println(" ");
         System.out.println("Selecciona la posicion de la sesion para la que quieres el ticket");
