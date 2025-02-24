@@ -46,6 +46,7 @@ public class ItemController {
         int choose;
         int idRoom;
 
+        System.out.println(" ");
         System.out.println("Lista de salas:");
         roomService.seeRooms();
         System.out.println(" ");
